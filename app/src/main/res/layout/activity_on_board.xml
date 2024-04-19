@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:attrs="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/transparent">
+
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/viewpager_onboard"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <com.rd.PageIndicatorView
+        android:id="@+id/indicator_view"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/_10sdp"
+        android:layout_marginStart="@dimen/_25sdp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:piv_animationType="worm"
+        app:piv_dynamicCount="true"
+        app:piv_interactiveAnimation="true"
+        app:piv_selectedColor="@color/white"
+        app:piv_unselectedColor="#66FFFFFF"
+        app:piv_viewPager="@id/viewpager_onboard"
+        attrs:piv_padding="12dp"
+        attrs:piv_radius="8dp" />
+
+    <TextView
+        android:id="@+id/tv_next"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/_20sdp"
+        android:fontFamily="@font/nunito_semibold"
+        android:text="@string/next"
+        android:textSize="@dimen/_14sdp"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="@id/indicator_view"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/indicator_view" />
+
+<!--    <FrameLayout-->
+<!--        android:id="@+id/fr_ad"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="0dp"-->
+<!--        android:layout_marginHorizontal="@dimen/_8sdp"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintHeight_percent=".3">-->
+
+<!--        <include layout="@layout/fake_load_fb" />-->
+<!--    </FrameLayout>-->
+</androidx.constraintlayout.widget.ConstraintLayout>

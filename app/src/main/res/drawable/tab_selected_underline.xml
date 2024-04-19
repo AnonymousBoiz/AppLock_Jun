@@ -1,0 +1,9 @@
+<!-- tab_selected_underline.xml -->
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:bottom="2dp" android:left="-2dp" android:right="-2dp">
+        <shape android:shape="rectangle">
+            <solid android:color="#3692FF"/>
+            <corners android:radius="@dimen/_2sdp"/>
+        </shape>
+    </item>
+</layer-list>

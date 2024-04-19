@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:aapt="http://schemas.android.com/aapt"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/_80sdp"
+    android:background="@drawable/bg_transparent"
+    android:paddingTop="@dimen/_4sdp">
+
+    <View
+        android:id="@+id/layoutSelected"
+        android:layout_width="@dimen/_60sdp"
+        android:layout_height="@dimen/_60sdp"
+        android:layout_gravity="center"
+        android:background="@drawable/bg_icon_selected"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/ivIconApp"
+        android:layout_width="@dimen/_54sdp"
+        android:layout_height="@dimen/_54sdp"
+        android:layout_gravity="center"
+        android:layout_margin="@dimen/_2sdp"
+        android:clickable="false"
+        android:focusable="false"
+        android:scaleType="centerCrop"
+        android:src="@drawable/ic_default"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="@+id/layoutSelected"
+        app:layout_constraintEnd_toEndOf="@+id/layoutSelected"
+        app:layout_constraintStart_toStartOf="@+id/layoutSelected"
+        app:layout_constraintTop_toTopOf="@+id/layoutSelected" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/ivSelected"
+        android:layout_width="@dimen/_15sdp"
+        android:layout_height="@dimen/_15sdp"
+        android:layout_marginStart="-13dp"
+        android:layout_marginBottom="-13dp"
+        android:visibility="visible"
+        app:layout_constraintBottom_toTopOf="@+id/layoutSelected"
+        app:layout_constraintStart_toEndOf="@+id/layoutSelected"
+        app:srcCompat="@drawable/ic_checkbox_selected" />
+</androidx.constraintlayout.widget.ConstraintLayout>

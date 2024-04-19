@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="app_name_array">
+        <item>@string/txt_default</item>
+        <item>@string/txt_calculator</item>
+        <item>@string/txt_office</item>
+        <item>@string/txt_weather</item>
+    </string-array>
+    <array name="calculator_icon_array">
+        <item>@drawable/ic_calculator_1</item>
+        <item>@drawable/ic_calculator_2</item>
+        <item>@drawable/ic_calculator_3</item>
+        <item>@drawable/ic_calculator_4</item>
+    </array>
+    <array name="office_reader_icon_array">
+        <item>@drawable/ic_office_reader_1</item>
+        <item>@drawable/ic_office_reader_2</item>
+        <item>@drawable/ic_office_reader_3</item>
+        <item>@drawable/ic_office_reader_4</item>
+    </array>
+
+</resources>

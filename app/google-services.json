@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "495244526511",
+    "project_id": "app-lock-6688",
+    "storage_bucket": "app-lock-6688.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:495244526511:android:17466738a669906d48255a",
+        "android_client_info": {
+          "package_name": "com.haihd.applock"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCLizRNA-yDa5BdQ1BJzBHEkbEVo8iLq04"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

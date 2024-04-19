@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="rippleStrokeWidth">2dp</dimen>
+    <dimen name="rippleRadius">64dp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
+    <dimen name="height_toolbar">@dimen/_50sdp</dimen>
+
+    <dimen name="item_header_setting">@dimen/_11sdp</dimen>
+    <dimen name="item_menu_setting">@dimen/_13sdp</dimen>
+    <dimen name="item_height_menu_setting">@dimen/_50sdp</dimen>
+
+    <dimen name="gnt_default_margin">10dp</dimen>
+    <dimen name="gnt_text_size_small">12sp</dimen>
+    <dimen name="gnt_text_size_large">15sp</dimen>
+    <dimen name="gnt_no_margin">0dp</dimen>
+    <dimen name="gnt_no_size">0dp</dimen>
+</resources>

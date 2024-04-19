@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#4D7EFF">
+
+    <ImageView
+        android:id="@+id/iv_lock"
+        android:layout_width="@dimen/_19sdp"
+        android:layout_height="@dimen/_25sdp"
+        android:src="@drawable/ic_unlock"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginStart="@dimen/_16sdp"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.appanhnt.applocker.utils.MovableText
+        android:id="@+id/content"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/_40sdp"
+        android:fontFamily="@font/nunito_bold"
+        android:gravity="center_vertical"
+        android:paddingStart="@dimen/_8sdp"
+        android:singleLine="true"
+        android:text="Unlock “Chrome” Successfully!"
+        android:textColor="@color/white"
+        android:textSize="@dimen/_10ssp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/iv_lock"
+        app:layout_constraintTop_toTopOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="185dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/border_menu"
+        android:gravity="start"
+        android:layout_marginHorizontal="@dimen/_16sdp"
+        android:paddingVertical="@dimen/_8sdp"
+        android:orientation="vertical">
+        <RelativeLayout
+            android:id="@+id/rl_after_exit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            >
+
+            <TextView
+                android:id="@+id/txt_pattern"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:fontFamily="@font/nunito_bold"
+                android:text="@string/after_exit"
+                android:textColor="@color/white"
+                android:textSize="16sp" />
+
+            <ImageView
+                android:id="@+id/iv_pattern_done"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="16dp"
+                android:layout_centerInParent="true"
+                android:src="@drawable/ic_done_type" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/rl_after_screen_of"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp">
+
+            <TextView
+                android:id="@+id/txt_pin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawablePadding="8dp"
+                android:fontFamily="@font/nunito_bold"
+                android:gravity="center"
+                android:text="@string/after_screen_off"
+                android:textColor="@color/white"
+                android:textSize="16sp" />
+
+            <ImageView
+                android:id="@+id/iv_pin_done"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:src="@drawable/ic_done_type"
+                android:layout_marginEnd="16dp"
+                android:layout_alignParentEnd="true"
+                />
+
+        </RelativeLayout>
+    </LinearLayout>
+</LinearLayout>

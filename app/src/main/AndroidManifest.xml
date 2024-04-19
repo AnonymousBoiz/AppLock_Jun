@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.appanhnt.applocker">
+
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="false" />
+    <uses-permission android:name="android.permission.READ_MEDIA_IMAGES"/>
+    <uses-permission android:name="android.permission.READ_MEDIA_VIDEO"/>
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <uses-permission android:name="android.permission.ACTION_MANAGE_OVERLAY_PERMISSION" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.MANAGE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="com.google.android.gms.permission.AD_ID" />
+
+    <uses-permission
+        android:name="android.permission.PACKAGE_USAGE_STATS"
+        tools:ignore="ProtectedPermissions" />
+    <uses-permission android:name="android.permission.EXPAND_STATUS_BAR" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.USE_BIOMETRIC" />
+    <uses-permission android:name="android.permission.GET_TASKS" />
+    <uses-permission android:name="android.permission.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS" />
+
+
+    <application
+        android:name=".AppLockApplication"
+        android:allowBackup="true"
+        android:hardwareAccelerated="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:largeHeap="true"
+        android:requestLegacyExternalStorage="true"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:screenOrientation="portrait"
+        android:supportsRtl="false"
+        android:theme="@style/Theme.AppLocker"
+        tools:replace="android:supportsRtl">
+
+        <meta-data
+            android:name="com.google.android.gms.ads.APPLICATION_ID"
+            android:value="ca-app-pub-6567371235509783~1966520844" />
+        <activity
+            android:name="com.appanhnt.applocker.activity.OnBoardActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.appanhnt.applocker.activity.IconCamouflage2Activity"
+            android:exported="false" />
+        <activity android:name=".activity.ConcernedApp" />
+        <activity
+            android:name=".activity.Trans"
+            android:theme="@style/Theme.Transparent" />
+        <activity android:name=".activity.ActivityRequestPermission" />
+        <activity android:name=".activity.CleanActivity" />
+        <activity android:name=".activity.ThemeActivity" />
+        <activity android:name=".activity.ActivitySearchRestore" />
+        <activity android:name=".activity.ActivitySameImage" />
+        <activity android:name=".activity.ShowVideo" />
+        <activity android:name=".activity.AlbumVideoActivity" />
+        <activity android:name=".activity.ShowImage" />
+        <activity android:name=".activity.ActivityVault" />
+        <activity android:name="com.appanhnt.applocker.activity.AlbumActivityImage" />
+        <activity
+            android:name=".activity.CreateQuestion"
+            android:windowSoftInputMode="adjustPan" />
+        <activity android:name="com.appanhnt.applocker.activity.SettingsActivity" />
+        <activity android:name=".activity.IntrusionAlertActivity" />
+        <activity android:name="com.appanhnt.applocker.activity.MainActivity" />
+        <activity
+            android:name="com.appanhnt.applocker.activity.LockActivity"
+            android:excludeFromRecents="true"
+            android:label=""
+            android:launchMode="singleTask"
+            android:noHistory="true"
+            android:theme="@style/Theme.AppLocker_no_animation"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name="com.yalantis.ucrop.UCropActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity android:name=".activity.DetailNotificationActivity" />
+        <activity android:name="com.appanhnt.applocker.activity.AppLockActivity" />
+        <activity android:name="com.appanhnt.applocker.activity.MainLockActivity" />
+        <activity android:name=".activity.CreateLockActivity" >
+
+        </activity>
+        <activity android:name="com.appanhnt.applocker.activity.LanguageActivity" />
+        <activity android:name="com.appanhnt.applocker.activity.ResultSuccessActivity" />
+        <activity android:name="com.appanhnt.applocker.activity.ResultSuccessLockAppActivity" />
+        <activity android:name="com.appanhnt.applocker.activity.ResultSuccessThemeActivity" />
+        <activity
+            android:name="com.appanhnt.applocker.activity.SplashActivity"
+            android:exported="true" />
+
+        <activity-alias
+            android:name="com.appanhnt.applocker.activity.SplashActivity8"
+            android:enabled="false"
+            android:exported="true"
+            android:icon="@drawable/ic_office_reader_4"
+            android:targetActivity="com.appanhnt.applocker.activity.SplashActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity-alias>
+        <activity-alias
+            android:name="com.appanhnt.applocker.activity.SplashActivity7"
+            android:enabled="false"
+            android:exported="true"
+            android:icon="@drawable/ic_office_reader_3"
+            android:targetActivity="com.appanhnt.applocker.activity.SplashActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity-alias>
+        <activity-alias
+            android:name="com.appanhnt.applocker.activity.SplashActivity6"
+            android:enabled="false"
+            android:exported="true"
+            android:icon="@drawable/ic_office_reader_2"
+            android:targetActivity="com.appanhnt.applocker.activity.SplashActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity-alias>
+        <activity-alias
+            android:name="com.appanhnt.applocker.activity.SplashActivity5"
+            android:enabled="false"
+            android:exported="true"
+            android:icon="@drawable/ic_office_reader_1"
+            android:targetActivity="com.appanhnt.applocker.activity.SplashActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity-alias>
+        <activity-alias
+            android:name="com.appanhnt.applocker.activity.SplashActivity4"
+            android:enabled="false"
+            android:exported="true"
+            android:icon="@drawable/ic_calculator_4"
+            android:targetActivity="com.appanhnt.applocker.activity.SplashActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity-alias>
+        <activity-alias
+            android:name="com.appanhnt.applocker.activity.SplashActivity3"
+            android:enabled="false"
+            android:exported="true"
+            android:icon="@drawable/ic_calculator_3"
+            android:targetActivity="com.appanhnt.applocker.activity.SplashActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity-alias>
+        <activity-alias
+            android:name="com.appanhnt.applocker.activity.SplashActivity2"
+            android:enabled="false"
+            android:exported="true"
+            android:icon="@drawable/ic_calculator_2"
+            android:targetActivity="com.appanhnt.applocker.activity.SplashActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity-alias>
+        <activity-alias
+            android:name="com.appanhnt.applocker.activity.SplashActivity1"
+            android:enabled="false"
+            android:exported="true"
+            android:icon="@drawable/ic_calculator_1"
+            android:targetActivity="com.appanhnt.applocker.activity.SplashActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity-alias>
+        <activity-alias
+            android:name="com.appanhnt.applocker.activity.SplashActivity0"
+            android:enabled="true"
+            android:exported="true"
+            android:icon="@drawable/ic_default"
+            android:targetActivity="com.appanhnt.applocker.activity.SplashActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity-alias> <!-- <service -->
+        <service
+            android:name=".service.NotificationListener"
+            android:exported="true"
+            android:label="@string/app_name"
+            android:permission="android.permission.BIND_NOTIFICATION_LISTENER_SERVICE">
+            <intent-filter>
+                <action android:name="android.service.notification.NotificationListenerService" />
+            </intent-filter>
+        </service>
+        <service android:name="com.appanhnt.applocker.service.LockService" />
+    </application>
+
+</manifest>

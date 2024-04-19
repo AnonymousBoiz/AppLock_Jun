@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/parent"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/transparent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/iv_logo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="true"
+            android:src="@drawable/ic_rate_logo_head"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/background1"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            android:paddingTop="@dimen/_16sdp"
+            android:paddingBottom="@dimen/_32sdp"
+            app:layout_constraintTop_toBottomOf="@id/iv_logo">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/nunito_bold"
+                android:includeFontPadding="false"
+                android:text="@string/do_you_like_app_lock"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_18sdp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:fontFamily="@font/nunito_medium"
+                android:includeFontPadding="false"
+                android:paddingHorizontal="@dimen/_12sdp"
+                android:text="@string/we_really_appreciate_you_taking_the_time_to_rate_us"
+                android:textAlignment="center"
+                android:textColor="#ABABAB"
+                android:textSize="@dimen/_11sdp" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_20sdp"
+                app:layout_constraintTop_toBottomOf="@+id/tv_second_content">
+
+                <TextView
+                    android:id="@+id/tv_best_for_us"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/the_best_for_us"
+                    android:textColor="@color/white"
+                    app:layout_constraintEnd_toStartOf="@+id/iv_guide_navigation"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/iv_guide_navigation"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_rate_navigation"
+                    app:layout_constraintEnd_toEndOf="@+id/iv_rate_5s"
+                    app:layout_constraintStart_toStartOf="@+id/iv_rate_5s"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_best_for_us" />
+
+                <com.ymb.ratingbar_lib.RatingBar
+                    android:id="@+id/rating"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    app:drawable_empty="@drawable/img_star_fill"
+                    app:drawable_filled="@drawable/img_star_nofill"
+                    app:drawable_half="@drawable/img_star_fill"
+                    app:drawable_margin="@dimen/_16sdp"
+                    app:drawable_size="@dimen/_36sdp"
+                    app:is_indicator="false"
+                    app:layout_constraintBottom_toBottomOf="@+id/iv_rate_5s"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/iv_rate_5s"
+                    app:max_count="5"
+                    app:rating="0" />
+
+                <ImageView
+                    android:id="@+id/iv_rate_5s"
+                    android:layout_width="@dimen/_60sdp"
+                    android:layout_height="@dimen/_60sdp"
+                    android:layout_marginEnd="@dimen/_minus14sdp"
+                    android:src="@drawable/img_star_guide"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="@+id/rating"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_guide_navigation" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            <EditText
+                android:id="@+id/edt_content"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_80sdp"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/_16sdp"
+                android:background="@drawable/bg_edit_feedback"
+                android:backgroundTint="#EFEFEF"
+                android:fontFamily="@font/nunito"
+                android:gravity="top"
+                android:hint="@string/write_your_feedback"
+                android:paddingStart="@dimen/_10sdp"
+                android:paddingTop="@dimen/_8sdp"
+                android:textColor="#303030"
+                android:textColorHint="#3030304D"
+                android:textSize="@dimen/_12sdp"
+                android:visibility="gone"
+                tools:ignore="RtlSymmetry">
+
+            </EditText>
+
+            <TextView
+                android:id="@+id/tv_submit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_16sdp"
+                android:background="@drawable/bg_submit"
+                android:fontFamily="@font/nunito_semibold"
+                android:padding="@dimen/_8sdp"
+                android:text="@string/submit"
+                android:textAlignment="center"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_12sdp"
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <LinearLayout
+                android:id="@+id/ln_later"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/_16sdp"
+                android:orientation="vertical"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/rating">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:fontFamily="@font/nunito"
+                    android:gravity="center"
+                    android:maxLines="2"
+                    android:text="@string/maybe_later"
+                    android:textColor="#B9B9B9"
+                    android:textSize="@dimen/_12sdp"
+                    android:typeface="serif" />
+
+                <TextView
+                    android:layout_width="@dimen/_70sdp"
+                    android:layout_height="1dp"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="@dimen/_16sdp"
+                    android:background="#B9B9B9"
+                    android:gravity="center" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</RelativeLayout>

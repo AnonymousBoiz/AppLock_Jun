@@ -1,0 +1,532 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<issues format="6" by="lint 7.4.1" type="baseline" client="gradle" dependencies="false" name="AGP (7.4.1)" variant="fatal" version="7.4.1">
+
+    <issue
+        id="Instantiatable"
+        message="`OnBoardActivity` must extend android.app.Activity"
+        errorLine1="            android:name=&quot;com.appanhnt.applocker.activity.OnBoardActivity&quot;"
+        errorLine2="                          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/AndroidManifest.xml"
+            line="50"
+            column="27"/>
+    </issue>
+
+    <issue
+        id="Instantiatable"
+        message="`IconCamouflage2Activity` must extend android.app.Activity"
+        errorLine1="            android:name=&quot;com.appanhnt.applocker.activity.IconCamouflage2Activity&quot;"
+        errorLine2="                          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/AndroidManifest.xml"
+            line="53"
+            column="27"/>
+    </issue>
+
+    <issue
+        id="Instantiatable"
+        message="`ConcernedApp` must extend android.app.Activity"
+        errorLine1="        &lt;activity android:name=&quot;.activity.ConcernedApp&quot; />"
+        errorLine2="                                ~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/AndroidManifest.xml"
+            line="55"
+            column="33"/>
+    </issue>
+
+    <issue
+        id="Instantiatable"
+        message="`Trans` must extend android.app.Activity"
+        errorLine1="            android:name=&quot;.activity.Trans&quot;"
+        errorLine2="                          ~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/AndroidManifest.xml"
+            line="57"
+            column="27"/>
+    </issue>
+
+    <issue
+        id="Instantiatable"
+        message="`ActivityRequestPermission` must extend android.app.Activity"
+        errorLine1="        &lt;activity android:name=&quot;.activity.ActivityRequestPermission&quot; />"
+        errorLine2="                                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/AndroidManifest.xml"
+            line="59"
+            column="33"/>
+    </issue>
+
+    <issue
+        id="Instantiatable"
+        message="`CleanActivity` must extend android.app.Activity"
+        errorLine1="        &lt;activity android:name=&quot;.activity.CleanActivity&quot; />"
+        errorLine2="                                ~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/AndroidManifest.xml"
+            line="60"
+            column="33"/>
+    </issue>
+
+    <issue
+        id="Instantiatable"
+        message="`ThemeActivity` must extend android.app.Activity"
+        errorLine1="        &lt;activity android:name=&quot;.activity.ThemeActivity&quot; />"
+        errorLine2="                                ~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/AndroidManifest.xml"
+            line="61"
+            column="33"/>
+    </issue>
+
+    <issue
+        id="Instantiatable"
+        message="`ActivitySearchRestore` must extend android.app.Activity"
+        errorLine1="        &lt;activity android:name=&quot;.activity.ActivitySearchRestore&quot; />"
+        errorLine2="                                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/AndroidManifest.xml"
+            line="62"
+            column="33"/>
+    </issue>
+
+    <issue
+        id="Instantiatable"
+        message="`ActivitySameImage` must extend android.app.Activity"
+        errorLine1="        &lt;activity android:name=&quot;.activity.ActivitySameImage&quot; />"
+        errorLine2="                                ~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/AndroidManifest.xml"
+            line="63"
+            column="33"/>
+    </issue>
+
+    <issue
+        id="Instantiatable"
+        message="`ShowVideo` must extend android.app.Activity"
+        errorLine1="        &lt;activity android:name=&quot;.activity.ShowVideo&quot; />"
+        errorLine2="                                ~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/AndroidManifest.xml"
+            line="64"
+            column="33"/>
+    </issue>
+
+    <issue
+        id="Instantiatable"
+        message="`AlbumVideoActivity` must extend android.app.Activity"
+        errorLine1="        &lt;activity android:name=&quot;.activity.AlbumVideoActivity&quot; />"
+        errorLine2="                                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/AndroidManifest.xml"
+            line="65"
+            column="33"/>
+    </issue>
+
+    <issue
+        id="Instantiatable"
+        message="`ShowImage` must extend android.app.Activity"
+        errorLine1="        &lt;activity android:name=&quot;.activity.ShowImage&quot; />"
+        errorLine2="                                ~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/AndroidManifest.xml"
+            line="66"
+            column="33"/>
+    </issue>
+
+    <issue
+        id="Instantiatable"
+        message="`ActivityVault` must extend android.app.Activity"
+        errorLine1="        &lt;activity android:name=&quot;.activity.ActivityVault&quot; />"
+        errorLine2="                                ~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/AndroidManifest.xml"
+            line="67"
+            column="33"/>
+    </issue>
+
+    <issue
+        id="Instantiatable"
+        message="`AlbumActivityImage` must extend android.app.Activity"
+        errorLine1="        &lt;activity android:name=&quot;com.appanhnt.applocker.activity.AlbumActivityImage&quot; />"
+        errorLine2="                                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/AndroidManifest.xml"
+            line="68"
+            column="33"/>
+    </issue>
+
+    <issue
+        id="Instantiatable"
+        message="`CreateQuestion` must extend android.app.Activity"
+        errorLine1="            android:name=&quot;.activity.CreateQuestion&quot;"
+        errorLine2="                          ~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/AndroidManifest.xml"
+            line="70"
+            column="27"/>
+    </issue>
+
+    <issue
+        id="Instantiatable"
+        message="`SettingsActivity` must extend android.app.Activity"
+        errorLine1="        &lt;activity android:name=&quot;com.appanhnt.applocker.activity.SettingsActivity&quot; />"
+        errorLine2="                                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/AndroidManifest.xml"
+            line="72"
+            column="33"/>
+    </issue>
+
+    <issue
+        id="Instantiatable"
+        message="`IntrusionAlertActivity` must extend android.app.Activity"
+        errorLine1="        &lt;activity android:name=&quot;.activity.IntrusionAlertActivity&quot; />"
+        errorLine2="                                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/AndroidManifest.xml"
+            line="73"
+            column="33"/>
+    </issue>
+
+    <issue
+        id="Instantiatable"
+        message="`MainActivity` must extend android.app.Activity"
+        errorLine1="        &lt;activity android:name=&quot;com.appanhnt.applocker.activity.MainActivity&quot; />"
+        errorLine2="                                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/AndroidManifest.xml"
+            line="74"
+            column="33"/>
+    </issue>
+
+    <issue
+        id="Instantiatable"
+        message="`LockActivity` must extend android.app.Activity"
+        errorLine1="            android:name=&quot;com.appanhnt.applocker.activity.LockActivity&quot;"
+        errorLine2="                          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/AndroidManifest.xml"
+            line="76"
+            column="27"/>
+    </issue>
+
+    <issue
+        id="Instantiatable"
+        message="`DetailNotificationActivity` must extend android.app.Activity"
+        errorLine1="        &lt;activity android:name=&quot;.activity.DetailNotificationActivity&quot; />"
+        errorLine2="                                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/AndroidManifest.xml"
+            line="87"
+            column="33"/>
+    </issue>
+
+    <issue
+        id="Instantiatable"
+        message="`AppLockActivity` must extend android.app.Activity"
+        errorLine1="        &lt;activity android:name=&quot;com.appanhnt.applocker.activity.AppLockActivity&quot; />"
+        errorLine2="                                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/AndroidManifest.xml"
+            line="88"
+            column="33"/>
+    </issue>
+
+    <issue
+        id="Instantiatable"
+        message="`MainLockActivity` must extend android.app.Activity"
+        errorLine1="        &lt;activity android:name=&quot;com.appanhnt.applocker.activity.MainLockActivity&quot; />"
+        errorLine2="                                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/AndroidManifest.xml"
+            line="89"
+            column="33"/>
+    </issue>
+
+    <issue
+        id="Instantiatable"
+        message="`CreateLockActivity` must extend android.app.Activity"
+        errorLine1="        &lt;activity android:name=&quot;.activity.CreateLockActivity&quot; >"
+        errorLine2="                                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/AndroidManifest.xml"
+            line="90"
+            column="33"/>
+    </issue>
+
+    <issue
+        id="Instantiatable"
+        message="`LanguageActivity` must extend android.app.Activity"
+        errorLine1="        &lt;activity android:name=&quot;com.appanhnt.applocker.activity.LanguageActivity&quot; />"
+        errorLine2="                                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/AndroidManifest.xml"
+            line="93"
+            column="33"/>
+    </issue>
+
+    <issue
+        id="Instantiatable"
+        message="`ResultSuccessActivity` must extend android.app.Activity"
+        errorLine1="        &lt;activity android:name=&quot;com.appanhnt.applocker.activity.ResultSuccessActivity&quot; />"
+        errorLine2="                                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/AndroidManifest.xml"
+            line="94"
+            column="33"/>
+    </issue>
+
+    <issue
+        id="Instantiatable"
+        message="`ResultSuccessLockAppActivity` must extend android.app.Activity"
+        errorLine1="        &lt;activity android:name=&quot;com.appanhnt.applocker.activity.ResultSuccessLockAppActivity&quot; />"
+        errorLine2="                                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/AndroidManifest.xml"
+            line="95"
+            column="33"/>
+    </issue>
+
+    <issue
+        id="Instantiatable"
+        message="`ResultSuccessThemeActivity` must extend android.app.Activity"
+        errorLine1="        &lt;activity android:name=&quot;com.appanhnt.applocker.activity.ResultSuccessThemeActivity&quot; />"
+        errorLine2="                                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/AndroidManifest.xml"
+            line="96"
+            column="33"/>
+    </issue>
+
+    <issue
+        id="Instantiatable"
+        message="`SplashActivity` must extend android.app.Activity"
+        errorLine1="            android:name=&quot;com.appanhnt.applocker.activity.SplashActivity&quot;"
+        errorLine2="                          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/AndroidManifest.xml"
+            line="98"
+            column="27"/>
+    </issue>
+
+    <issue
+        id="ExtraTranslation"
+        message="&quot;find_app_here&quot; is translated here but not found in default locale"
+        errorLine1="    &lt;string name=&quot;find_app_here&quot;>ابحث عن %s هنا&lt;/string>"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values-ar/strings.xml"
+            line="3"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="ExtraTranslation"
+        message="&quot;find_app_here&quot; is translated here but not found in default locale"
+        errorLine1="    &lt;string name=&quot;find_app_here&quot;>Zde najdete% s&lt;/string>"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values-cs/strings.xml"
+            line="3"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="ExtraTranslation"
+        message="&quot;find_app_here&quot; is translated here but not found in default locale"
+        errorLine1="    &lt;string name=&quot;find_app_here&quot;>Finden Sie hier % s&lt;/string>"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values-de/strings.xml"
+            line="3"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="ExtraTranslation"
+        message="&quot;find_app_here&quot; is translated here but not found in default locale"
+        errorLine1="    &lt;string name=&quot;find_app_here&quot;>Βρείτε %s εδώ&lt;/string>"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values-el/strings.xml"
+            line="3"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="ExtraTranslation"
+        message="&quot;find_app_here&quot; is translated here but not found in default locale"
+        errorLine1="    &lt;string name=&quot;find_app_here&quot;>Encuentra % s aquí&lt;/string>"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values-es/strings.xml"
+            line="3"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="ExtraTranslation"
+        message="&quot;find_app_here&quot; is translated here but not found in default locale"
+        errorLine1="    &lt;string name=&quot;find_app_here&quot;>Trouvez % s ici&lt;/string>"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values-fr/strings.xml"
+            line="3"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="ExtraTranslation"
+        message="&quot;find_app_here&quot; is translated here but not found in default locale"
+        errorLine1="    &lt;string name=&quot;find_app_here&quot;>यहां% s खोजें&lt;/string>"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values-hi/strings.xml"
+            line="3"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="ExtraTranslation"
+        message="&quot;find_app_here&quot; is translated here but not found in default locale"
+        errorLine1="    &lt;string name=&quot;find_app_here&quot;>Temukan% s di sini&lt;/string>"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values-in/strings.xml"
+            line="3"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="ExtraTranslation"
+        message="&quot;find_app_here&quot; is translated here but not found in default locale"
+        errorLine1="    &lt;string name=&quot;find_app_here&quot;>Trova %s qui&lt;/string>"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values-it/strings.xml"
+            line="3"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="ExtraTranslation"
+        message="&quot;find_app_here&quot; is translated here but not found in default locale"
+        errorLine1="    &lt;string name=&quot;find_app_here&quot;>ここで %s を検索します&lt;/string>"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values-ja/strings.xml"
+            line="3"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="ExtraTranslation"
+        message="&quot;find_app_here&quot; is translated here but not found in default locale"
+        errorLine1="    &lt;string name=&quot;find_app_here&quot;>여기에서 %s를 찾아보세요&lt;/string>"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values-ko/strings.xml"
+            line="3"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="ExtraTranslation"
+        message="&quot;find_app_here&quot; is translated here but not found in default locale"
+        errorLine1="    &lt;string name=&quot;find_app_here&quot;>Vind hier % s&lt;/string>"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values-nl/strings.xml"
+            line="3"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="ExtraTranslation"
+        message="&quot;find_app_here&quot; is translated here but not found in default locale"
+        errorLine1="    &lt;string name=&quot;find_app_here&quot;>Znajdź %s tutaj&lt;/string>"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values-pl/strings.xml"
+            line="3"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="ExtraTranslation"
+        message="&quot;find_app_here&quot; is translated here but not found in default locale"
+        errorLine1="    &lt;string name=&quot;find_app_here&quot;>Encontre %s aqui&lt;/string>"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values-pt/strings.xml"
+            line="3"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="ExtraTranslation"
+        message="&quot;find_app_here&quot; is translated here but not found in default locale"
+        errorLine1="    &lt;string name=&quot;find_app_here&quot;>Найдите %s здесь&lt;/string>"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values-ru/strings.xml"
+            line="3"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="ExtraTranslation"
+        message="&quot;find_app_here&quot; is translated here but not found in default locale"
+        errorLine1="    &lt;string name=&quot;find_app_here&quot;>Găsiți %s aici&lt;/string>"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values-rup/strings.xml"
+            line="3"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="ExtraTranslation"
+        message="&quot;find_app_here&quot; is translated here but not found in default locale"
+        errorLine1="    &lt;string name=&quot;find_app_here&quot;>Hitta %s här&lt;/string>"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values-sv/strings.xml"
+            line="3"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="ExtraTranslation"
+        message="&quot;find_app_here&quot; is translated here but not found in default locale"
+        errorLine1="    &lt;string name=&quot;find_app_here&quot;>ค้นหา %s ที่นี่&lt;/string>"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values-th/strings.xml"
+            line="3"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="ExtraTranslation"
+        message="&quot;find_app_here&quot; is translated here but not found in default locale"
+        errorLine1="    &lt;string name=&quot;find_app_here&quot;>Tìm% s ở đây&lt;/string>"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values-vi/strings.xml"
+            line="3"
+            column="13"/>
+    </issue>
+
+    <issue
+        id="ExtraTranslation"
+        message="&quot;find_app_here&quot; is translated here but not found in default locale"
+        errorLine1="    &lt;string name=&quot;find_app_here&quot;>在這裡找到%s&lt;/string>"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="src/main/res/values-zh/strings.xml"
+            line="3"
+            column="13"/>
+    </issue>
+
+</issues>

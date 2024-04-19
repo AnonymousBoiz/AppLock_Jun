@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/bg_lock"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/theme_background"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        app:srcCompat="@drawable/background_lock_app" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingStart="@dimen/_15sdp"
+        android:paddingTop="@dimen/_12sdp"
+        android:paddingEnd="@dimen/_15sdp">
+
+        <RelativeLayout
+            android:id="@+id/ads_view"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_150sdp"
+            android:paddingStart="@dimen/_8sdp"
+            android:paddingEnd="@dimen/_8sdp"
+            app:layout_constraintEnd_toStartOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:layout_editor_absoluteX="19dp" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ic_icon_app"
+            android:layout_width="@dimen/_50sdp"
+            android:layout_height="@dimen/_50sdp"
+            android:layout_marginBottom="@dimen/_5sdp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ads_view" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/text_lock"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:gravity="center"
+            android:maxLines="2"
+            android:paddingStart="@dimen/_5sdp"
+            android:paddingTop="@dimen/_3sdp"
+            android:paddingEnd="@dimen/_5sdp"
+            android:text="@string/enter_pattern"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_14sdp"
+            app:autoSizeMinTextSize="@dimen/_13sdp"
+            app:layout_constraintTop_toBottomOf="@id/ic_icon_app" />
+
+        <com.appanhnt.applocker.widget.ViewPatternLockWindow
+            android:id="@+id/pattern_lock"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:gravity="top"
+            android:layout_marginVertical="@dimen/_16sdp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/text_lock"
+            tools:layout_editor_absoluteX="19dp" />
+
+        <androidx.core.widget.NestedScrollView
+            android:id="@+id/viewPinLock"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginVertical="@dimen/_8sdp"
+            app:layout_constraintBottom_toTopOf="@+id/ic_finger"
+            app:layout_constraintTop_toBottomOf="@+id/text_lock">
+            <com.appanhnt.applocker.widget.ViewLockPinWindow
+                android:id="@+id/pin_lock"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="top"
+                android:paddingBottom="@dimen/_15sdp" />
+        </androidx.core.widget.NestedScrollView>
+        <ImageView
+            android:id="@+id/ic_finger"
+            android:layout_width="@dimen/_50sdp"
+            android:layout_height="@dimen/_50sdp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:src="@drawable/ic_finger"
+            android:layout_marginBottom="@dimen/_8sdp"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<defaultsMap>
+    <entry>
+        <key>time_show_ads</key>
+        <value>40</value>
+    </entry>
+    <entry>
+        <key>max_show_day</key>
+        <value>30</value>
+    </entry>
+    <entry>
+        <key>count_show_ads</key>
+        <value>1</value>
+    </entry>
+    <entry>
+        <key>admob_banner_id</key>
+        <value></value>
+    </entry>
+    <entry>
+        <key>admob_inter_id</key>
+        <value>ca-app-pub-6567371235509783/8866971116</value>
+    </entry>
+    <entry>
+        <key>admob_native_id</key>
+        <value></value>
+    </entry>
+    <entry>
+        <key>admob_open_id</key>
+        <value>ca-app-pub-6567371235509783/5119297794</value>
+    </entry>
+
+</defaultsMap>
