@@ -38,7 +38,9 @@ dependencies {
     /*https://github.com/hdodenhof/CircleImageView*/
     implementation 'de.hdodenhof:circleimageview:3.1.0'
 
-    testImplementation 'junit:junit:4.+'
+//    testImplementation 'junit:junit:4.+'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.5'
+
     implementation "androidx.multidex:multidex:2.0.1"
     implementation 'com.flurry.android:analytics:14.4.0'
     implementation platform('com.google.firebase:firebase-bom:26.6.0')
@@ -57,6 +59,8 @@ dependencies {
 }
 
 dependencies {
+
+    androidTestImplementation 'org.testng:testng:6.9.6'
     implementation 'com.squareup.picasso:picasso:2.71828'
     implementation 'com.google.android.gms:play-services-ads:20.3.0'
     implementation 'com.google.ads.mediation:facebook:6.6.0.0'
