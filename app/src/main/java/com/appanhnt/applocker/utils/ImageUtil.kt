@@ -427,9 +427,12 @@ object ImageUtil {
             } catch (ex: Exception) {
                 FileOutputStream(newFile.path)
             }
-            bitmap.compress(Bitmap.CompressFormat.JPEG, 100, fos)
-            fos?.flush()
-            fos?.close()
+            fos?.let {
+                bitmap.compress(Bitmap.CompressFormat.JPEG, 100, it)
+                fos?.flush()
+                fos?.close()
+            }
+
             MediaStore.Images.Media.insertImage(
                 context.contentResolver,
                 newFile.absolutePath,

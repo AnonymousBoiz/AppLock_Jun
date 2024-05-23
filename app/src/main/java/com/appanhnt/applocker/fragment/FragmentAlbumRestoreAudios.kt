@@ -1,12 +1,11 @@
 package com.appanhnt.applocker.fragment
 
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.appanhnt.applocker.activity.ActivitySearchRestore
-import com.appanhnt.applocker.adapter.AdapterAlbumRestoreAudios
+import com.appanhnt.applocker.activity.restore.RestoreActivity
+import com.appanhnt.applocker.adapter.AlbumRestoreAudiosAdapter
 import com.appanhnt.applocker.databinding.LayoutFragmentAlbumAudioBinding
 import com.appanhnt.applocker.item.ItemAlbumRestoreAudios
 import com.appanhnt.applocker.utils.RecycleViewUtils
@@ -17,11 +16,11 @@ import java.io.File
 
 class FragmentAlbumRestoreAudios : BaseFragment<LayoutFragmentAlbumAudioBinding>() {
     private val viewModelRestoreAudios by inject<RestoreAudioViewModel>()
-    private var adapterAlbumRestoreAudios: AdapterAlbumRestoreAudios? = null
+    private var adapterAlbumRestoreAudios: AlbumRestoreAudiosAdapter? = null
     private var listAlbumRestoreAudios = mutableListOf<ItemAlbumRestoreAudios>()
     override fun initView() {
         adapterAlbumRestoreAudios =
-            AdapterAlbumRestoreAudios(requireContext(), listAlbumRestoreAudios)
+            AlbumRestoreAudiosAdapter(requireContext(), listAlbumRestoreAudios)
         binding.rclRestoreAudios.adapter = adapterAlbumRestoreAudios
         RecycleViewUtils.clearAnimation(binding.rclRestoreAudios)
     }
@@ -71,7 +70,7 @@ class FragmentAlbumRestoreAudios : BaseFragment<LayoutFragmentAlbumAudioBinding>
 
     override fun initListener() {
         adapterAlbumRestoreAudios?.listenerOnClick = {
-            (activity as ActivitySearchRestore).fragmentDetailAlbumAudio(listAlbumRestoreAudios[it])
+            (activity as RestoreActivity).fragmentDetailAlbumAudio(listAlbumRestoreAudios[it])
             viewModelRestoreAudios.listAlbumRestoreAudioLiveData.value =
                 (listAlbumRestoreAudios).toMutableList()
             viewModelRestoreAudios.position.value =

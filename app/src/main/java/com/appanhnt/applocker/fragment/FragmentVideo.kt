@@ -4,8 +4,8 @@ import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.appanhnt.applocker.activity.ShowVideo
-import com.appanhnt.applocker.adapter.AdapterVideoHide
+import com.appanhnt.applocker.activity.preview.PreviewVideoActivity
+import com.appanhnt.applocker.adapter.VideoHideAdapter
 import com.appanhnt.applocker.databinding.LayoutFragmentVideoBinding
 import com.appanhnt.applocker.item.ItemVideoHide
 import com.appanhnt.applocker.key.Vault
@@ -17,13 +17,13 @@ import org.koin.android.ext.android.inject
 import java.io.File
 
 class FragmentVideo : BaseFragment<LayoutFragmentVideoBinding>() {
-    private lateinit var adapterVideoHide: AdapterVideoHide
+    private lateinit var adapterVideoHide: VideoHideAdapter
     private var listIVideoHide = mutableListOf<ItemVideoHide>()
     private val viewModel by inject<HideVideoModel>()
     private val list = Hawk.get(Vault.KEY_FILE_NAME_VIDEO, mutableListOf<ItemVideoHide>())
 
     override fun initView() {
-        adapterVideoHide = AdapterVideoHide(requireContext(), listIVideoHide)
+        adapterVideoHide = VideoHideAdapter(requireContext(), listIVideoHide)
         binding.rclVideoHide.adapter = adapterVideoHide
     }
 
@@ -107,7 +107,7 @@ class FragmentVideo : BaseFragment<LayoutFragmentVideoBinding>() {
             startActivity(
                 Intent(
                     requireContext(),
-                    ShowVideo::class.java
+                    PreviewVideoActivity::class.java
                 ).apply {
                     putExtra(Vault.KEY_VIDEO_DECRYPT_PATH, listIVideoHide[it].decryptPath)
                     putExtra(Vault.KEY_VIDEO_THUMBNAIL_PATH, listIVideoHide[it].thumbnailPath)

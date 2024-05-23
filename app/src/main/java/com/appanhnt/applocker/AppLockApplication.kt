@@ -5,7 +5,7 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleObserver
 import androidx.lifecycle.OnLifecycleEvent
 import androidx.lifecycle.ProcessLifecycleOwner
-import com.appanhnt.applocker.activity.SplashActivity
+import com.appanhnt.applocker.activity.splash.SplashActivity
 import com.appanhnt.applocker.di.appModule
 import com.appanhnt.applocker.service.LockService
 import com.anhnt.baseproject.extensions.launchActivity

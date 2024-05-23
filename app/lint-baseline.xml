@@ -169,7 +169,7 @@
     <issue
         id="Instantiatable"
         message="`SettingsActivity` must extend android.app.Activity"
-        errorLine1="        &lt;activity android:name=&quot;com.appanhnt.applocker.activity.SettingsActivity&quot; />"
+        errorLine1="        &lt;activity android:name=&quot;com.appanhnt.applocker.activity.setting.SettingsActivity&quot; />"
         errorLine2="                                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/AndroidManifest.xml"
@@ -191,7 +191,7 @@
     <issue
         id="Instantiatable"
         message="`MainActivity` must extend android.app.Activity"
-        errorLine1="        &lt;activity android:name=&quot;com.appanhnt.applocker.activity.MainActivity&quot; />"
+        errorLine1="        &lt;activity android:name=&quot;com.appanhnt.applocker.activity.welcome.MainActivity&quot; />"
         errorLine2="                                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/AndroidManifest.xml"
@@ -202,7 +202,7 @@
     <issue
         id="Instantiatable"
         message="`LockActivity` must extend android.app.Activity"
-        errorLine1="            android:name=&quot;com.appanhnt.applocker.activity.LockActivity&quot;"
+        errorLine1="            android:name=&quot;com.appanhnt.applocker.activity.lock.LockActivity&quot;"
         errorLine2="                          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/AndroidManifest.xml"
@@ -224,7 +224,7 @@
     <issue
         id="Instantiatable"
         message="`AppLockActivity` must extend android.app.Activity"
-        errorLine1="        &lt;activity android:name=&quot;com.appanhnt.applocker.activity.AppLockActivity&quot; />"
+        errorLine1="        &lt;activity android:name=&quot;com.appanhnt.applocker.activity.applock.AppLockActivity&quot; />"
         errorLine2="                                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/AndroidManifest.xml"
@@ -235,7 +235,7 @@
     <issue
         id="Instantiatable"
         message="`MainLockActivity` must extend android.app.Activity"
-        errorLine1="        &lt;activity android:name=&quot;com.appanhnt.applocker.activity.MainLockActivity&quot; />"
+        errorLine1="        &lt;activity android:name=&quot;com.appanhnt.applocker.activity.home.MainLockActivity&quot; />"
         errorLine2="                                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/AndroidManifest.xml"
@@ -257,7 +257,7 @@
     <issue
         id="Instantiatable"
         message="`LanguageActivity` must extend android.app.Activity"
-        errorLine1="        &lt;activity android:name=&quot;com.appanhnt.applocker.activity.LanguageActivity&quot; />"
+        errorLine1="        &lt;activity android:name=&quot;com.appanhnt.applocker.activity.language.LanguageActivity&quot; />"
         errorLine2="                                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/AndroidManifest.xml"
@@ -290,7 +290,7 @@
     <issue
         id="Instantiatable"
         message="`ResultSuccessThemeActivity` must extend android.app.Activity"
-        errorLine1="        &lt;activity android:name=&quot;com.appanhnt.applocker.activity.ResultSuccessThemeActivity&quot; />"
+        errorLine1="        &lt;activity android:name=&quot;com.appanhnt.applocker.activity.theme.ResultSuccessThemeActivity&quot; />"
         errorLine2="                                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/AndroidManifest.xml"
@@ -301,7 +301,7 @@
     <issue
         id="Instantiatable"
         message="`SplashActivity` must extend android.app.Activity"
-        errorLine1="            android:name=&quot;com.appanhnt.applocker.activity.SplashActivity&quot;"
+        errorLine1="            android:name=&quot;com.appanhnt.applocker.activity.splash.SplashActivity&quot;"
         errorLine2="                          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/AndroidManifest.xml"

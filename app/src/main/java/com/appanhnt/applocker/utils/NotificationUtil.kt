@@ -6,12 +6,13 @@ import android.app.PendingIntent
 import android.app.Service
 import android.content.Context
 import android.content.Intent
+import android.content.pm.ServiceInfo
 import android.os.Build
 import android.provider.Settings
 import androidx.annotation.RequiresApi
 import androidx.core.app.NotificationCompat
 import com.appanhnt.applocker.R
-import com.appanhnt.applocker.activity.SplashActivity
+import com.appanhnt.applocker.activity.splash.SplashActivity
 
 @RequiresApi(api = Build.VERSION_CODES.O)
 object NotificationUtil {
@@ -41,7 +42,11 @@ object NotificationUtil {
             .setAutoCancel(false)
             .setSound(Settings.System.DEFAULT_NOTIFICATION_URI)
             .setContentIntent(resultPendingIntent)
-        mContext.startForeground(145, mBuilder.build())
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.UPSIDE_DOWN_CAKE){
+            mContext.startForeground(145, mBuilder.build(), ServiceInfo.FOREGROUND_SERVICE_TYPE_SPECIAL_USE)
+        }else{
+            mContext.startForeground(145, mBuilder.build())
+        }
     }
 
     fun cancelNotification(mContext: Service) {

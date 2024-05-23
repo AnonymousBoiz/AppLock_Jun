@@ -5,7 +5,7 @@ import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
 import com.appanhnt.applocker.R
-import com.appanhnt.applocker.activity.DetailNotificationActivity
+import com.appanhnt.applocker.activity.notification.DetailNotificationActivity
 import com.appanhnt.applocker.service.LockService
 
 class DetailNotificationBroadCast : BroadcastReceiver() {

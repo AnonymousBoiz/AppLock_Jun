@@ -12,6 +12,7 @@
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
     <uses-permission android:name="android.permission.ACTION_MANAGE_OVERLAY_PERMISSION" />
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_SPECIAL_USE" />
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
@@ -47,33 +48,33 @@
             android:name="com.google.android.gms.ads.APPLICATION_ID"
             android:value="ca-app-pub-6567371235509783~1966520844" />
         <activity
-            android:name="com.appanhnt.applocker.activity.OnBoardActivity"
+            android:name="com.appanhnt.applocker.activity.intro.IntroActivity"
             android:exported="false" />
         <activity
-            android:name="com.appanhnt.applocker.activity.IconCamouflage2Activity"
+            android:name="com.appanhnt.applocker.activity.icon.IconCamouflage2Activity"
             android:exported="false" />
-        <activity android:name=".activity.ConcernedApp" />
+        <activity android:name=".activity.concern.ConcernedAppActivity" />
         <activity
-            android:name=".activity.Trans"
+            android:name=".activity.permission.GuidePermissionActivity"
             android:theme="@style/Theme.Transparent" />
-        <activity android:name=".activity.ActivityRequestPermission" />
-        <activity android:name=".activity.CleanActivity" />
-        <activity android:name=".activity.ThemeActivity" />
-        <activity android:name=".activity.ActivitySearchRestore" />
-        <activity android:name=".activity.ActivitySameImage" />
-        <activity android:name=".activity.ShowVideo" />
-        <activity android:name=".activity.AlbumVideoActivity" />
-        <activity android:name=".activity.ShowImage" />
-        <activity android:name=".activity.ActivityVault" />
-        <activity android:name="com.appanhnt.applocker.activity.AlbumActivityImage" />
+        <activity android:name=".activity.permission.RequestPermissionActivity" />
+        <activity android:name=".activity.clean.CleanActivity" />
+        <activity android:name=".activity.theme.ThemeActivity" />
+        <activity android:name=".activity.restore.RestoreActivity" />
+        <activity android:name=".activity.same.SameImageActivity" />
+        <activity android:name=".activity.preview.PreviewVideoActivity" />
+        <activity android:name=".activity.album.AlbumVideoActivity" />
+        <activity android:name=".activity.preview.PreviewImageActivity" />
+        <activity android:name=".activity.vault.ActivityVault" />
+        <activity android:name="com.appanhnt.applocker.activity.album.AlbumImageActivity" />
         <activity
-            android:name=".activity.CreateQuestion"
+            android:name=".activity.recovery.RecoveryPasswordActivity"
             android:windowSoftInputMode="adjustPan" />
-        <activity android:name="com.appanhnt.applocker.activity.SettingsActivity" />
-        <activity android:name=".activity.IntrusionAlertActivity" />
-        <activity android:name="com.appanhnt.applocker.activity.MainActivity" />
+        <activity android:name="com.appanhnt.applocker.activity.setting.SettingsActivity" />
+        <activity android:name=".activity.intrusion.IntrusionAlertActivity" />
+        <activity android:name="com.appanhnt.applocker.activity.welcome.WelcomeActivity" />
         <activity
-            android:name="com.appanhnt.applocker.activity.LockActivity"
+            android:name="com.appanhnt.applocker.activity.lock.LockActivity"
             android:excludeFromRecents="true"
             android:label=""
             android:launchMode="singleTask"
@@ -84,26 +85,26 @@
             android:name="com.yalantis.ucrop.UCropActivity"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
-        <activity android:name=".activity.DetailNotificationActivity" />
-        <activity android:name="com.appanhnt.applocker.activity.AppLockActivity" />
-        <activity android:name="com.appanhnt.applocker.activity.MainLockActivity" />
-        <activity android:name=".activity.CreateLockActivity" >
+        <activity android:name=".activity.notification.DetailNotificationActivity" />
+        <activity android:name="com.appanhnt.applocker.activity.applock.AppLockActivity" />
+        <activity android:name="com.appanhnt.applocker.activity.home.HomeActivity" />
+        <activity android:name=".activity.locktype.LockTypeActivity" >
 
         </activity>
-        <activity android:name="com.appanhnt.applocker.activity.LanguageActivity" />
-        <activity android:name="com.appanhnt.applocker.activity.ResultSuccessActivity" />
-        <activity android:name="com.appanhnt.applocker.activity.ResultSuccessLockAppActivity" />
-        <activity android:name="com.appanhnt.applocker.activity.ResultSuccessThemeActivity" />
+        <activity android:name="com.appanhnt.applocker.activity.language.LanguageActivity" />
+        <activity android:name="com.appanhnt.applocker.activity.vault.LockFileSuccessActivity" />
+        <activity android:name="com.appanhnt.applocker.activity.applock.LockAppSuccessActivity" />
+        <activity android:name="com.appanhnt.applocker.activity.theme.ApplyThemeSuccessActivity" />
         <activity
-            android:name="com.appanhnt.applocker.activity.SplashActivity"
+            android:name="com.appanhnt.applocker.activity.splash.SplashActivity"
             android:exported="true" />
 
         <activity-alias
-            android:name="com.appanhnt.applocker.activity.SplashActivity8"
+            android:name="icon_8"
             android:enabled="false"
             android:exported="true"
             android:icon="@drawable/ic_office_reader_4"
-            android:targetActivity="com.appanhnt.applocker.activity.SplashActivity">
+            android:targetActivity="com.appanhnt.applocker.activity.splash.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -111,11 +112,11 @@
             </intent-filter>
         </activity-alias>
         <activity-alias
-            android:name="com.appanhnt.applocker.activity.SplashActivity7"
+            android:name="icon_7"
             android:enabled="false"
             android:exported="true"
             android:icon="@drawable/ic_office_reader_3"
-            android:targetActivity="com.appanhnt.applocker.activity.SplashActivity">
+            android:targetActivity="com.appanhnt.applocker.activity.splash.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -123,11 +124,11 @@
             </intent-filter>
         </activity-alias>
         <activity-alias
-            android:name="com.appanhnt.applocker.activity.SplashActivity6"
+            android:name="icon_6"
             android:enabled="false"
             android:exported="true"
             android:icon="@drawable/ic_office_reader_2"
-            android:targetActivity="com.appanhnt.applocker.activity.SplashActivity">
+            android:targetActivity="com.appanhnt.applocker.activity.splash.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -135,11 +136,11 @@
             </intent-filter>
         </activity-alias>
         <activity-alias
-            android:name="com.appanhnt.applocker.activity.SplashActivity5"
+            android:name="icon_5"
             android:enabled="false"
             android:exported="true"
             android:icon="@drawable/ic_office_reader_1"
-            android:targetActivity="com.appanhnt.applocker.activity.SplashActivity">
+            android:targetActivity="com.appanhnt.applocker.activity.splash.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -147,11 +148,11 @@
             </intent-filter>
         </activity-alias>
         <activity-alias
-            android:name="com.appanhnt.applocker.activity.SplashActivity4"
+            android:name="icon_4"
             android:enabled="false"
             android:exported="true"
             android:icon="@drawable/ic_calculator_4"
-            android:targetActivity="com.appanhnt.applocker.activity.SplashActivity">
+            android:targetActivity="com.appanhnt.applocker.activity.splash.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -159,11 +160,11 @@
             </intent-filter>
         </activity-alias>
         <activity-alias
-            android:name="com.appanhnt.applocker.activity.SplashActivity3"
+            android:name="icon_3"
             android:enabled="false"
             android:exported="true"
             android:icon="@drawable/ic_calculator_3"
-            android:targetActivity="com.appanhnt.applocker.activity.SplashActivity">
+            android:targetActivity="com.appanhnt.applocker.activity.splash.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -171,11 +172,11 @@
             </intent-filter>
         </activity-alias>
         <activity-alias
-            android:name="com.appanhnt.applocker.activity.SplashActivity2"
+            android:name="icon_2"
             android:enabled="false"
             android:exported="true"
             android:icon="@drawable/ic_calculator_2"
-            android:targetActivity="com.appanhnt.applocker.activity.SplashActivity">
+            android:targetActivity="com.appanhnt.applocker.activity.splash.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -183,11 +184,11 @@
             </intent-filter>
         </activity-alias>
         <activity-alias
-            android:name="com.appanhnt.applocker.activity.SplashActivity1"
+            android:name="icon_1"
             android:enabled="false"
             android:exported="true"
             android:icon="@drawable/ic_calculator_1"
-            android:targetActivity="com.appanhnt.applocker.activity.SplashActivity">
+            android:targetActivity="com.appanhnt.applocker.activity.splash.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -195,11 +196,11 @@
             </intent-filter>
         </activity-alias>
         <activity-alias
-            android:name="com.appanhnt.applocker.activity.SplashActivity0"
+            android:name="icon_0"
             android:enabled="true"
             android:exported="true"
             android:icon="@drawable/ic_default"
-            android:targetActivity="com.appanhnt.applocker.activity.SplashActivity">
+            android:targetActivity="com.appanhnt.applocker.activity.splash.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -215,7 +216,8 @@
                 <action android:name="android.service.notification.NotificationListenerService" />
             </intent-filter>
         </service>
-        <service android:name="com.appanhnt.applocker.service.LockService" />
+        <service android:name="com.appanhnt.applocker.service.LockService"
+            android:foregroundServiceType="specialUse"/>
     </application>
 
 </manifest>

@@ -5,8 +5,8 @@ import android.graphics.Bitmap
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.appanhnt.applocker.activity.ShowImage
-import com.appanhnt.applocker.adapter.AdapterImageHide
+import com.appanhnt.applocker.activity.preview.PreviewImageActivity
+import com.appanhnt.applocker.adapter.ImageHideAdapter
 import com.appanhnt.applocker.databinding.LayoutFragmentImageBinding
 import com.appanhnt.applocker.item.ItemImageHide
 import com.appanhnt.applocker.key.Vault
@@ -16,12 +16,12 @@ import com.orhanobut.hawk.Hawk
 import org.koin.android.ext.android.inject
 
 class FragmentImage : BaseFragment<LayoutFragmentImageBinding>() {
-    private lateinit var adapterImageHide: AdapterImageHide
+    private lateinit var adapterImageHide: ImageHideAdapter
     private var listImageHide = mutableListOf<ItemImageHide>()
     private val viewModel by inject<HideImageViewModel>()
     private val list = Hawk.get(Vault.KEY_FILE_NAME_IMAGE, mutableListOf<ItemImageHide>())
     override fun initView() {
-        adapterImageHide = AdapterImageHide(requireContext(), listImageHide)
+        adapterImageHide = ImageHideAdapter(requireContext(), listImageHide)
         binding.rclImageHide.adapter = adapterImageHide
     }
 
@@ -103,7 +103,7 @@ class FragmentImage : BaseFragment<LayoutFragmentImageBinding>() {
             val name = image.fileName
             val path = image.thumbnailPath
             startActivity(
-                Intent(requireContext(), ShowImage::class.java).apply {
+                Intent(requireContext(), PreviewImageActivity::class.java).apply {
                     putExtra(Vault.KEY_IMAGE_NAME, name)
                     putExtra(Vault.KEY_IMAGE_PATH, path)
                 }

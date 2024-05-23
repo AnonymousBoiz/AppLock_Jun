@@ -4,21 +4,18 @@ import android.Manifest
 import android.app.Activity.RESULT_OK
 import android.content.ActivityNotFoundException
 import android.content.Intent
-import android.graphics.drawable.Drawable
 import android.net.Uri
 import android.os.Build
 import android.provider.MediaStore
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.view.Window
 import android.widget.RelativeLayout
 import androidx.recyclerview.widget.GridLayoutManager
 import com.appanhnt.applocker.R
-import com.appanhnt.applocker.activity.ThemeActivity
-import com.appanhnt.applocker.adapter.AdapterLockScreen
+import com.appanhnt.applocker.activity.theme.ThemeActivity
+import com.appanhnt.applocker.adapter.LockScreenAdapter
 import com.appanhnt.applocker.databinding.LayoutFragmentLockScreenBinding
-import com.appanhnt.applocker.dialog.DialogShowLockScreen
 import com.appanhnt.applocker.dialog.DialogShowLockScreen2
 import com.appanhnt.applocker.item.ItemLockScreen
 import com.appanhnt.applocker.key.KeyTheme
@@ -27,26 +24,25 @@ import com.appanhnt.applocker.viewmodel.ThemeViewModel
 import com.anhnt.baseproject.extensions.launchActivity
 import com.anhnt.baseproject.fragment.BaseFragment
 import com.anhnt.baseproject.utils.PreferencesUtils
-import com.appanhnt.applocker.activity.ResultSuccessThemeActivity
+import com.appanhnt.applocker.activity.theme.ApplyThemeSuccessActivity
 import com.google.android.gms.ads.ez.EzAdControl
 import com.google.android.gms.ads.ez.listenner.NativeAdListener
 import com.google.android.gms.ads.ez.nativead.AdmobNativeAdView2
 import com.yalantis.ucrop.UCrop
 import org.koin.android.ext.android.inject
 import java.io.File
-import java.io.FileNotFoundException
 
 
 class FragmentLockScreen : BaseFragment<LayoutFragmentLockScreenBinding>() {
     private val PICK_IAMAGE = 1
     var listPhotoScreen = mutableListOf<ItemLockScreen>()
-    var adapterLockScreen: AdapterLockScreen? = null
+    var adapterLockScreen: LockScreenAdapter? = null
     private var dialogShow: DialogShowLockScreen2? = null
     private val viewModel by inject<ThemeViewModel>()
 
     override fun initView() {
 
-        adapterLockScreen = AdapterLockScreen(requireContext(), listPhotoScreen)
+        adapterLockScreen = LockScreenAdapter(requireContext(), listPhotoScreen)
         binding.rcl.adapter = adapterLockScreen
         (binding.rcl.layoutManager as GridLayoutManager).spanSizeLookup =
             object : GridLayoutManager.SpanSizeLookup() {
@@ -136,8 +132,8 @@ class FragmentLockScreen : BaseFragment<LayoutFragmentLockScreenBinding>() {
                         dialogShow?.dismiss()
                         // ads
                         EzAdControl.getInstance(requireActivity()).showAds()
-                        requireActivity().launchActivity<ResultSuccessThemeActivity> {
-                            ResultSuccessThemeActivity.drawable = listPhotoScreen[it].photo
+                        requireActivity().launchActivity<ApplyThemeSuccessActivity> {
+                            ApplyThemeSuccessActivity.drawable = listPhotoScreen[it].photo
                         }
                     }
                 }

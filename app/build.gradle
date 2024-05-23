@@ -7,13 +7,12 @@ plugins {
 }
 
 android {
-    compileSdkVersion 33
-    buildToolsVersion "30.0.3"
+    compileSdk 34
 
     defaultConfig {
         applicationId "com.haihd.applock"
         minSdkVersion 24
-        targetSdkVersion 33
+        targetSdk 34
         versionCode 106
         versionName "1.0.6"
         vectorDrawables.useSupportLibrary = true

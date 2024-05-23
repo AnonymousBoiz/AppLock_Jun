@@ -4,7 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.view.Window
 import com.appanhnt.applocker.R
-import com.appanhnt.applocker.adapter.AdapterDetailAlbumRestoreAudios
+import com.appanhnt.applocker.adapter.DetailAlbumRestoreAudiosAdapter
 import com.appanhnt.applocker.databinding.LayoutDetailAlbumAudioBinding
 import com.appanhnt.applocker.databinding.LayoutDialogDeleteImageBinding
 import com.appanhnt.applocker.dialog.DialogDeleteImage
@@ -19,11 +19,11 @@ import java.io.File
 class FragmentDetailAlbumAudios(var item: ItemAlbumRestoreAudios) :
     BaseFragment<LayoutDetailAlbumAudioBinding>() {
     private var dialogQuestion: DialogDeleteImage? = null
-    private var adapterDetailAlbumRestoreAudios: AdapterDetailAlbumRestoreAudios? = null
+    private var adapterDetailAlbumRestoreAudios: DetailAlbumRestoreAudiosAdapter? = null
     var onBack: (() -> Unit)? = null
     override fun initView() {
         adapterDetailAlbumRestoreAudios =
-            AdapterDetailAlbumRestoreAudios(requireContext(), item.listAudios)
+            DetailAlbumRestoreAudiosAdapter(requireContext(), item.listAudios)
         binding.rclAudios.adapter = adapterDetailAlbumRestoreAudios
         RecycleViewUtils.clearAnimation(binding.rclAudios)
     }

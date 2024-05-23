@@ -3,7 +3,6 @@ package com.appanhnt.applocker.service
 import android.app.ActivityManager
 import android.app.AppOpsManager
 import android.content.Context
-import android.content.Context.POWER_SERVICE
 import android.content.Intent
 import android.content.pm.ApplicationInfo
 import android.content.pm.PackageManager
@@ -22,9 +21,8 @@ import com.appanhnt.applocker.key.KeyLock
 import com.appanhnt.applocker.utils.NotificationLockUtils
 import com.appanhnt.applocker.utils.Provider
 import com.anhnt.baseproject.utils.PreferencesUtils
-import com.appanhnt.applocker.activity.LockActivity
+import com.appanhnt.applocker.activity.lock.LockActivity
 import com.appanhnt.applocker.key.KeyApp
-import com.appanhnt.applocker.service.LockService
 import com.orhanobut.hawk.Hawk
 import com.tailoredapps.biometricauth.BiometricAuth
 import org.koin.core.component.KoinApiExtension

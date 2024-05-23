@@ -14,31 +14,31 @@ import com.appanhnt.applocker.key.KeyApp
 class IconCamouflageViewModel(application: Application) : BaseViewModel(application) {
     val iconList = arrayListOf(
         ItemIconCamouflage(
-            R.drawable.ic_default, "com.appanhnt.applocker.activity.SplashActivity0"
+            R.drawable.ic_default, "icon_0"
         ),
         ItemIconCamouflage(
-            R.drawable.ic_calculator_1, "com.appanhnt.applocker.activity.SplashActivity1"
+            R.drawable.ic_calculator_1, "icon_1"
         ),
         ItemIconCamouflage(
-            R.drawable.ic_calculator_2, "com.appanhnt.applocker.activity.SplashActivity2"
+            R.drawable.ic_calculator_2, "icon_2"
         ),
         ItemIconCamouflage(
-            R.drawable.ic_calculator_3, "com.appanhnt.applocker.activity.SplashActivity3"
+            R.drawable.ic_calculator_3, "icon_3"
         ),
         ItemIconCamouflage(
-            R.drawable.ic_calculator_4, "com.appanhnt.applocker.activity.SplashActivity4"
+            R.drawable.ic_calculator_4, "icon_4"
         ),
         ItemIconCamouflage(
-            R.drawable.ic_office_reader_1, "com.appanhnt.applocker.activity.SplashActivity5"
+            R.drawable.ic_office_reader_1, "icon_5"
         ),
         ItemIconCamouflage(
-            R.drawable.ic_office_reader_2, "com.appanhnt.applocker.activity.SplashActivity6"
+            R.drawable.ic_office_reader_2, "icon_6"
         ),
         ItemIconCamouflage(
-            R.drawable.ic_office_reader_3, "com.appanhnt.applocker.activity.SplashActivity7"
+            R.drawable.ic_office_reader_3, "icon_7"
         ),
         ItemIconCamouflage(
-            R.drawable.ic_office_reader_4, "com.appanhnt.applocker.activity.SplashActivity8"
+            R.drawable.ic_office_reader_4, "icon_8"
         ),
     )
     val iconGroupCamouflageList = arrayListOf(

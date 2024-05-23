@@ -8,8 +8,8 @@ import android.view.Window
 import android.widget.RelativeLayout
 import androidx.recyclerview.widget.GridLayoutManager
 import com.appanhnt.applocker.R
-import com.appanhnt.applocker.activity.ThemeActivity
-import com.appanhnt.applocker.adapter.AdapterLockTheme
+import com.appanhnt.applocker.activity.theme.ThemeActivity
+import com.appanhnt.applocker.adapter.LockThemeAdapter
 import com.appanhnt.applocker.databinding.LayoutFragmentLockThemeBinding
 import com.appanhnt.applocker.dialog.DialogShowThemeLock
 import com.appanhnt.applocker.item.ItemLockTheme
@@ -19,7 +19,7 @@ import com.appanhnt.applocker.viewmodel.ThemeViewModel
 import com.anhnt.baseproject.extensions.launchActivity
 import com.anhnt.baseproject.fragment.BaseFragment
 import com.anhnt.baseproject.utils.PreferencesUtils
-import com.appanhnt.applocker.activity.ResultSuccessThemeActivity
+import com.appanhnt.applocker.activity.theme.ApplyThemeSuccessActivity
 import com.google.android.gms.ads.ez.EzAdControl
 import com.google.android.gms.ads.ez.listenner.NativeAdListener
 import com.google.android.gms.ads.ez.nativead.AdmobNativeAdView2
@@ -27,11 +27,11 @@ import org.koin.android.ext.android.inject
 
 class FragmentLockTheme : BaseFragment<LayoutFragmentLockThemeBinding>() {
     private val listLockTheme = mutableListOf<ItemLockTheme>()
-    private lateinit var adapterLockTheme: AdapterLockTheme
+    private lateinit var adapterLockTheme: LockThemeAdapter
     private var dialogShow: DialogShowThemeLock? = null
     private val viewModel by inject<ThemeViewModel>()
     override fun initView() {
-        adapterLockTheme = AdapterLockTheme(requireContext(), listLockTheme)
+        adapterLockTheme = LockThemeAdapter(requireContext(), listLockTheme)
         binding.rclLockTheme.adapter = adapterLockTheme
         (binding.rclLockTheme.layoutManager as GridLayoutManager).spanSizeLookup =
             object : GridLayoutManager.SpanSizeLookup() {
@@ -131,9 +131,9 @@ class FragmentLockTheme : BaseFragment<LayoutFragmentLockThemeBinding>() {
             }
             // ads
             EzAdControl.getInstance(activity as ThemeActivity).showAds()
-            requireActivity().launchActivity<ResultSuccessThemeActivity> {
+            requireActivity().launchActivity<ApplyThemeSuccessActivity> {
 
-                ResultSuccessThemeActivity.drawable = pattern
+                ApplyThemeSuccessActivity.drawable = pattern
             }
         }
     }

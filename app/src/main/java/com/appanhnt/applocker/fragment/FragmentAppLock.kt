@@ -7,12 +7,10 @@ import android.content.Context
 import android.content.Intent
 import android.os.Build
 import android.provider.Settings
-import android.util.Log
 import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.view.ViewGroup.LayoutParams
 import android.widget.TextView
 import android.widget.Toast
 import androidx.annotation.RequiresApi
@@ -23,8 +21,8 @@ import com.appanhnt.applocker.viewmodel.NotifyViewModel
 import com.anhnt.baseproject.extensions.launchActivity
 import com.anhnt.baseproject.fragment.BaseFragment
 import com.anhnt.baseproject.utils.PreferencesUtils
-import com.appanhnt.applocker.activity.AppLockActivity
-import com.appanhnt.applocker.activity.ResultSuccessLockAppActivity
+import com.appanhnt.applocker.activity.applock.AppLockActivity
+import com.appanhnt.applocker.activity.applock.LockAppSuccessActivity
 import com.appanhnt.applocker.adapter.AppLockAdapter
 import com.appanhnt.applocker.dialog.DialogUnLockApp
 import com.appanhnt.applocker.item.ItemAppLock
@@ -76,8 +74,8 @@ class FragmentAppLock(val index: Int) : BaseFragment<LayoutFragmentAppLockBindin
                 }
                 if (!listApp[it].isLocked) {
                     listApp[it].isLocked = !listApp[it].isLocked
-                    requireActivity().launchActivity<ResultSuccessLockAppActivity> {
-                        ResultSuccessLockAppActivity.data = listApp[it]
+                    requireActivity().launchActivity<LockAppSuccessActivity> {
+                        LockAppSuccessActivity.data = listApp[it]
                     }
                     viewModel.currentItem.postValue(listApp[it])
                     // view model update change UI app main lock

@@ -235,13 +235,13 @@ class ZoomLayout : LinearLayout, ScaleGestureDetector.OnScaleGestureListener,
         return false
     }
 
-    override fun onScroll(p0: MotionEvent, p1: MotionEvent, p2: Float, p3: Float): Boolean {
+    override fun onScroll(p0: MotionEvent?, p1: MotionEvent, p2: Float, p3: Float): Boolean {
         return false
     }
 
     override fun onLongPress(p0: MotionEvent) {}
 
-    override fun onFling(p0: MotionEvent, p1: MotionEvent, p2: Float, p3: Float): Boolean {
+    override fun onFling(p0: MotionEvent?, p1: MotionEvent, p2: Float, p3: Float): Boolean {
         return false
     }
 }

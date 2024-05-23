@@ -1,13 +1,11 @@
 package com.appanhnt.applocker.fragment
 
-import android.os.Handler
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.appanhnt.applocker.activity.ActivitySearchRestore
-import com.appanhnt.applocker.adapter.AdapterAlbumRestoreImage
+import com.appanhnt.applocker.activity.restore.RestoreActivity
+import com.appanhnt.applocker.adapter.AlbumRestoreImageAdapter
 import com.appanhnt.applocker.databinding.LayoutFragmentAlbumRestoreImageBinding
 import com.appanhnt.applocker.item.ItemAlbumRestoreImages
 import com.appanhnt.applocker.utils.RecycleViewUtils
@@ -18,11 +16,11 @@ import java.io.File
 
 class FragmentAlbumRestoreImage : BaseFragment<LayoutFragmentAlbumRestoreImageBinding>() {
     private val viewModelRestoreImages by inject<RestoreImageViewModel>()
-    private var adapterAlbumRestoreImage: AdapterAlbumRestoreImage? = null
+    private var adapterAlbumRestoreImage: AlbumRestoreImageAdapter? = null
     private var listAlbumRestorePhoto = mutableListOf<ItemAlbumRestoreImages>()
     override fun initView() {
 //        binding.animationView.visibility = View.VISIBLE
-        adapterAlbumRestoreImage = AdapterAlbumRestoreImage(requireContext(), listAlbumRestorePhoto)
+        adapterAlbumRestoreImage = AlbumRestoreImageAdapter(requireContext(), listAlbumRestorePhoto)
         binding.rclRestoreImage.adapter = adapterAlbumRestoreImage
         RecycleViewUtils.clearAnimation(binding.rclRestoreImage)
 //        loadData = false
@@ -65,7 +63,7 @@ class FragmentAlbumRestoreImage : BaseFragment<LayoutFragmentAlbumRestoreImageBi
 
     override fun initListener() {
         adapterAlbumRestoreImage?.listenerOnClick = {
-            (activity as ActivitySearchRestore).fragmentDetailAlbumImage(listAlbumRestorePhoto[it])
+            (activity as RestoreActivity).fragmentDetailAlbumImage(listAlbumRestorePhoto[it])
             viewModelRestoreImages.listAlbumRestorePhotoLiveData.value = (listAlbumRestorePhoto).toMutableList()
             viewModelRestoreImages.position.value = ((binding.rclRestoreImage.layoutManager as LinearLayoutManager).findFirstVisibleItemPosition())
         }

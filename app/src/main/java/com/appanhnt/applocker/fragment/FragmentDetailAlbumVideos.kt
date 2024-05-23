@@ -4,7 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.view.Window
 import com.appanhnt.applocker.R
-import com.appanhnt.applocker.adapter.AdapterDetailAlbumRestoreVideos
+import com.appanhnt.applocker.adapter.DetailAlbumRestoreVideosAdapter
 import com.appanhnt.applocker.databinding.LayoutDetailAlbumVideoBinding
 import com.appanhnt.applocker.databinding.LayoutDialogDeleteImageBinding
 import com.appanhnt.applocker.dialog.DialogDeleteImage
@@ -19,12 +19,12 @@ import java.io.File
 class FragmentDetailAlbumVideos(var item: ItemAlbumRestoreVideos) :
     BaseFragment<LayoutDetailAlbumVideoBinding>() {
     private var dialogQuestion: DialogDeleteImage? = null
-    private var adapterDetailAlbumRestoreVideos: AdapterDetailAlbumRestoreVideos? = null
+    private var adapterDetailAlbumRestoreVideos: DetailAlbumRestoreVideosAdapter? = null
     var onBack: (() -> Unit)? = null
 
     override fun initView() {
         adapterDetailAlbumRestoreVideos =
-            AdapterDetailAlbumRestoreVideos(requireContext(), item.listVideos)
+            DetailAlbumRestoreVideosAdapter(requireContext(), item.listVideos)
         binding.rclVideos.adapter = adapterDetailAlbumRestoreVideos
         RecycleViewUtils.clearAnimation(binding.rclVideos)
     }

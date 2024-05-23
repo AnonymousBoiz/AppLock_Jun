@@ -1,9 +1,11 @@
 package com.appanhnt.applocker.activity
 
+import android.app.Service
 import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
 import android.content.IntentFilter
+import android.os.Build
 import android.util.Log
 import com.appanhnt.applocker.interfaces.OnHomePressedListener
 
@@ -19,7 +21,12 @@ class HomeWatcher(private val mContext: Context) {
 
     fun startWatch() {
         if (mRecevier != null) {
-            mContext.registerReceiver(mRecevier, mFilter)
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU){
+                mContext.registerReceiver(mRecevier, mFilter, Service.RECEIVER_EXPORTED)
+            }else{
+                mContext.registerReceiver(mRecevier, mFilter)
+            }
+
         }
     }
 

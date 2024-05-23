@@ -5,7 +5,7 @@
     android:id="@+id/layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.appanhnt.applocker.activity.AlbumActivityImage">
+    tools:context="com.appanhnt.applocker.activity.album.AlbumImageActivity">
 
 
     <androidx.recyclerview.widget.RecyclerView

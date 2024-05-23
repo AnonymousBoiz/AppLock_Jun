@@ -4,8 +4,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.appanhnt.applocker.activity.ActivitySearchRestore
-import com.appanhnt.applocker.adapter.AdapterAlbumRestoreVideo
+import com.appanhnt.applocker.activity.restore.RestoreActivity
+import com.appanhnt.applocker.adapter.AlbumRestoreVideoAdapter
 import com.appanhnt.applocker.databinding.LayoutFragmentAlbumVideosBinding
 import com.appanhnt.applocker.item.ItemAlbumRestoreVideos
 import com.appanhnt.applocker.utils.RecycleViewUtils
@@ -16,10 +16,10 @@ import java.io.File
 
 class FragmentAlbumRestoreVideos : BaseFragment<LayoutFragmentAlbumVideosBinding>() {
     private val viewModelRestoreVideos by inject<RestoreVideoViewModel>()
-    private var adapterAlbumRestoreVideo: AdapterAlbumRestoreVideo? = null
+    private var adapterAlbumRestoreVideo: AlbumRestoreVideoAdapter? = null
     private var listAlbumRestoreVideo = mutableListOf<ItemAlbumRestoreVideos>()
     override fun initView() {
-        adapterAlbumRestoreVideo = AdapterAlbumRestoreVideo(requireContext(), listAlbumRestoreVideo)
+        adapterAlbumRestoreVideo = AlbumRestoreVideoAdapter(requireContext(), listAlbumRestoreVideo)
         binding.rclRestoreVideo.adapter = adapterAlbumRestoreVideo
         RecycleViewUtils.clearAnimation(binding.rclRestoreVideo)
     }
@@ -60,7 +60,7 @@ class FragmentAlbumRestoreVideos : BaseFragment<LayoutFragmentAlbumVideosBinding
 
     override fun initListener() {
         adapterAlbumRestoreVideo?.listenerOnClick = {
-            (activity as ActivitySearchRestore).fragmentDetailAlbumVideo(listAlbumRestoreVideo[it])
+            (activity as RestoreActivity).fragmentDetailAlbumVideo(listAlbumRestoreVideo[it])
             viewModelRestoreVideos.listAlbumRestoreVideosLiveData.value =
                 (listAlbumRestoreVideo).toMutableList()
             viewModelRestoreVideos.position.value =

@@ -4,12 +4,13 @@ import android.annotation.SuppressLint
 import android.app.Notification
 import android.content.Intent
 import android.content.IntentFilter
+import android.os.Build
 import android.os.IBinder
 import android.service.notification.NotificationListenerService
 import android.service.notification.StatusBarNotification
 import com.appanhnt.applocker.R
-import com.appanhnt.applocker.activity.AppLockActivity
-import com.appanhnt.applocker.activity.MainLockActivity
+import com.appanhnt.applocker.activity.applock.AppLockActivity
+import com.appanhnt.applocker.activity.home.HomeActivity
 import com.appanhnt.applocker.broadcast.DetailNotificationBroadCast
 import com.appanhnt.applocker.key.KeyApp
 import com.appanhnt.applocker.model.ItemNotificationModel
@@ -97,7 +98,7 @@ class NotificationListener : NotificationListenerService() {
 
     private fun backMainActivity() {
         if (AppLockActivity.isNotifyPermission) {
-            launchActivity<MainLockActivity> { flags = Intent.FLAG_ACTIVITY_NEW_TASK }
+            launchActivity<HomeActivity> { flags = Intent.FLAG_ACTIVITY_NEW_TASK }
             AppLockActivity.isNotifyPermission = false
         }
     }
@@ -107,7 +108,11 @@ class NotificationListener : NotificationListenerService() {
         if (broadCastDetail==null) {
             broadCastDetail = DetailNotificationBroadCast()
         }
-        registerReceiver(broadCastDetail, intent)
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU){
+            registerReceiver(broadCastDetail, intent, RECEIVER_EXPORTED)
+        }else{
+            registerReceiver(broadCastDetail, intent)
+        }
     }
 
     private fun unRegisterBroadCast() {

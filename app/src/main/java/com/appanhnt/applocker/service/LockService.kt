@@ -14,6 +14,7 @@ import android.os.Binder
 import android.os.Build
 import android.os.Handler
 import android.os.IBinder
+import android.os.Looper
 import android.provider.Settings
 import android.text.TextUtils
 import android.util.Log
@@ -32,20 +33,18 @@ import com.appanhnt.applocker.activity.*
 import com.appanhnt.applocker.broadcast.NewAppBroadCast
 import com.appanhnt.applocker.interfaces.OnHomePressedListener
 import com.appanhnt.applocker.key.KeyLock
-import com.appanhnt.applocker.service.BackgroundManager
 import com.appanhnt.applocker.utils.NotificationUtil
 import com.appanhnt.applocker.viewmodel.AppLockViewModel
 import com.appanhnt.applocker.viewmodel.TakePhotoViewModel
 import com.appanhnt.applocker.windowmanager.MyWindowLockScreen
 import com.anhnt.baseproject.extensions.launchActivity
 import com.anhnt.baseproject.utils.PreferencesUtils
-import com.appanhnt.applocker.activity.LockActivity
+import com.appanhnt.applocker.activity.lock.LockActivity
 import com.appanhnt.applocker.item.ItemAppLock
 import com.appanhnt.applocker.key.KeyApp
 import com.orhanobut.hawk.Hawk
 import org.koin.android.ext.android.inject
 import org.koin.core.component.KoinApiExtension
-import java.util.*
 
 
 @KoinApiExtension
@@ -121,7 +120,12 @@ class LockService : HiddenCameraService() {
     public fun registerScreenStateBroadCast() {
         val intentFilter = IntentFilter(Intent.ACTION_SCREEN_ON)
         intentFilter.addAction(Intent.ACTION_SCREEN_OFF)
-        this.registerReceiver(onListenerScreenState, intentFilter)
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU){
+            this.registerReceiver(onListenerScreenState, intentFilter, RECEIVER_EXPORTED)
+        }else{
+            this.registerReceiver(onListenerScreenState, intentFilter)
+        }
+
     }
 
     public fun unRegisterScreenStateBroadCast() {
@@ -160,7 +164,7 @@ class LockService : HiddenCameraService() {
                 isShowLockActivity = false
                 isHoming = true
                 isLocking = false
-                Handler().postDelayed({
+                Handler(Looper.getMainLooper()).postDelayed({
                     isHoming = false
                 }, 1000)
                 window?.clearView()
@@ -454,7 +458,12 @@ class LockService : HiddenCameraService() {
         newAppBroadcastReceiver.listenerNewApp = {
             viewModelApp.loadApp(this, it)
         }
-        registerReceiver(newAppBroadcastReceiver, intent)
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU){
+            registerReceiver(newAppBroadcastReceiver, intent, RECEIVER_EXPORTED)
+        }else{
+            registerReceiver(newAppBroadcastReceiver, intent)
+        }
+
     }
 
     private fun unRegister() {

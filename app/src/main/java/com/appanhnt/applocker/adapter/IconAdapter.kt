@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import androidx.appcompat.widget.AppCompatImageView
 import androidx.recyclerview.widget.RecyclerView
 import com.appanhnt.applocker.R
-import com.appanhnt.applocker.activity.IconCamouflageActivity
+import com.appanhnt.applocker.activity.icon.IconCamouflageActivity
 import com.appanhnt.applocker.interfaces.OnItemIconListener
 import com.bumptech.glide.Glide
 

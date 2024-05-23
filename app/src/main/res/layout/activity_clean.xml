@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/color_031B3C"
-    tools:context=".activity.CleanActivity">
+    tools:context=".activity.clean.CleanActivity">
 
 
     <androidx.constraintlayout.widget.ConstraintLayout
