@@ -27,66 +27,8 @@ public class AdsParamUtils extends AdUnitFactory {
     }
 
     @Override
-    public String getAdmobRewardedId() {
-        return AppConfigs.getString(RemoteKey.ADMOB_REWARDED_ID);
-    }
-
-
-    @Override
-    public String getFacebookInterId() {
-        return AppConfigs.getString(RemoteKey.FB_INTER_ID);
-    }
-
-    @Override
-    public String getFacebookBannerId() {
-        return AppConfigs.getString(RemoteKey.FB_BANNER_ID);
-    }
-
-    @Override
-    public String getFacebookNativeId() {
-        return AppConfigs.getString(RemoteKey.FB_NATIVE_ID);
-    }
-
-
-    @Override
     public String getMasterAdsNetwork() {
         return AppConfigs.getString(RemoteKey.MASTER_ADS_NETWORK);
-    }
-
-
-    @Override
-    public String getAdxInterId() {
-        return AppConfigs.getString(RemoteKey.ADX_INTER_ID);
-    }
-
-    @Override
-    public String getAdxBannerId() {
-        return AppConfigs.getString(RemoteKey.ADX_BANNER_ID);
-    }
-
-    @Override
-    public String getAdxNativeId() {
-        return AppConfigs.getString(RemoteKey.ADX_NATIVE_ID);
-    }
-
-    @Override
-    public String getAdxOpenId() {
-        return AppConfigs.getString(RemoteKey.ADX_OPEN_ID);
-    }
-
-    @Override
-    public String getApplovinBannerId() {
-        return AppConfigs.getString(RemoteKey.APPLOVIN_BANNER_ID);
-    }
-
-    @Override
-    public String getApplovinInterId() {
-        return AppConfigs.getString(RemoteKey.APPLOVIN_INTER_ID);
-    }
-
-    @Override
-    public String getApplovinRewardId() {
-        return AppConfigs.getString(RemoteKey.APPLOVIN_REWARDED_ID);
     }
 
     @Override

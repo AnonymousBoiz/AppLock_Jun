@@ -8,10 +8,13 @@ import com.anhnt.baseproject.utils.PreferencesUtils
 import com.appanhnt.applocker.adapter.ViewPagerAddFragmentsAdapter
 import com.appanhnt.applocker.databinding.ActivityIntroBinding
 import com.appanhnt.applocker.fragment.OnBoardFragment
+import com.lutech.ads.AdsManager
 
 
 class IntroActivity : BaseActivity<ActivityIntroBinding>() {
     override fun initView() {
+        AdsManager.loadNativeAds(this, binding.myTemplate, R.string.applock_native_home_id)
+
         PreferencesUtils.putBoolean("is_skip_onboard", true)
         initViewPager()
 

@@ -79,9 +79,9 @@
                             android:layout_height="wrap_content"
                             android:layout_marginEnd="@dimen/_10sdp"
                             android:layout_marginRight="@dimen/_10sdp"
+                            app:cardBackgroundColor="@android:color/white"
                             app:cardCornerRadius="@dimen/_5sdp"
                             app:cardElevation="0dp"
-                            app:civ_circle_background_color="@android:color/white"
                             app:layout_constraintEnd_toStartOf="@id/ad_headline"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="parent">
@@ -90,7 +90,6 @@
                                 android:id="@+id/ad_app_icon"
                                 android:layout_width="@dimen/_35sdp"
                                 android:layout_height="@dimen/_35sdp"
-                                app:civ_circle_background_color="@android:color/white"
                                 app:layout_constraintEnd_toStartOf="@id/ad_headline"
                                 app:layout_constraintStart_toStartOf="parent"
                                 app:layout_constraintTop_toTopOf="parent" />
@@ -205,8 +204,8 @@
     <androidx.appcompat.widget.AppCompatImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/_minus6sdp"
         android:layout_marginStart="@dimen/_5sdp"
+        android:layout_marginTop="@dimen/_minus6sdp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/ic_tag_ads" />

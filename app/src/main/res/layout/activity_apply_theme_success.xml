@@ -57,14 +57,15 @@
         android:id="@+id/iv_icon"
         android:layout_width="@dimen/_120sdp"
         android:layout_height="wrap_content"
-        android:adjustViewBounds="true"
         android:layout_marginBottom="@dimen/_24sdp"
+        android:adjustViewBounds="true"
         android:src="@drawable/ic_default"
         app:layout_constraintBottom_toTopOf="@+id/tv_content"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintVertical_chainStyle="packed"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_chainStyle="packed" />
+
     <TextView
         android:id="@+id/tv_content"
         android:layout_width="match_parent"
@@ -75,12 +76,19 @@
         android:text="@string/installed_theme_successfully"
         android:textColor="@color/white"
         android:textSize="@dimen/_18ssp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/myTemplate"
         app:layout_constraintTop_toBottomOf="@+id/iv_icon" />
 
-<!--    <com.google.android.gms.ads.ez.BannerAd-->
-<!--        android:id="@+id/banner"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="@dimen/_50sdp"-->
-<!--        app:layout_constraintBottom_toBottomOf="parent" />-->
+
+    <com.lutech.ads.nativead.TemplateView
+        android:id="@+id/myTemplate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="10dp"
+        android:elevation="5dp"
+        android:minHeight="140dp"
+        android:visibility="visible"
+        app:gnt_template_type="@layout/gnt_small_template_view"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

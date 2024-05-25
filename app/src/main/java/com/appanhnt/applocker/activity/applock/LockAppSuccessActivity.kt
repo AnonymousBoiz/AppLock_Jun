@@ -9,6 +9,7 @@ import com.anhnt.baseproject.extensions.getHeightStatusBar
 import com.anhnt.baseproject.extensions.launchActivity
 import com.appanhnt.applocker.activity.home.HomeActivity
 import com.appanhnt.applocker.item.ItemAppLock
+import com.lutech.ads.AdsManager
 
 
 class LockAppSuccessActivity : BaseActivity<ActivityLockFileSuccessBinding>() {
@@ -17,6 +18,7 @@ class LockAppSuccessActivity : BaseActivity<ActivityLockFileSuccessBinding>() {
         var data: ItemAppLock? = null
     }
     override fun initView() {
+        AdsManager.loadNativeAds(this, binding.myTemplate, R.string.applock_native_home_id)
         setStatusBarHomeTransparent(this)
         binding.album.setPadding(0, getHeightStatusBar(), 0, 0)
     }
@@ -34,7 +36,7 @@ class LockAppSuccessActivity : BaseActivity<ActivityLockFileSuccessBinding>() {
             }
         }
         binding.icBackAlbum.setOnClickListener {
-            onBackPressed()
+            finish()
         }
     }
 

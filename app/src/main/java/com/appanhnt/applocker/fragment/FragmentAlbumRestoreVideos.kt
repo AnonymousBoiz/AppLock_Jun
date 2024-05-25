@@ -6,7 +6,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.appanhnt.applocker.activity.restore.RestoreActivity
 import com.appanhnt.applocker.adapter.AlbumRestoreVideoAdapter
-import com.appanhnt.applocker.databinding.LayoutFragmentAlbumVideosBinding
+import com.appanhnt.applocker.databinding.FragmentAlbumVideosBinding
 import com.appanhnt.applocker.item.ItemAlbumRestoreVideos
 import com.appanhnt.applocker.utils.RecycleViewUtils
 import com.appanhnt.applocker.viewmodel.RestoreVideoViewModel
@@ -14,7 +14,7 @@ import com.anhnt.baseproject.fragment.BaseFragment
 import org.koin.android.ext.android.inject
 import java.io.File
 
-class FragmentAlbumRestoreVideos : BaseFragment<LayoutFragmentAlbumVideosBinding>() {
+class FragmentAlbumRestoreVideos : BaseFragment<FragmentAlbumVideosBinding>() {
     private val viewModelRestoreVideos by inject<RestoreVideoViewModel>()
     private var adapterAlbumRestoreVideo: AlbumRestoreVideoAdapter? = null
     private var listAlbumRestoreVideo = mutableListOf<ItemAlbumRestoreVideos>()
@@ -81,7 +81,7 @@ class FragmentAlbumRestoreVideos : BaseFragment<LayoutFragmentAlbumVideosBinding
     override fun getViewBinding(
         inflater: LayoutInflater,
         container: ViewGroup?
-    ): LayoutFragmentAlbumVideosBinding {
-        return LayoutFragmentAlbumVideosBinding.inflate(inflater, container, false)
+    ): FragmentAlbumVideosBinding {
+        return FragmentAlbumVideosBinding.inflate(inflater, container, false)
     }
 }

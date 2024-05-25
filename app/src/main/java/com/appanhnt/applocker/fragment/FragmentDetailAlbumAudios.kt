@@ -5,7 +5,7 @@ import android.view.ViewGroup
 import android.view.Window
 import com.appanhnt.applocker.R
 import com.appanhnt.applocker.adapter.DetailAlbumRestoreAudiosAdapter
-import com.appanhnt.applocker.databinding.LayoutDetailAlbumAudioBinding
+import com.appanhnt.applocker.databinding.FragmentDetailAlbumAudioBinding
 import com.appanhnt.applocker.databinding.LayoutDialogDeleteImageBinding
 import com.appanhnt.applocker.dialog.DialogDeleteImage
 import com.appanhnt.applocker.item.ItemAlbumRestoreAudios
@@ -13,11 +13,12 @@ import com.appanhnt.applocker.utils.DialogLoadingUtils
 import com.appanhnt.applocker.utils.ImageUtil
 import com.appanhnt.applocker.utils.RecycleViewUtils
 import com.anhnt.baseproject.fragment.BaseFragment
-import com.google.android.gms.ads.ez.EzAdControl
+import com.appanhnt.applocker.activity.restore.RestoreActivity
+
 import java.io.File
 
 class FragmentDetailAlbumAudios(var item: ItemAlbumRestoreAudios) :
-    BaseFragment<LayoutDetailAlbumAudioBinding>() {
+    BaseFragment<FragmentDetailAlbumAudioBinding>() {
     private var dialogQuestion: DialogDeleteImage? = null
     private var adapterDetailAlbumRestoreAudios: DetailAlbumRestoreAudiosAdapter? = null
     var onBack: (() -> Unit)? = null
@@ -61,8 +62,8 @@ class FragmentDetailAlbumAudios(var item: ItemAlbumRestoreAudios) :
     override fun getViewBinding(
         inflater: LayoutInflater,
         container: ViewGroup?
-    ): LayoutDetailAlbumAudioBinding {
-        return LayoutDetailAlbumAudioBinding.inflate(inflater, container, false)
+    ): FragmentDetailAlbumAudioBinding {
+        return FragmentDetailAlbumAudioBinding.inflate(inflater, container, false)
     }
 
     private fun selectImage(it: Int) {
@@ -118,7 +119,9 @@ class FragmentDetailAlbumAudios(var item: ItemAlbumRestoreAudios) :
         }
         ImageUtil.recoverListAudios(listAudios, requireContext())
         DialogLoadingUtils.showDialogHiding(requireContext(), false)
-        EzAdControl.getInstance(requireActivity()).showAds()
+        if (requireActivity() is RestoreActivity){
+            (requireActivity() as RestoreActivity).showIntersAds(null)
+        }
         onBack?.invoke()
     }
 }

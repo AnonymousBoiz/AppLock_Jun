@@ -18,7 +18,7 @@ import com.anhnt.baseproject.activity.BaseActivity
 import com.anhnt.baseproject.extensions.getHeightStatusBar
 import com.appanhnt.applocker.databinding.ActivitySameImageBinding
 import com.appanhnt.applocker.databinding.LayoutDialogDeleteImageBinding
-import com.google.android.gms.ads.ez.EzAdControl
+
 import org.koin.android.ext.android.inject
 
 class SameImageActivity : BaseActivity<ActivitySameImageBinding>() {
@@ -66,7 +66,7 @@ class SameImageActivity : BaseActivity<ActivitySameImageBinding>() {
         viewModel.isDeleteSameImage.observe(this) {
             if (it) {
                 // ads
-                EzAdControl.getInstance(this).showAds()
+                showAds(null)
                 DialogLoadingUtils.showDialogHiding(this, false)
                 if (listSetSameImage.isEmpty()) {
                     binding.noSameImage.visibility = View.VISIBLE

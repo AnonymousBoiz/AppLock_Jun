@@ -1,9 +1,5 @@
 <resources>
-    <string name="app_name">App Lock</string>
-
-    <string name="applock_native_language_id" translatable="false">ca-app-pub-3940256099942544/2247696110</string>
-    <string name="applock_native_home_id" translatable="false">ca-app-pub-3940256099942544/2247696110</string>
-
+    <string name="app_name" translatable="false">App Lock</string>
 
     <string name="find_app_permission">Find %s and turn On</string>
     <string name="content_pattern">Make 1 pattern by matching at least 4 points</string>

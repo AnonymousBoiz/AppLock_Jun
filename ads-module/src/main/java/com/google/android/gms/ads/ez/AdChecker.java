@@ -20,15 +20,10 @@ public class AdChecker {
 //xx
 
     private Context mContext;
-    private int breakPos = 0;
-
     public AdChecker(Context context) {
         mContext = context;
     }
 
-    public int getBreakPos() {
-        return breakPos;
-    }
 
     public boolean checkShowAds() {
 
@@ -40,28 +35,24 @@ public class AdChecker {
         if (checkLimitShowPerDay()) {
             LogUtils.logString(AdChecker.class, "Today limit ads");
             // neu da limit k cho show ad nua return false
-            breakPos = 2;
             return false;
         }
 
 
         if (checkLastShow()) {
             LogUtils.logString(AdChecker.class, "Last show time not enough");
-            breakPos = 3;
             return false;
         }
 
 
         if (checkCountShow()) {
             LogUtils.logString(AdChecker.class, "Count show time enough");
-            breakPos = 5;
             return false;
         }
 
         if (EzApplication.getInstance().isSkipNextAds()) {
             EzApplication.getInstance().setSkipNextAds(false);
             LogUtils.logString(AdChecker.class, "Skip next ads");
-            breakPos = 6;
             return false;
         }
         // neu qua het cac case khac thi return true -> cho phep show ads

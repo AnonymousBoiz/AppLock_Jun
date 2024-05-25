@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="txt_loading_ads">Загрузка рекламы...</string>
+    <string name="txt_title_rate">Мы прилагаем все усилия, чтобы улучшить взаимодействие с пользователем</string>
+    <string name="txt_des">Мы будем очень признательны, если вы оцените нас</string>
+    <string name="txt_the_best_rate">Лучшее, что мы можем получить :)</string>
+    <string name="txt_maybe_later">Может быть позже</string>
+    <string name="txt_title_bad">О, нет!</string>
+    <string name="txt_content_bad">Оставьте нам отзыв</string>
+    <string name="txt_title_good">Ты нам тоже нравишься!</string>
+    <string name="txt_content_good">Спасибо за ваш отзыв</string>
+    <string name="title_warning_version">Ваша версия приложения слишком низкая. Пожалуйста, обновите последнюю версию, чтобы испытать наше приложение. Спасибо</string>
+    <string name="txt_goto_store">Я согласен и перехожу к обновлению</string>
+    <string name="txt_do_later">Спросить позже</string>
+    <string name="txt_rate_us">Оцените нас</string>
+    <string name="txt_no_connection">Нет Интернета!</string>
+    <string name="txt_check_your_internet">Проверьте подключение или повторите попытку</string>
+    <string name="txt_retry">Повторить попытку подключения к Интернету</string>
+</resources>

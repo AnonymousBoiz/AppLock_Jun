@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="txt_loading_ads">Cargando anuncios...</string>
+    <string name="txt_title_rate">Estamos trabajando duro para una mejor experiencia de usuario</string>
+    <string name="txt_des">Le agradeceríamos mucho si pudiera calificarnos</string>
+    <string name="txt_the_best_rate">Lo mejor que podemos conseguir :)</string>
+    <string name="txt_maybe_later">Quizás más tarde</string>
+    <string name="txt_title_bad">¡Oh, no!</string>
+    <string name="txt_content_bad">Déjanos tus comentarios</string>
+    <string name="txt_title_good">¡Tú también nos gustas!</string>
+    <string name="txt_content_good">Gracias por tus comentarios</string>
+    <string name="title_warning_version">La versión de su aplicación es demasiado baja. Actualice la versión más reciente para experimentar nuestra aplicación. Gracias</string>
+    <string name="txt_goto_store">Acepto y voy a actualizar</string>
+    <string name="txt_do_later">Pregúntame más tarde</string>
+    <string name="txt_rate_us">Califícanos</string>
+    <string name="txt_no_connection">¡Sin Internet!</string>
+    <string name="txt_check_your_internet">Comprueba tu conexión o inténtalo de nuevo</string>
+    <string name="txt_retry">Reintentar Internet</string>
+</resources>

@@ -11,8 +11,8 @@ import android.view.Window
 import com.appanhnt.applocker.R
 import com.appanhnt.applocker.databinding.ActivityThemeBinding
 import com.appanhnt.applocker.dialog.DialogShowLockScreen
-import com.appanhnt.applocker.fragment.FragmentLockScreen
-import com.appanhnt.applocker.fragment.FragmentLockTheme
+import com.appanhnt.applocker.fragment.BackgroundFragment
+import com.appanhnt.applocker.fragment.LockThemeFragment
 import com.appanhnt.applocker.key.KeyTheme
 import com.appanhnt.applocker.viewmodel.ThemeViewModel
 import com.anhnt.baseproject.activity.BaseActivity
@@ -20,7 +20,7 @@ import com.anhnt.baseproject.adapter.BasePagerAdapter
 import com.anhnt.baseproject.extensions.getHeightStatusBar
 import com.anhnt.baseproject.extensions.launchActivity
 import com.anhnt.baseproject.utils.PreferencesUtils
-import com.google.android.gms.ads.ez.EzAdControl
+
 import com.yalantis.ucrop.UCrop
 import org.koin.android.ext.android.inject
 import java.io.FileNotFoundException
@@ -30,17 +30,17 @@ import java.io.IOException
 class ThemeActivity : BaseActivity<ActivityThemeBinding>() {
     private var dialogShow: DialogShowLockScreen? = null
     private val viewModel by inject<ThemeViewModel>()
-    private val fragmentLockScreen = FragmentLockScreen()
+    private val fragmentLockScreen = BackgroundFragment()
     override fun initView() {
         // ads
-        EzAdControl.getInstance(this).showAds()
+//        EzAdControl.getInstance(this).showAds()
         //
         setStatusBarHomeTransparent(this)
         binding.theme.setPadding(0, getHeightStatusBar(), 0, 0)
         //
 
         val adapter = BasePagerAdapter(supportFragmentManager, 0).apply {
-            addFragment(FragmentLockTheme(), getString(R.string.LOCK_THEME))
+            addFragment(LockThemeFragment(), getString(R.string.LOCK_THEME))
             addFragment(fragmentLockScreen, getString(R.string.LOCK_BACKGROUND))
         }
         binding.viewPager.adapter = adapter
@@ -119,12 +119,20 @@ class ThemeActivity : BaseActivity<ActivityThemeBinding>() {
                 }
                 dialogShow?.dismiss()
                 // ads
-                EzAdControl.getInstance(this@ThemeActivity).showAds()
-                launchActivity<ApplyThemeSuccessActivity> {
-                    ApplyThemeSuccessActivity.drawable = getDrawableFromUri(uri)
-                }
+
+                val intent = Intent(this@ThemeActivity, ApplyThemeSuccessActivity::class.java)
+                ApplyThemeSuccessActivity.drawable = getDrawableFromUri(uri)
+                showAds(intent)
+//                EzAdControl.getInstance(this@ThemeActivity).showAds()
+//                launchActivity<ApplyThemeSuccessActivity> {
+//                    ApplyThemeSuccessActivity.drawable = getDrawableFromUri(uri)
+//                }
             }
         }
+    }
+
+    fun showInterAds(intent: Intent){
+        showAds(intent)
     }
 
     fun getDrawableFromUri(uri: Uri?): Drawable? {

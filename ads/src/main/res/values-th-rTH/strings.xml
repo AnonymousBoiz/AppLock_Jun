@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="txt_loading_ads">กำลังโหลดโฆษณา...</string>
+    <string name="txt_title_rate">เรากำลังทำงานอย่างหนักเพื่อประสบการณ์การใช้งานที่ดียิ่งขึ้น</string>
+    <string name="txt_des">เราจะยินดีเป็นอย่างยิ่งหากคุณให้คะแนนเรา</string>
+    <string name="txt_the_best_rate">สิ่งที่ดีที่สุดที่เราจะได้รับ :)</string>
+    <string name="txt_maybe_later">อาจจะภายหลัง</string>
+    <string name="txt_title_bad">ไม่นะ!</string>
+    <string name="txt_content_bad">โปรดส่งคำติชมถึงเรา</string>
+    <string name="txt_title_good">เราก็ชอบคุณเหมือนกัน!</string>
+    <string name="txt_content_good">ขอขอบคุณสำหรับคำติชม</string>
+    <string name="title_warning_version">เวอร์ชันแอปพลิเคชันของคุณต่ำเกินไป โปรดอัปเดตเวอร์ชันใหม่ล่าสุดเพื่อสัมผัสประสบการณ์แอปของเรา ขอบคุณ</string>
+    <string name="txt_goto_store">ฉันยอมรับและดำเนินการอัปเดต</string>
+    <string name="txt_do_later">ถามฉันทีหลัง</string>
+    <string name="txt_rate_us">ให้คะแนนเรา</string>
+    <string name="txt_no_connection">ไม่มีอินเทอร์เน็ต!</string>
+    <string name="txt_check_your_internet">ตรวจสอบการเชื่อมต่อของคุณหรือลองอีกครั้ง</string>
+    <string name="txt_retry">ลองอินเทอร์เน็ตอีกครั้ง</string>
+</resources>

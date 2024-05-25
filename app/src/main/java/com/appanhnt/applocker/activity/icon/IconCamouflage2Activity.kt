@@ -13,6 +13,7 @@ import com.anhnt.baseproject.extensions.getHeightStatusBar
 import com.anhnt.baseproject.utils.PreferencesUtils
 import com.appanhnt.applocker.key.KeyApp
 import com.bumptech.glide.Glide
+import com.lutech.ads.AdsManager
 import org.koin.android.ext.android.inject
 
 class IconCamouflage2Activity : BaseActivity<ActivityIconCamouflageBinding>() {
@@ -37,6 +38,8 @@ class IconCamouflage2Activity : BaseActivity<ActivityIconCamouflageBinding>() {
 
     override fun initView() {
         setStatusBarHomeTransparent(this)
+        AdsManager.loadNativeAds(this, binding.myTemplate, R.string.applock_native_home_id)
+
         binding.top.setPadding(0, getHeightStatusBar(), 0, 0)
 
         binding.rvIconApp.layoutManager =
@@ -51,7 +54,7 @@ class IconCamouflage2Activity : BaseActivity<ActivityIconCamouflageBinding>() {
 
 //        event
         binding.btnContinue.setOnClickListener {
-            onBackPressed()
+            finish()
         }
         binding.btnSave.setOnClickListener {
             if (currentItem != null) {

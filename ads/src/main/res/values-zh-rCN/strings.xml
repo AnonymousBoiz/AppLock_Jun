@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="txt_loading_ads">正在加载广告...</string>
+    <string name="txt_title_rate">我们正在努力提供更好的用户体验</string>
+    <string name="txt_des">如果您能给我们评分，我们将不胜感激</string>
+    <string name="txt_the_best_rate">我们能得到的最好的:)</string>
+    <string name="txt_maybe_later">也许稍后</string>
+    <string name="txt_title_bad">哦，不！</string>
+    <string name="txt_content_bad">请给我们留下一些反馈</string>
+    <string name="txt_title_good">我们也喜欢你！</string>
+    <string name="txt_content_good">感谢您的反馈</string>
+    <string name="title_warning_version">您的应用程序版本太低。请更新最新版本以体验我们的应用程序。谢谢</string>
+    <string name="txt_goto_store">我同意并去更新</string>
+    <string name="txt_do_later">稍后询问我</string>
+    <string name="txt_rate_us">给我们评分</string>
+    <string name="txt_no_connection">没有互联网！</string>
+    <string name="txt_check_your_internet">检查您的连接或重试</string>
+    <string name="txt_retry">重试互联网</string>
+</resources>

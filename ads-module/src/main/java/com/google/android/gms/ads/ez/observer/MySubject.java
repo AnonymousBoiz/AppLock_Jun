@@ -10,16 +10,6 @@ public class MySubject {
         observers.add(observer);
     }
 
-    public void detach(MyObserver observer) {
-        observers.remove(observer);
-    }
-
-    public void notifyChange(String message) {
-        for (MyObserver observer : observers) {
-            observer.update(message);
-        }
-    }
-
     private static MySubject INSTANCE;
 
 

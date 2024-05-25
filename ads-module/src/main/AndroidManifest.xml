@@ -13,17 +13,7 @@
             android:name="com.google.android.gms.ads.AD_MANAGER_APP"
             android:value="true" />
         <meta-data
-            android:name="applovin.sdk.key"
-            android:value="ODdM6VSs2zlvtttTxiJ4opVLJmDKVI3PDS7PptWv7kgL785q1lLTPsTlrPUlOrG2G0AqDsToK_J0I7XCG59d9O" />
-        <meta-data
             android:name="com.google.android.gms.ads.flag.NATIVE_AD_DEBUGGER_ENABLED"
             android:value="false" />
-        <receiver
-            android:name=".InstallReferrerReceiver"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="com.android.vending.INSTALL_REFERRER" />
-            </intent-filter>
-        </receiver>
     </application>
 </manifest>

@@ -34,7 +34,7 @@ import com.appanhnt.applocker.dialog.DialogRelockSettings
 import com.appanhnt.applocker.service.LockService
 import com.appanhnt.applocker.utils.ActionUtils
 import com.appanhnt.applocker.utils.SharedPrefs
-import com.google.android.gms.ads.ez.EzAdControl
+
 import com.tailoredapps.biometricauth.BiometricAuth
 import org.koin.core.component.KoinApiExtension
 
@@ -82,9 +82,6 @@ class SettingsActivity : BaseActivity<ActivitySettingsBinding>() {
         intPasswordType(type)
         initRelockType(PreferencesUtils.getBoolean(KeyLock.AFTER_SCREEN_OF, false))
 
-
-        // ads
-        EzAdControl.getInstance(this).showAds()
         setFeatureSetting()
         //translucentStatus
         setStatusBarHomeTransparent(this)

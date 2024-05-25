@@ -1,5 +1,6 @@
 package com.appanhnt.applocker.utils
 
+import android.app.Notification
 import android.app.NotificationChannel
 import android.app.NotificationManager
 import android.app.PendingIntent
@@ -20,32 +21,41 @@ object NotificationUtil {
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     fun createNotification(mContext: Service, title: String?, message: String?) {
-        val resultIntent = Intent(mContext, SplashActivity::class.java)
-        resultIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-        val resultPendingIntent = PendingIntent.getActivity(
-            mContext,
-            112 /* Request code */,
-            resultIntent,
-            PendingIntent.FLAG_IMMUTABLE
-        )
-        val mNotificationManager =
-            mContext.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
-        val importance = NotificationManager.IMPORTANCE_HIGH
-        val notificationChannel =
-            NotificationChannel(NOTIFICATION_CHANNEL_ID, "App lock background task ", importance)
-        mNotificationManager.createNotificationChannel(notificationChannel)
-        val mBuilder = NotificationCompat.Builder(mContext)
-        mBuilder.setSmallIcon(R.drawable.notifylock)
-        mBuilder.setChannelId(NOTIFICATION_CHANNEL_ID)
-        mBuilder.setContentTitle(title)
-            .setContentText(message)
-            .setAutoCancel(false)
-            .setSound(Settings.System.DEFAULT_NOTIFICATION_URI)
-            .setContentIntent(resultPendingIntent)
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.UPSIDE_DOWN_CAKE){
-            mContext.startForeground(145, mBuilder.build(), ServiceInfo.FOREGROUND_SERVICE_TYPE_SPECIAL_USE)
-        }else{
-            mContext.startForeground(145, mBuilder.build())
+        mContext.apply {
+            val chan =
+                NotificationChannel(NOTIFICATION_CHANNEL_ID, "App lock background task ", NotificationManager.IMPORTANCE_DEFAULT)
+
+            chan.lockscreenVisibility = Notification.VISIBILITY_PRIVATE
+            val service = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+            service.createNotificationChannel(chan)
+
+
+            val intent = Intent(this, SplashActivity::class.java)
+            intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK.or(Intent.FLAG_ACTIVITY_NEW_TASK)
+            val pendingIntent = PendingIntent.getActivity(
+                this,
+                0,
+                intent,
+                PendingIntent.FLAG_IMMUTABLE or PendingIntent.FLAG_UPDATE_CURRENT
+            )
+
+            val notificationBuilder = NotificationCompat.Builder(this, NOTIFICATION_CHANNEL_ID)
+            val notification = notificationBuilder.setOngoing(true)
+                .setSmallIcon(R.mipmap.ic_launcher)
+                .setContentTitle(title)
+                .setContentText(message)
+                .setAutoCancel(false)
+                .setSound(Settings.System.DEFAULT_NOTIFICATION_URI)
+                .setPriority(NotificationCompat.PRIORITY_MIN)
+                .setCategory(Notification.CATEGORY_SERVICE)
+                .setContentIntent(pendingIntent)
+                .build()
+
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.UPSIDE_DOWN_CAKE){
+                startForeground(145, notification, ServiceInfo.FOREGROUND_SERVICE_TYPE_SPECIAL_USE)
+            }else{
+                startForeground(145, notification)
+            }
         }
     }
 

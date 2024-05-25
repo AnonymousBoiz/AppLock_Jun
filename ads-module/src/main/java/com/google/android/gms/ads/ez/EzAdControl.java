@@ -8,9 +8,7 @@ import android.os.Looper;
 import android.os.Message;
 import android.util.Log;
 
-import com.facebook.ads.AudienceNetworkAds;
 import com.google.android.gms.ads.ez.adparam.AdUnit;
-import com.google.android.gms.ads.ez.analytics.FlurryAnalytics;
 import com.google.android.gms.ads.ez.utils.StateOption;
 import com.google.android.gms.ads.ez.utils.TimeShowInter;
 
@@ -47,60 +45,10 @@ public class EzAdControl {
         LogUtils.logString(EzAdControl.class, "Init Ad");
 
         getInstance(context);
-
-
         AdmobUtils.getInstance(context).init();
-        AudienceNetworkAds.initialize(context);
-    }
-
-    public static void initFlurry(Context context, String flurryId) {
-        FlurryAnalytics.init(context, flurryId);
-    }
-
-    public EzAdControl setAdListener(AdFactoryListener adListener) {
-        LogUtils.logString(this.getClass(), "setAdListener");
-        this.adListener = adListener;
-        if (stateOption.isLoaded() && !stateOption.isLoading() && !stateOption.isShowed()) {
-            // khi o man GetStart neu da loaded roi thi khi sang splash set listener kiem tra xem co loaded chua roi thi ban ve onloaded luon
-            new CountDownTimer(1000, 1000) {
-
-                @Override
-                public void onTick(long millisUntilFinished) {
-
-                }
-
-                @Override
-                public void onFinish() {
-                    setOnAdLoaded();
-                }
-            }.start();
-
-        }
-
-        if (!stateOption.isLoaded() && !stateOption.isLoading() && !stateOption.isShowed()) {
-            // khi o man GetStart neu da loaded roi thi khi sang splash set listener kiem tra xem co loaded chua roi thi ban ve onloaded luon
-
-            new CountDownTimer(1000, 1000) {
-
-                @Override
-                public void onTick(long millisUntilFinished) {
-
-                }
-
-                @Override
-                public void onFinish() {
-                    setOnAdError();
-                }
-            }.start();
-        }
-
-        return this;
     }
 
     public void loadAd() {
-
-//        loadAdx();
-//        loadFacebook();
         loadAdmob();
         stateOption.setOnLoading();
 
@@ -124,39 +72,6 @@ public class EzAdControl {
             }
         }.start();
     }
-
-
-    private void loadFacebook() {
-        LogUtils.logString(EzAdControl.class, "Load Facebook");
-        FacebookUtils.getInstance(mContext)
-                .setListener(new AdFactoryListener() {
-                    @Override
-                    public void onError() {
-                        LogUtils.logString(EzAdControl.class, "Facebook onError");
-                        setOnAdError();
-                    }
-
-                    @Override
-                    public void onLoaded() {
-                        setOnAdLoaded();
-                    }
-
-                    @Override
-                    public void onDisplay() {
-                        super.onDisplay();
-                        setOnAdDisplayed();
-                    }
-
-                    @Override
-                    public void onClosed() {
-                        super.onClosed();
-                        setOnAdClosed();
-                    }
-                })
-                .loadAds();
-    }
-
-
 
     private void loadAdmob() {
         LogUtils.logString(EzAdControl.class, "Load Admob");
@@ -189,37 +104,6 @@ public class EzAdControl {
                 .loadAds();
     }
 
-    private void loadAdx() {
-        LogUtils.logString(EzAdControl.class, "Load Adx");
-        AdxUtils.getInstance(mContext)
-                .setListener(new AdFactoryListener() {
-                    @Override
-                    public void onError() {
-                        setOnAdError();
-                    }
-
-                    @Override
-                    public void onLoaded() {
-                        LogUtils.logString(EzAdControl.class, "Adx Loaded");
-                        setOnAdLoaded();
-                    }
-
-                    @Override
-                    public void onDisplay() {
-                        super.onDisplay();
-                        setOnAdDisplayed();
-                    }
-
-                    @Override
-                    public void onClosed() {
-                        super.onClosed();
-                        setOnAdClosed();
-                    }
-                })
-                .loadAds();
-    }
-
-
     public void showAds() {
         Log.e("vvvvvvvvvv", "showAds: " + TimeShowInter.showInter());
         if (TimeShowInter.showInter()) {
@@ -230,7 +114,7 @@ public class EzAdControl {
     }
 
     private boolean isloading() {
-        return FacebookUtils.getInstance(mContext).isLoading() || AdmobUtils.getInstance(mContext).isLoading()  ;
+        return AdmobUtils.getInstance(mContext).isLoading()  ;
     }
 
     final Handler mHandler1 = new Handler(Looper.getMainLooper()) {
@@ -322,7 +206,6 @@ public class EzAdControl {
         }
         return null;
     }
-
 
     private void setOnAdLoaded() {
         if (!isloading()) {

@@ -79,7 +79,7 @@
                             android:layout_marginRight="@dimen/_10sdp"
                             app:cardCornerRadius="@dimen/_5sdp"
                             app:cardElevation="0dp"
-                            app:civ_circle_background_color="@android:color/white"
+                            app:cardBackgroundColor="@android:color/white"
                             app:layout_constraintEnd_toStartOf="@id/ad_headline"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="parent">
@@ -88,7 +88,6 @@
                                 android:id="@+id/ad_app_icon"
                                 android:layout_width="@dimen/_35sdp"
                                 android:layout_height="@dimen/_35sdp"
-                                app:civ_circle_background_color="@android:color/white"
                                 app:layout_constraintEnd_toStartOf="@id/ad_headline"
                                 app:layout_constraintStart_toStartOf="parent"
                                 app:layout_constraintTop_toTopOf="parent" />

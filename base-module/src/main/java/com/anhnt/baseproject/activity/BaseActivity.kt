@@ -20,12 +20,17 @@ import androidx.viewbinding.ViewBinding
 import com.anhnt.baseproject.dialog.DialogLoading
 import com.anhnt.baseproject.utils.PreferencesUtils
 import com.anhnt.baseproject.utils.permisson.PermissionUtils
+import com.lutech.ads.AdsManager
+import com.lutech.ads.dialog.LoadingAdsDialog
+import com.lutech.ads.interstitial.AdsListener
+import com.lutech.ads.interstitial.InterstitialAdsManager
+import com.lutech.ads.receiver.NetworkChangeReceiver
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import java.util.Locale
 
 
-open abstract class BaseActivity<B : ViewBinding> : AppCompatActivity() {
+open abstract class BaseActivity<B : ViewBinding> : AppCompatActivity(), AdsListener {
     protected lateinit var binding: B
     private var permissionComplete: ((Boolean) -> Unit)? = null
     private var lastClickTime: Long = 0
@@ -34,11 +39,20 @@ open abstract class BaseActivity<B : ViewBinding> : AppCompatActivity() {
         BetterActivityResult.registerActivityForResult(this)
 
     protected val KEY_LANGUAGE = "KEY_LANGUAGE"
+
+    private var mIntent: Intent? = null
+
+    private var mIsBackScreen: Boolean = false
+
+    private var mIsFinish: Boolean = false
+
+    private lateinit var mLoadingAdsDialog: LoadingAdsDialog
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(null)
         setLocale(PreferencesUtils.getString(KEY_LANGUAGE, "en"))
         binding = viewBinding()
         setContentView(binding.root)
+        mLoadingAdsDialog = LoadingAdsDialog.newInstance()
         initView()
         initData()
         initListener()
@@ -75,6 +89,22 @@ open abstract class BaseActivity<B : ViewBinding> : AppCompatActivity() {
                 it.dismiss()
             }
             progressDialog = null
+        }
+    }
+
+    protected fun showAds(intent: Intent? = null, isBackScreen: Boolean = false, isFinish: Boolean = false) {
+        if(isBackScreen){
+            mIsBackScreen = true
+            if(AdsManager.IsShowAdsWhenClickButtonBack){
+                InterstitialAdsManager.showAds(this, this)
+            }else{
+                finish()
+            }
+        }else{
+            mIsFinish = isFinish
+            mIntent = null
+            mIntent = intent
+            InterstitialAdsManager.showAds(this, this)
         }
     }
 
@@ -210,5 +240,25 @@ open abstract class BaseActivity<B : ViewBinding> : AppCompatActivity() {
             winParams.flags = winParams.flags and bits.inv()
         }
         win.attributes = winParams
+    }
+
+    override fun onAdDismissed() {
+        mLoadingAdsDialog.dismiss()
+//        layoutLoadingAds.visibility = View.GONE
+        if(mIsBackScreen){
+            mIsBackScreen = false
+            finish()
+        }else{
+            mIntent?.let {
+                startActivity(it)
+                if(mIsFinish) finish()
+            }
+        }
+    }
+
+    override fun onWaitAds() {
+        mLoadingAdsDialog?.let {
+            it.show(supportFragmentManager.beginTransaction().remove(it), LoadingAdsDialog.TAG)
+        }
     }
 }

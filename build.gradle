@@ -7,6 +7,8 @@ buildscript {
     repositories {
         google()
         mavenCentral()
+        jcenter()
+        gradlePluginPortal()
         maven { url "https://www.jitpack.io" }
     }
     dependencies {
@@ -26,14 +28,15 @@ allprojects {
     repositories {
         google()
         mavenCentral()
+        jcenter()
         maven {url "https://jitpack.io"}
-        jcenter() // Warning: this repository is going to shut down soon
-        maven {
-            url 'https://maven.tailored-apps.com/repository/maven-public/'
-            // The content-filter ensures (for your safety) that only artifacts with the given group
-            // should be fetched from this repository:
-            content { includeGroup 'com.tailoredapps' }
-        }
+         // Warning: this repository is going to shut down soon
+//        maven {
+//            url 'https://maven.tailored-apps.com/repository/maven-public/'
+//            // The content-filter ensures (for your safety) that only artifacts with the given group
+//            // should be fetched from this repository:
+//            content { includeGroup 'com.tailoredapps' }
+//        }
     }
 }
 

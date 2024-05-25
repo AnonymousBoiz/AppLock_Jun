@@ -41,9 +41,9 @@
                 android:id="@+id/txt_number"
                 android:layout_width="@dimen/_15sdp"
                 android:layout_height="@dimen/_15sdp"
+                android:layout_alignParentEnd="true"
                 android:layout_marginTop="@dimen/_8sdp"
                 android:layout_marginEnd="@dimen/_8sdp"
-                android:layout_alignParentEnd="true"
                 android:src="@drawable/ic_selected" />
         </RelativeLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>

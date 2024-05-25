@@ -14,26 +14,18 @@ import android.widget.RelativeLayout;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
-import com.facebook.ads.Ad;
-import com.facebook.ads.AdError;
-import com.facebook.ads.AdListener;
-import com.facebook.ads.AdView;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdSize;
+import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.LoadAdError;
-import com.google.android.gms.ads.admanager.AdManagerAdRequest;
-import com.google.android.gms.ads.admanager.AdManagerAdView;
 import com.google.android.gms.ads.ez.adparam.AdUnit;
 import com.google.android.gms.ads.ez.observer.MyObserver;
 import com.google.android.gms.ads.ez.observer.MySubject;
 
 public class BannerAd extends RelativeLayout {
     private final String TAG = "BannerAd";
-    private AdView fbBanner;
-    private com.google.android.gms.ads.AdView admobBanner;
+    private AdView admobBanner;
     private Context mContext;
-    private boolean isReloadFB = false;
-    private AdManagerAdView adxBanner;
 
     private MyObserver mObserver = new MyObserver() {
         @Override
@@ -44,7 +36,6 @@ public class BannerAd extends RelativeLayout {
             }
         }
     };
-
 
     public BannerAd(Context context) {
         super(context);
@@ -78,38 +69,6 @@ public class BannerAd extends RelativeLayout {
         setLayoutParams(layoutParams);
     }
 
-    private void loadFacebookBanner() {
-
-
-        fbBanner = new AdView(mContext, AdUnit.getFacebookBannerId(), com.facebook.ads.AdSize.BANNER_HEIGHT_50);
-
-
-        AdListener adListener = new AdListener() {
-            @Override
-            public void onError(Ad ad, AdError adError) {
-                loadAdx();
-            }
-
-            @Override
-            public void onAdLoaded(Ad ad) {
-                removeAllViews();
-                addView(fbBanner);
-            }
-
-            @Override
-            public void onAdClicked(Ad ad) {
-
-            }
-
-            @Override
-            public void onLoggingImpression(Ad ad) {
-
-            }
-        };
-
-        fbBanner.loadAd(fbBanner.buildLoadAdConfig().withAdListener(adListener).build());
-    }
-
     private void loadAdmob() {
 
         admobBanner = new com.google.android.gms.ads.AdView(mContext);
@@ -122,7 +81,7 @@ public class BannerAd extends RelativeLayout {
             public void onAdFailedToLoad(@NonNull LoadAdError loadAdError) {
                 super.onAdFailedToLoad(loadAdError);
                 Log.e(TAG, "onAdFailedToLoad: ");
-                loadFacebookBanner();
+
             }
 
             @Override
@@ -134,50 +93,6 @@ public class BannerAd extends RelativeLayout {
             }
         });
 
-
-    }
-
-
-    private void loadAdx() {
-
-        adxBanner = new AdManagerAdView(mContext);
-
-        adxBanner.setAdSizes(getAdSize());
-
-        adxBanner.setAdUnitId(AdUnit.getAdxBannerId());
-
-        AdManagerAdRequest adRequest = new AdManagerAdRequest.Builder().build();
-        adxBanner.loadAd(adRequest);
-
-        adxBanner.setAdListener(new com.google.android.gms.ads.AdListener() {
-            @Override
-            public void onAdLoaded() {
-                Log.e(TAG, "Adx onAdLoaded: ");
-                removeAllViews();
-                addView(adxBanner);
-                setVisibility(View.VISIBLE);
-            }
-
-
-            @Override
-            public void onAdFailedToLoad(LoadAdError adError) {
-                Log.e(TAG, "Adx onAdFailedToLoad: ");
-                setVisibility(GONE);
-            }
-
-            @Override
-            public void onAdOpened() {
-                // Code to be executed when an ad opens an overlay that
-                // covers the screen.
-            }
-
-
-            @Override
-            public void onAdClosed() {
-                // Code to be executed when when the user is about to return
-                // to the app after tapping on an ad.
-            }
-        });
 
     }
 

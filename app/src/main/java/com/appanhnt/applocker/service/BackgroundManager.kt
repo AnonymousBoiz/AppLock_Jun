@@ -14,6 +14,7 @@ import android.util.Log
 import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import androidx.core.content.ContextCompat.getSystemService
 import com.appanhnt.applocker.R
 import com.appanhnt.applocker.item.ItemEnterPin
@@ -70,15 +71,28 @@ object BackgroundManager {
         context.startForegroundService(Intent(context, serviceClass))
     }
 
+    @OptIn(KoinApiExtension::class)
     fun requestPermission(
         activity: AppCompatActivity,
         isCreate: Boolean = true,
     ) {
-        if (!isServiceRunning(LockService::class.java, activity)) {
-            Provider.fpManager =
-                BiometricAuth.create(activity, useAndroidXBiometricPrompt = false)
-            startService(LockService::class.java, activity, activity)
+        if (activity == null) return
+        val intent = Intent(activity, LockService::class.java)
+        try {
+            if (!isServiceRunning(LockService::class.java, activity)) {
+                Provider.fpManager =
+                    BiometricAuth.create(activity, useAndroidXBiometricPrompt = false)
+                startService(LockService::class.java, activity, activity)
+            } else {
+                stopService(LockService::class.java, activity, activity)
+                startService(LockService::class.java, activity, activity)
+            }
+        } catch (ignored: IllegalStateException) {
+            runCatching {
+                ContextCompat.startForegroundService(activity, intent)
+            }
         }
+
     }
 
     fun startServiceAndUsageData(

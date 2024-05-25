@@ -1,5 +1,7 @@
 package com.appanhnt.applocker
 
+import android.app.Application
+import android.content.Context
 import android.content.Intent
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleObserver
@@ -10,17 +12,20 @@ import com.appanhnt.applocker.di.appModule
 import com.appanhnt.applocker.service.LockService
 import com.anhnt.baseproject.extensions.launchActivity
 import com.anhnt.baseproject.utils.PreferencesUtils
-import com.google.android.gms.ads.ez.EzApplication
 import com.orhanobut.hawk.Hawk
 import org.koin.android.ext.koin.androidContext
 import org.koin.core.component.KoinApiExtension
 import org.koin.core.context.startKoin
 import java.util.*
 
-class AppLockApplication : EzApplication(), LifecycleObserver {
+class AppLockApplication : Application(), LifecycleObserver {
     private var isForeground = false
+
+
+
     override fun onCreate() {
         super.onCreate()
+        mApplication = this
         PreferencesUtils.init(this)
         Hawk.init(this).build()
         setupKoin()
@@ -53,6 +58,16 @@ class AppLockApplication : EzApplication(), LifecycleObserver {
                 flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
             }
             isForeground = false
+        }
+    }
+
+    companion object{
+        private var mApplication: AppLockApplication? = null
+        fun getContext(): Context{
+            if (mApplication == null){
+                return AppLockApplication()
+            }
+            return mApplication!!
         }
     }
 }

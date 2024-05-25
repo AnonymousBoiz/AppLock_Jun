@@ -13,13 +13,11 @@ import androidx.annotation.Nullable;
 import androidx.lifecycle.LifecycleObserver;
 import androidx.lifecycle.OnLifecycleEvent;
 import androidx.lifecycle.ProcessLifecycleOwner;
-import androidx.multidex.MultiDexApplication;
 
 import com.google.android.gms.ads.ez.admob.AdmobNativeAdUtils;
-import com.google.android.gms.ads.ez.admob.AdmobOpenAdUtils;
 import com.google.android.gms.ads.ez.remote.AppConfigs;
 
-public class EzApplication extends MultiDexApplication implements LifecycleObserver, Application.ActivityLifecycleCallbacks {
+public class EzApplication extends Application implements LifecycleObserver, Application.ActivityLifecycleCallbacks {
     private static EzApplication INSTANCE;
 
     public static EzApplication getInstance() {
@@ -35,14 +33,10 @@ public class EzApplication extends MultiDexApplication implements LifecycleObser
         super.onCreate();
         INSTANCE = this;
 
-
         registerActivityLifecycleCallbacks(this);
         ProcessLifecycleOwner.get().getLifecycle().addObserver(this);
         AppConfigs.getInstance(this);
-        InstallReferrerReceiver.receiverInstall(this);
-//        IAPUtils.getInstance().init(this);
         AdmobNativeAdUtils.getInstance(this);
-
     }
 
 
@@ -55,7 +49,6 @@ public class EzApplication extends MultiDexApplication implements LifecycleObser
             Log.e("vvvvvvvvv", "onActivityCreated:111111111111 " );
             EzAdControl.initAd(currentActivity);
             EzAdControl.getInstance(currentActivity).loadAd();
-            RewardedAdUtils.getInstance(currentActivity);
         }
         currentActivity = activity;
     }

@@ -13,7 +13,7 @@ import com.google.android.gms.ads.LoadAdError;
 import com.google.android.gms.ads.appopen.AppOpenAd;
 import com.google.android.gms.ads.ez.AdChecker;
 import com.google.android.gms.ads.ez.AdFactoryListener;
-import com.google.android.gms.ads.ez.EzAdControl;
+;
 import com.google.android.gms.ads.ez.LogUtils;
 import com.google.android.gms.ads.ez.adparam.AdUnit;
 import com.google.android.gms.ads.ez.utils.StateOption;
@@ -131,45 +131,6 @@ public class AdmobOpenAdUtils {
         }
     }
 
-    public void loadAdx() {
-        LogUtils.logString(this, "Load Adx Call");
-
-
-        AppOpenAd.AppOpenAdLoadCallback loadCallback2 =
-                new AppOpenAd.AppOpenAdLoadCallback() {
-                    @Override
-                    public void onAdLoaded(@NonNull AppOpenAd appOpenAd) {
-                        super.onAdLoaded(appOpenAd);
-                        LogUtils.logString(AdmobOpenAdUtils.class, "Adx Loaded ");
-                        AdmobOpenAdUtils.this.appOpenAd = appOpenAd;
-                        AdmobOpenAdUtils.this.loadTime = (new Date()).getTime();
-                        stateOption.setOnLoaded();
-                        if (adListener != null) {
-                            adListener.onLoaded();
-                        }
-
-                    }
-
-                    @Override
-                    public void onAdFailedToLoad(@NonNull LoadAdError loadAdError) {
-                        super.onAdFailedToLoad(loadAdError);
-
-                        LogUtils.logString(AdmobOpenAdUtils.class, "Adx Failed");
-
-
-                        setOnError();
-
-                    }
-                };
-
-
-        AdRequest request = getAdRequest();
-        LogUtils.logString(AdmobOpenAdUtils.class, "Show app open adx with id: " + AdUnit.getAdxOpenId());
-        AppOpenAd.load(
-                mActivity, AdUnit.getAdxOpenId(), request,
-                AppOpenAd.APP_OPEN_AD_ORIENTATION_PORTRAIT, loadCallback2);
-    }
-
     public void showAdIfAvailable(boolean iscapping) {
         LogUtils.logString(AdmobOpenAdUtils.class, "Show  Ad ");
         if (isAdAvailable()) {
@@ -265,33 +226,4 @@ public class AdmobOpenAdUtils {
         long numMilliSecondsPerHour = 3600000;
         return (dateDifference < (numMilliSecondsPerHour * numHours));
     }
-
-
-    private void setOnError() {
-        stateOption.setOnFailed();
-
-        // o day deu ban ra on errror vi neu ban ra on loaded thi se lai call show open ad.
-        // ban ra error de chuyen activity con vao activity trong ms show
-        EzAdControl.getInstance(mActivity).setAdListener(new AdFactoryListener() {
-            @Override
-            public void onError() {
-                LogUtils.logString(AdmobOpenAdUtils.class, "Inter onError");
-                if (adListener != null) {
-                    adListener.onError();
-                    adListener = null;
-                }
-            }
-
-            @Override
-            public void onLoaded() {
-                LogUtils.logString(AdmobOpenAdUtils.class, "Inter onLoaded");
-                if (adListener != null) {
-                    adListener.onError();
-                    adListener = null;
-                }
-            }
-        });
-
-    }
-
 }

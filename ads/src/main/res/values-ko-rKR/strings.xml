@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="txt_loading_ads">광고 로드 중...</string>
+    <string name="txt_title_rate">저희는 더 나은 사용자 경험을 위해 열심히 노력하고 있습니다</string>
+    <string name="txt_des">저희를 평가해 주시면 정말 감사하겠습니다</string>
+    <string name="txt_the_best_rate">우리가 얻을 수 있는 최고입니다 :)</string>
+    <string name="txt_maybe_later">나중에</string>
+    <string name="txt_title_bad">아, 안 돼요!</string>
+    <string name="txt_content_bad">의견을 남겨주세요</string>
+    <string name="txt_title_good">저희도 당신을 좋아합니다!</string>
+    <string name="txt_content_good">의견을 보내주셔서 감사합니다</string>
+    <string name="title_warning_version">애플리케이션 버전이 너무 낮습니다. 우리 앱을 경험하려면 최신 버전을 업데이트하세요. 감사합니다</string>
+    <string name="txt_goto_store">동의하고 업데이트로 이동</string>
+    <string name="txt_do_later">나중에 물어보세요</string>
+    <string name="txt_rate_us">평가해 주세요</string>
+    <string name="txt_no_connection">인터넷이 없습니다!</string>
+    <string name="txt_check_your_internet">연결을 확인하거나 다시 시도하세요</string>
+    <string name="txt_retry">인터넷 다시 시도</string>
+</resources>

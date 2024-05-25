@@ -2,8 +2,8 @@ package com.appanhnt.applocker.utils
 
 
 import android.content.SharedPreferences
+import com.appanhnt.applocker.AppLockApplication
 import com.appanhnt.applocker.key.Icon.ICON
-import com.google.android.gms.ads.ez.EzAdControl.getContext
 import kotlin.jvm.internal.Intrinsics
 
 
@@ -240,6 +240,6 @@ class Settings private constructor() {
         val INSTANCE = Settings()
 //        private var sharedPreferences: SharedPreferences? = null
         private val sharedPreferences: SharedPreferences =
-            getContext().getSharedPreferences("AppLock", 0)
+            AppLockApplication.getContext().getSharedPreferences("AppLock", 0)
     }
 }

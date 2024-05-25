@@ -84,13 +84,6 @@ public class AppConfigs {
         return _instance.getConfig().getString(key);
     }
 
-    public static Long getLong(String key) {
-        if (_instance == null) {
-            return 0L;
-        }
-        return _instance.getConfig().getLong(key);
-    }
-
     public static Integer getInt(String key) {
         if (_instance == null) {
             return 0;

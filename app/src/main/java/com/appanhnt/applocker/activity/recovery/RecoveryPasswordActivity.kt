@@ -15,7 +15,7 @@ import com.anhnt.baseproject.extensions.launchActivity
 import com.anhnt.baseproject.utils.PreferencesUtils
 import com.appanhnt.applocker.activity.concern.ConcernedAppActivity
 import com.appanhnt.applocker.databinding.ActivityRecoveryPasswordBinding
-import com.google.android.gms.ads.ez.EzAdControl
+
 import org.koin.android.ext.android.inject
 
 
@@ -61,7 +61,7 @@ class RecoveryPasswordActivity : BaseActivity<ActivityRecoveryPasswordBinding>()
         }
         // back
         binding.icBack.setOnClickListener {
-            onBackPressed()
+            showAds(isBackScreen = true)
         }
     }
 
@@ -78,7 +78,6 @@ class RecoveryPasswordActivity : BaseActivity<ActivityRecoveryPasswordBinding>()
     override fun onBackPressed() {
         if (intent.getBooleanExtra(KeyQuestion.KEY_CHANGE_QUESTION, false)) {
             // ads
-            EzAdControl.getInstance(this).showAds()
             super.onBackPressed()
         } else {
             finishAffinity()

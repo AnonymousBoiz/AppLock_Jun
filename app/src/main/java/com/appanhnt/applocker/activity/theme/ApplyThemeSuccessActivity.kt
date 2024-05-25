@@ -7,7 +7,9 @@ import com.appanhnt.applocker.databinding.ActivityApplyThemeSuccessBinding
 import com.anhnt.baseproject.activity.BaseActivity
 import com.anhnt.baseproject.extensions.getHeightStatusBar
 import com.anhnt.baseproject.extensions.launchActivity
+import com.appanhnt.applocker.R
 import com.appanhnt.applocker.activity.home.HomeActivity
+import com.lutech.ads.AdsManager
 
 
 class ApplyThemeSuccessActivity : BaseActivity<ActivityApplyThemeSuccessBinding>() {
@@ -17,6 +19,7 @@ class ApplyThemeSuccessActivity : BaseActivity<ActivityApplyThemeSuccessBinding>
     }
     override fun initView() {
         setStatusBarHomeTransparent(this)
+        AdsManager.loadNativeAds(this, binding.myTemplate, R.string.applock_native_home_id)
         binding.album.setPadding(0, getHeightStatusBar(), 0, 0)
     }
 

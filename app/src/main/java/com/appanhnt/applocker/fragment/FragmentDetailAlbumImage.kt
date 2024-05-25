@@ -5,7 +5,7 @@ import android.view.ViewGroup
 import android.view.Window
 import com.appanhnt.applocker.R
 import com.appanhnt.applocker.adapter.DetailAlbumRestoreImageAdapter
-import com.appanhnt.applocker.databinding.LayoutDetailAlbumRestoreIamgeBinding
+import com.appanhnt.applocker.databinding.FragmentDetailAlbumRestoreIamgeBinding
 import com.appanhnt.applocker.databinding.LayoutDialogDeleteImageBinding
 import com.appanhnt.applocker.dialog.DialogDeleteImage
 import com.appanhnt.applocker.item.ItemAlbumRestoreImages
@@ -13,11 +13,12 @@ import com.appanhnt.applocker.utils.DialogLoadingUtils
 import com.appanhnt.applocker.utils.ImageUtil
 import com.appanhnt.applocker.utils.RecycleViewUtils
 import com.anhnt.baseproject.fragment.BaseFragment
-import com.google.android.gms.ads.ez.EzAdControl
+import com.appanhnt.applocker.activity.restore.RestoreActivity
+
 import java.io.File
 
 class FragmentDetailAlbumImage(var item: ItemAlbumRestoreImages) :
-    BaseFragment<LayoutDetailAlbumRestoreIamgeBinding>() {
+    BaseFragment<FragmentDetailAlbumRestoreIamgeBinding>() {
     var onBack: (() -> Unit)? = null
     private var dialogQuestion: DialogDeleteImage? = null
     private var adapterDetailAlbumRestoreImage: DetailAlbumRestoreImageAdapter? = null
@@ -60,8 +61,8 @@ class FragmentDetailAlbumImage(var item: ItemAlbumRestoreImages) :
     override fun getViewBinding(
         inflater: LayoutInflater,
         container: ViewGroup?
-    ): LayoutDetailAlbumRestoreIamgeBinding {
-        return LayoutDetailAlbumRestoreIamgeBinding.inflate(inflater, container, false)
+    ): FragmentDetailAlbumRestoreIamgeBinding {
+        return FragmentDetailAlbumRestoreIamgeBinding.inflate(inflater, container, false)
     }
 
     private fun selectImage(it: Int) {
@@ -116,7 +117,9 @@ class FragmentDetailAlbumImage(var item: ItemAlbumRestoreImages) :
         }
         ImageUtil.recoverListFileImage(listImage, requireContext())
         DialogLoadingUtils.showDialogHiding(requireContext(), false)
-        EzAdControl.getInstance(requireActivity()).showAds()
+        if (requireActivity() is RestoreActivity){
+            (requireActivity() as RestoreActivity).showIntersAds(null)
+        }
         onBack?.invoke()
     }
 }

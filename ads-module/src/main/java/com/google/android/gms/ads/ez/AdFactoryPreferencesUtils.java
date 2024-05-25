@@ -9,40 +9,6 @@ public class AdFactoryPreferencesUtils {
         return context.getSharedPreferences("Share", 0);
     }
 
-
-
-    public static void setTagBoolean(Context context, String tag, boolean enable) {
-        SharedPreferences.Editor localEditor = context.getSharedPreferences(FILE_NAME, 0).edit();
-        localEditor.putBoolean(tag, enable);
-        localEditor.commit();
-    }
-
-    public static boolean getTagBoolean(Context context, String tag) {
-        return context.getSharedPreferences(FILE_NAME, 0).getBoolean(tag, false);
-    }
-
-    public static boolean getTagBoolean(Context context, String tag, boolean defaultParam) {
-        return context.getSharedPreferences(FILE_NAME, 0).getBoolean(tag, defaultParam);
-    }
-
-    /**************************
-     * String
-     **************************/
-    public static void setTagString(Context context, String tag, String value) {
-        SharedPreferences.Editor localEditor = context.getSharedPreferences(FILE_NAME, 0).edit();
-        localEditor.putString(tag, value);
-        localEditor.commit();
-    }
-
-
-    public static String getTagString(Context context, String tag) {
-        return context.getSharedPreferences(FILE_NAME, 0).getString(tag, "");
-    }
-
-    public static String getTagString(Context context, String tag, String defaultParam) {
-        return context.getSharedPreferences(FILE_NAME, 0).getString(tag, defaultParam);
-    }
-
     /**************************
      * Integer
      **************************/

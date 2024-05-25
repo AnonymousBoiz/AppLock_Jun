@@ -64,9 +64,13 @@ public class CameraPreview extends SurfaceView implements SurfaceHolder.Callback
      * Initialize the surface view holder.
      */
     public void initSurfaceView() {
-        mHolder = getHolder();
-        mHolder.addCallback(this);
-        mHolder.setType(SurfaceHolder.SURFACE_TYPE_PUSH_BUFFERS);
+        try {
+            mHolder = getHolder();
+            mHolder.addCallback(this);
+            mHolder.setType(SurfaceHolder.SURFACE_TYPE_PUSH_BUFFERS);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
     }
 
 
@@ -139,6 +143,7 @@ public class CameraPreview extends SurfaceView implements SurfaceHolder.Callback
         } catch (IOException | NullPointerException e) {
             //Cannot start preview
             mCameraCallbacks.onCameraError(CameraError.ERROR_CAMERA_OPEN_FAILED);
+            e.printStackTrace();
         }
     }
 
@@ -233,11 +238,15 @@ public class CameraPreview extends SurfaceView implements SurfaceHolder.Callback
      * When this function returns, mCamera will be null.
      */
     public void stopPreviewAndFreeCamera() {
-        safeToTakePicture = false;
-        if (mCamera != null) {
-            mCamera.stopPreview();
-            mCamera.release();
-            mCamera = null;
+        try {
+            safeToTakePicture = false;
+            if (mCamera != null) {
+                mCamera.stopPreview();
+                mCamera.release();
+                mCamera = null;
+            }
+        }catch (Exception e){
+            e.printStackTrace();
         }
     }
 }

@@ -18,7 +18,7 @@ import com.androidhiddencamera.config.*
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.appanhnt.applocker.R
-import com.appanhnt.applocker.databinding.ActivityLockSettingBinding
+import com.appanhnt.applocker.databinding.ActivityLockScreenBinding
 import com.appanhnt.applocker.dialog.DialogQuestion
 import com.appanhnt.applocker.key.*
 import com.appanhnt.applocker.service.LockService
@@ -37,15 +37,14 @@ import com.appanhnt.applocker.activity.notification.DetailNotificationActivity
 import com.appanhnt.applocker.activity.home.HomeActivity
 import com.appanhnt.applocker.key.IntrusionAlert
 import com.appanhnt.applocker.key.KeyApp
-import com.google.android.gms.ads.ez.listenner.NativeAdListener
-import com.google.android.gms.ads.ez.nativead.AdmobNativeAdView2
+import com.lutech.ads.AdsManager
 import com.orhanobut.hawk.Hawk
 import com.reginald.patternlockview.PatternLockView
 import org.koin.android.ext.android.inject
 import org.koin.core.component.KoinApiExtension
 
 
-class LockActivity : BaseActivity<ActivityLockSettingBinding>(), CameraCallbacks {
+class LockActivity : BaseActivity<ActivityLockScreenBinding>(), CameraCallbacks {
     private var mCameraPreview: CameraPreview? = null
     private var mCachedCameraConfig: CameraConfig? = null
     private var dialogQuestion: DialogQuestion? = null
@@ -58,6 +57,8 @@ class LockActivity : BaseActivity<ActivityLockSettingBinding>(), CameraCallbacks
     @KoinApiExtension
     @SuppressLint("UseCompatLoadingForDrawables")
     override fun initView() {
+        AdsManager.loadNativeAds(this, binding.myTemplate, R.string.applock_native_home_id)
+
 //        //set up theme
         binding.textLock.setTextColor(ThemeUtils.getLineColorText())
 //        binding.bgLock.setBackgroundDrawable(ThemeUtils.themeBackground(this))
@@ -110,33 +111,8 @@ class LockActivity : BaseActivity<ActivityLockSettingBinding>(), CameraCallbacks
         }
     }
 
-    private fun loadAds() {
-        AdmobNativeAdView2.getNativeAd(
-            this,
-            R.layout.native_admod_lock,
-            object : NativeAdListener() {
-                override fun onError() {
-                }
-
-                override fun onLoaded(nativeAd: RelativeLayout?) {
-                    nativeAd?.let {
-                        if (it.parent != null) {
-                            (it.parent as ViewGroup).removeView(it)
-                        }
-                        binding.adsView.addView(it)
-                        binding.adsView.let { ads ->
-                        }
-                        binding.icIconApp.animate().alpha(0F).duration = 100
-                    }
-                }
-
-                override fun onClickAd() {
-                }
-            })
-    }
-
-    override fun viewBinding(): ActivityLockSettingBinding {
-        return ActivityLockSettingBinding.inflate(LayoutInflater.from(this))
+    override fun viewBinding(): ActivityLockScreenBinding {
+        return ActivityLockScreenBinding.inflate(LayoutInflater.from(this))
     }
 
     override fun initData() {
@@ -280,7 +256,9 @@ class LockActivity : BaseActivity<ActivityLockSettingBinding>(), CameraCallbacks
             intent.getBooleanExtra(KeyApp.LOCK_MY_APP, false) -> {
 
                 if (isDetailNotify) {
-                    launchActivity<DetailNotificationActivity> { }
+                    val intent = Intent(this, DetailNotificationActivity::class.java)
+                    showAds(intent)
+//                    launchActivity<DetailNotificationActivity> { }
                 } else {
                     launchActivity<HomeActivity> { }
                 }
@@ -406,7 +384,6 @@ class LockActivity : BaseActivity<ActivityLockSettingBinding>(), CameraCallbacks
             dialogQuestion?.window!!.setType(WindowManager.LayoutParams.TYPE_SYSTEM_ALERT)
         dialogQuestion?.window?.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_VISIBLE)
         dialogQuestion?.requestWindowFeature(Window.FEATURE_NO_TITLE)
-        dialogQuestion?.show()
         dialogQuestion?.listenerClickOkay = {
             val answer = PreferencesUtils.getString(KeyQuestion.KEY_ANSWER, "")
             if (it.equals(answer, true)) {
@@ -416,6 +393,10 @@ class LockActivity : BaseActivity<ActivityLockSettingBinding>(), CameraCallbacks
             }
             dialogQuestion?.dismiss()
             KeyboardUtils.hideSoftKeyboard(this)
+        }
+
+        if (!isFinishing && !isDestroyed){
+            dialogQuestion?.show()
         }
     }
 }

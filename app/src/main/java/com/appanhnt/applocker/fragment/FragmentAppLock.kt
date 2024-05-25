@@ -15,7 +15,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.annotation.RequiresApi
 import com.appanhnt.applocker.R
-import com.appanhnt.applocker.databinding.LayoutFragmentAppLockBinding
+import com.appanhnt.applocker.databinding.FragmentAppLockBinding
 import com.appanhnt.applocker.viewmodel.AppLockViewModel
 import com.appanhnt.applocker.viewmodel.NotifyViewModel
 import com.anhnt.baseproject.extensions.launchActivity
@@ -31,7 +31,7 @@ import com.orhanobut.hawk.Hawk
 import org.koin.android.ext.android.inject
 
 
-class FragmentAppLock(val index: Int) : BaseFragment<LayoutFragmentAppLockBinding>() {
+class FragmentAppLock(val index: Int) : BaseFragment<FragmentAppLockBinding>() {
     private var listApp: MutableList<ItemAppLock> = mutableListOf()
     private val viewModel by inject<AppLockViewModel>()
     private val viewNotifyModel by inject<NotifyViewModel>()
@@ -74,9 +74,14 @@ class FragmentAppLock(val index: Int) : BaseFragment<LayoutFragmentAppLockBindin
                 }
                 if (!listApp[it].isLocked) {
                     listApp[it].isLocked = !listApp[it].isLocked
-                    requireActivity().launchActivity<LockAppSuccessActivity> {
+                    val intent = Intent(requireContext(), LockAppSuccessActivity::class.java)
+                    if (requireActivity() is AppLockActivity){
                         LockAppSuccessActivity.data = listApp[it]
+                        (requireActivity() as AppLockActivity).showIntersAds(intent)
                     }
+//                    requireActivity().launchActivity<LockAppSuccessActivity> {
+//                        LockAppSuccessActivity.data = listApp[it]
+//                    }
                     viewModel.currentItem.postValue(listApp[it])
                     // view model update change UI app main lock
                     viewModel.changeAppLock.value = (true)
@@ -219,7 +224,7 @@ class FragmentAppLock(val index: Int) : BaseFragment<LayoutFragmentAppLockBindin
     override fun getViewBinding(
         inflater: LayoutInflater,
         container: ViewGroup?
-    ): LayoutFragmentAppLockBinding {
-        return LayoutFragmentAppLockBinding.inflate(inflater, container, false)
+    ): FragmentAppLockBinding {
+        return FragmentAppLockBinding.inflate(inflater, container, false)
     }
 }

@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#25253F"
-    tools:context=".activity.vault.ActivityVault">
+    tools:context=".activity.vault.VaultActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/vault"
@@ -87,7 +87,7 @@
         android:layout_margin="@dimen/_15sdp"
         app:cardCornerRadius="@dimen/_100sdp"
         app:cardElevation="@dimen/_8sdp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/frAdcontainer"
         app:layout_constraintDimensionRatio="1:1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintWidth_percent="0.155">
@@ -143,7 +143,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/constraintLayout"
-        app:spanCount="3" />
+        app:spanCount="3"
+        tools:listitem="@layout/layout_item_video" />
 
     <ImageView
         android:id="@+id/iv_empty"
@@ -183,11 +184,11 @@
         app:layout_constraintHeight_max="@dimen/_75sdp"
         app:layout_constraintTop_toBottomOf="@+id/tv_content_empty" />
 
-<!--    <com.google.android.gms.ads.ez.BannerAd-->
-<!--        android:id="@+id/banner"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="@dimen/_50sdp"-->
-<!--        app:layout_constraintBottom_toBottomOf="parent" />-->
-
+    <FrameLayout
+        android:id="@+id/frAdcontainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="50dp"
+        app:layout_constraintBottom_toBottomOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

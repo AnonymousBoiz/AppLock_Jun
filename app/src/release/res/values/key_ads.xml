@@ -1,5 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="applock_app_id" translatable="false">ca-app-pub-6567371235509783~1966520844</string>
+    <string name="applock_inters_id" translatable="false">ca-app-pub-6567371235509783/8866971116</string>
+
     <string name="applock_native_language_id" translatable="false">ca-app-pub-6567371235509783/1646722530</string>
     <string name="applock_native_home_id" translatable="false">ca-app-pub-6567371235509783/9333640862</string>
+
+    <string name="applock_ads_open_id" translatable="false">ca-app-pub-6567371235509783/5119297794</string>
+
+    <string name="applock_collapsible_banner_id" translatable="false">ca-app-pub-6567371235509783/1831079422</string>
+
 </resources>

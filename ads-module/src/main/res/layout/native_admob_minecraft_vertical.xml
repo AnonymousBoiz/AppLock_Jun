@@ -51,7 +51,6 @@
                 app:layout_constraintDimensionRatio="H,1:1"
                 android:layout_marginEnd="@dimen/_10sdp"
                 android:layout_marginRight="@dimen/_5sdp"
-                app:civ_circle_background_color="@android:color/white"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toStartOf="@id/content_view"
                 app:layout_constraintTop_toTopOf="parent" />

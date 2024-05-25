@@ -1,5 +1,6 @@
 package com.appanhnt.applocker.activity.restore
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.Window
 import com.appanhnt.applocker.dialog.DialogDeleteImage
@@ -20,7 +21,7 @@ import com.appanhnt.applocker.R
 import com.appanhnt.applocker.activity.home.HomeActivity
 import com.appanhnt.applocker.databinding.ActivityRetoreBinding
 import com.appanhnt.applocker.databinding.LayoutDialogDeleteImageBinding
-import com.google.android.gms.ads.ez.EzAdControl
+
 import org.koin.android.ext.android.inject
 
 class RestoreActivity : BaseActivity<ActivityRetoreBinding>() {
@@ -29,8 +30,6 @@ class RestoreActivity : BaseActivity<ActivityRetoreBinding>() {
     private val viewModelRestoreAudios by inject<RestoreAudioViewModel>()
     private var dialogQuestion: DialogDeleteImage? = null
     override fun initView() {
-        // ads
-        EzAdControl.getInstance(this).showAds()
         //
         setStatusBarHomeTransparent(this)
         binding.restore.setPadding(0, getHeightStatusBar(), 0, 0)
@@ -78,7 +77,7 @@ class RestoreActivity : BaseActivity<ActivityRetoreBinding>() {
         val fragment = FragmentDetailAlbumImage(item)
         fragment.onBack = {
             // ads
-            EzAdControl.getInstance(this).showAds()
+            showAds(null)
             fragmentAllRestore(0)
         }
         transaction.apply {
@@ -98,7 +97,7 @@ class RestoreActivity : BaseActivity<ActivityRetoreBinding>() {
         val fragment = FragmentDetailAlbumVideos(item)
         fragment.onBack = {
             // ads
-            EzAdControl.getInstance(this).showAds()
+            showAds(null)
             fragmentAllRestore(1)
         }
         transaction.apply {
@@ -118,7 +117,7 @@ class RestoreActivity : BaseActivity<ActivityRetoreBinding>() {
         val fragment = FragmentDetailAlbumAudios(item)
         fragment.onBack = {
             // ads
-            EzAdControl.getInstance(this).showAds()
+            showAds(null)
             fragmentAllRestore(2)
         }
         transaction.apply {
@@ -258,5 +257,9 @@ class RestoreActivity : BaseActivity<ActivityRetoreBinding>() {
             launchActivity<HomeActivity> { }
             overridePendingTransition(R.anim.pull_in_left, R.anim.push_out_right)
         }
+    }
+
+    fun showIntersAds(intent: Intent?){
+        showAds(intent)
     }
 }

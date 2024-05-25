@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="txt_loading_ads">広告を読み込んでいます...</string>
+    <string name="txt_title_rate">ユーザー エクスペリエンスを向上させるために懸命に取り組んでいます</string>
+    <string name="txt_des">評価していただければ幸いです</string>
+    <string name="txt_the_best_rate">私たちが得ることができる最高のもの:)</string>
+    <string name="txt_maybe_later">おそらく後で</string>
+    <string name="txt_title_bad">ああ、だめです!</string>
+    <string name="txt_content_bad">フィードバックをお寄せください</string>
+    <string name="txt_title_good">私たちもあなたのことが好きです!</string>
+    <string name="txt_content_good">フィードバックをお寄せいただきありがとうございます</string>
+    <string name="title_warning_version">アプリケーションのバージョンが低すぎます。アプリを体験するには最新バージョンに更新してください。ありがとう</string>
+    <string name="txt_goto_store">同意し、更新に進みます</string>
+    <string name="txt_do_later">後で聞いてください</string>
+    <string name="txt_rate_us">評価してください</string>
+    <string name="txt_no_connection">インターネットがありません!</string>
+    <string name="txt_check_your_internet">接続を確認するか、再試行してください</string>
+    <string name="txt_retry">インターネットを再試行</string>
+</resources>

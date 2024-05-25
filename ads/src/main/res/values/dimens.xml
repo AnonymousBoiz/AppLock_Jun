@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="switch_radius">36dp</dimen>
+    <dimen name="switch_size">24dp</dimen>
+    <dimen name="switch_padding">-1dp</dimen>
+
+    <dimen name="gnt_default_margin">10dp</dimen>
+    <dimen name="gnt_text_size_small">12sp</dimen>
+    <dimen name="gnt_text_size_large">15sp</dimen>
+    <dimen name="gnt_no_margin">0dp</dimen>
+    <dimen name="gnt_no_size">0dp</dimen>
+</resources>

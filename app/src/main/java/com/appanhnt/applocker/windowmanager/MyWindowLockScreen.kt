@@ -31,15 +31,11 @@ import com.appanhnt.applocker.utils.VibrationUtil
 import com.appanhnt.applocker.viewmodel.ThemeViewModel
 import com.appanhnt.applocker.widget.MyGroupView
 import com.anhnt.baseproject.utils.PreferencesUtils
-import com.appanhnt.applocker.utils.AppUtil
-import com.google.android.gms.ads.ez.listenner.NativeAdListener
-import com.google.android.gms.ads.ez.nativead.AdmobNativeAdView2
 import com.orhanobut.hawk.Hawk
 import com.reginald.patternlockview.PatternLockView
 import com.tailoredapps.biometricauth.BiometricAuthenticationCancelledException
 import com.tailoredapps.biometricauth.BiometricAuthenticationException
 import com.tailoredapps.biometricauth.delegate.androidxlegacy.AndroidXBiometricAuth
-import com.tailoredapps.biometricauth.delegate.legacy.LegacyBiometricAuth
 import com.tailoredapps.biometricauth.delegate.pie.PieBiometricAuth
 import org.koin.core.component.KoinApiExtension
 import org.koin.core.component.KoinComponent
@@ -241,33 +237,6 @@ open class MyWindowLockScreen(var context: Context, var pkg: String?) : KoinComp
             passWordInCorrect(context.getString(R.string.pin_incorrect))
         }
         //
-    }
-
-    private fun loadAds() {
-        AdmobNativeAdView2.getNativeAd(
-            context,
-            R.layout.native_admod_lock,
-            object : NativeAdListener() {
-                override fun onError() {
-                }
-
-                override fun onLoaded(nativeAd: RelativeLayout?) {
-                    nativeAd?.let {
-                        if (it.parent != null) {
-                            (it.parent as ViewGroup).removeView(it)
-                        }
-                        binding.adsView.addView(it)
-                        //anim
-                        binding.icIconApp.animate().alpha(0F).duration = 100
-                    }
-                }
-
-                override fun onClickAd() {
-                    Handler().postDelayed({
-                        clearView()
-                    }, 200)
-                }
-            })
     }
 
     private fun takePhoto() {

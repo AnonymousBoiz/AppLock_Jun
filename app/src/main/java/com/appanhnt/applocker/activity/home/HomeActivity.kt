@@ -1,6 +1,5 @@
 package com.appanhnt.applocker.activity.home
 
-import android.Manifest
 import android.annotation.SuppressLint
 import android.app.ActivityManager
 import android.content.Intent
@@ -9,17 +8,14 @@ import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.os.Handler
+import android.os.Looper
 import android.provider.Settings
 import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import android.view.animation.DecelerateInterpolator
 import android.widget.FrameLayout
-import android.widget.RelativeLayout
-import androidx.annotation.RequiresApi
 import com.appanhnt.applocker.R
 import com.appanhnt.applocker.activity.theme.ThemeActivity
-import com.appanhnt.applocker.adapter.LinerMainAdapter
 import com.appanhnt.applocker.dialog.DialogPermission
 import com.appanhnt.applocker.item.ItemSpeedUp
 import com.appanhnt.applocker.key.KeyLock
@@ -34,24 +30,19 @@ import com.anhnt.baseproject.extensions.launchActivity
 import com.anhnt.baseproject.utils.PreferencesUtils
 import com.anhnt.baseproject.view.rate.DialogRating
 import com.anhnt.baseproject.view.rate.DialogRatingState
-import com.appanhnt.applocker.activity.same.SameImageActivity
-import com.appanhnt.applocker.activity.restore.RestoreActivity
 import com.appanhnt.applocker.activity.intrusion.IntrusionAlertActivity
 import com.appanhnt.applocker.activity.applock.AppLockActivity
-import com.appanhnt.applocker.activity.clean.CleanActivity
 import com.appanhnt.applocker.activity.icon.IconCamouflage2Activity
 import com.appanhnt.applocker.activity.permission.GuidePermissionActivity
 import com.appanhnt.applocker.activity.setting.SettingsActivity
-import com.appanhnt.applocker.activity.vault.ActivityVault
+import com.appanhnt.applocker.activity.vault.VaultActivity
 import com.appanhnt.applocker.adapter.ProtectedAdapter
-import com.appanhnt.applocker.ads.Utils
 import com.appanhnt.applocker.databinding.ActivityHomeBinding
 import com.appanhnt.applocker.item.ItemAppLock
 import com.appanhnt.applocker.item.ItemGridMain
 import com.appanhnt.applocker.key.KeyApp
 import com.appanhnt.applocker.service.LockService
-import com.google.android.gms.ads.ez.listenner.NativeAdListener
-import com.google.android.gms.ads.ez.nativead.AdmobNativeAdView2
+import com.lutech.ads.AdsManager
 import com.orhanobut.hawk.Hawk
 import com.tailoredapps.biometricauth.BiometricAuth
 import com.takusemba.spotlight.OnSpotlightListener
@@ -67,7 +58,6 @@ class HomeActivity : BaseActivity<ActivityHomeBinding>() {
     private val listGridMain = mutableListOf<ItemGridMain>()
     private val listLinerMain = mutableListOf<ItemSpeedUp>()
     private val listProtected = mutableListOf<ItemAppLock>()
-    private lateinit var linerMainAdapter: LinerMainAdapter
     private lateinit var protectedAdapter: ProtectedAdapter
     private val viewModel by inject<HideImageViewModel>()
     private val viewModelLock by inject<AppLockViewModel>()
@@ -124,7 +114,7 @@ class HomeActivity : BaseActivity<ActivityHomeBinding>() {
 
     @OptIn(KoinApiExtension::class)
     override fun initView() {
-        Utils.loadNativeAds(this, binding.myTemplate, R.string.applock_native_home_id)
+        AdsManager.loadNativeAds(this, binding.myTemplate, R.string.applock_native_home_id)
         val px = resources.getDimensionPixelSize(R.dimen._15sdp)
         val pxs = resources.getDimensionPixelSize(R.dimen._10sdp)
         setStatusBarHomeTransparent(this)
@@ -149,7 +139,6 @@ class HomeActivity : BaseActivity<ActivityHomeBinding>() {
 //                return false
 //            }
 //        }
-        linerMainAdapter = LinerMainAdapter(this, listLinerMain)
 //        binding.rclLinear.adapter = linerMainAdapter
         //
         protectedAdapter = ProtectedAdapter(this, listProtected)
@@ -159,7 +148,6 @@ class HomeActivity : BaseActivity<ActivityHomeBinding>() {
         activityManager = getSystemService(ACTIVITY_SERVICE) as ActivityManager
         activityManager.getMemoryInfo(mi)
         //
-        loadAdsNative()
         // intro view
         if (PreferencesUtils.getBoolean(KeyLock.FIRST_INTRO, true)) {
             PreferencesUtils.putBoolean(KeyLock.FIRST_INTRO, false)
@@ -169,32 +157,40 @@ class HomeActivity : BaseActivity<ActivityHomeBinding>() {
         }
 
         binding.clLockTheme.setOnClickListener {
-            launchActivity<ThemeActivity> {}
+            val intent = Intent(this, ThemeActivity::class.java)
+            showAds(intent)
+//            launchActivity<ThemeActivity> {}
         }
 
         binding.clGallery.setOnClickListener {
 //            LockService.isCreate = true // not lock when request any permission
-            launchActivity<ActivityVault> {}
+            val intent = Intent(this, VaultActivity::class.java)
+            showAds(intent)
+//            launchActivity<ActivityVault> {}
 
         }
 
-        binding.clIcon.setOnClickListener {
-        }
 
         binding.clFinger.setOnClickListener {
 
         }
 
         binding.btnIntrusionAlert.setOnClickListener {
-            launchActivity<IntrusionAlertActivity> {}
+            val intent = Intent(this, IntrusionAlertActivity::class.java)
+            showAds(intent)
+//            launchActivity<IntrusionAlertActivity> {}
         }
 
         binding.btnDrawer.setOnClickListener {
-            launchActivity<SettingsActivity> {}
+            val intent = Intent(this, SettingsActivity::class.java)
+            showAds(intent)
+//            launchActivity<SettingsActivity> {}
         }
 
         binding.clIcon.setOnClickListener {
-            launchActivity<IconCamouflage2Activity> {}
+            val intent = Intent(this, IconCamouflage2Activity::class.java)
+            showAds(intent)
+//            launchActivity<IconCamouflage2Activity> {}
         }
 
         checkFingerprint {
@@ -292,86 +288,10 @@ class HomeActivity : BaseActivity<ActivityHomeBinding>() {
         //
         binding.backgroundLock.setOnClickListener {
             viewModelLock.loadApp(this)
-            launchActivity<AppLockActivity> { }
+            val intent = Intent(this, AppLockActivity::class.java)
+            showAds(intent)
+//            launchActivity<AppLockActivity> { }
         }
-        //
-//        gridMainAdapter.listenerCLick = {
-//            when (it) {
-//                getString(R.string.warning) -> {
-//                    launchActivity<IntrusionAlertActivity> {}
-//                }
-//                getString(R.string.setting) -> {
-//                    launchActivity<SettingsActivity> {}
-//                }
-//                getString(R.string.vault) -> {
-//                    LockService.isCreate = true // not lock when request any permission
-//                    requestPermission(
-//                        complete = { complete ->
-//                            if (complete) {
-//                                launchActivity<ActivityVault> {}
-//                            }
-//                        },
-//                        Manifest.permission.WRITE_EXTERNAL_STORAGE,
-//                        Manifest.permission.READ_EXTERNAL_STORAGE
-//                    )
-//                }
-//                getString(R.string.theme) -> {
-//                    launchActivity<ThemeActivity> {}
-//                }
-//            }
-//        }
-        //
-        linerMainAdapter.listenerOnClick = {
-            when (listLinerMain[it].resId) {
-                R.drawable.ic_data -> {
-                    LockService.isCreate = true // not lock when request any permission
-                    requestPermission(
-                        complete = { complete ->
-                            if (complete) {
-                                launchActivity<CleanActivity> {}
-                            }
-                        },
-                        Manifest.permission.WRITE_EXTERNAL_STORAGE,
-                        Manifest.permission.READ_EXTERNAL_STORAGE
-                    )
-                }
-
-                R.drawable.ic_storage -> {
-                    LockService.isCreate = true // not lock when request any permission
-                    requestPermission(
-                        complete = { complete ->
-                            if (complete) {
-                                launchActivity<RestoreActivity> { }
-                            }
-                        },
-                        Manifest.permission.WRITE_EXTERNAL_STORAGE,
-                        Manifest.permission.READ_EXTERNAL_STORAGE
-                    )
-                }
-
-                R.drawable.ic_delete_same_image -> {
-                    LockService.isCreate = true // not lock when request any permission
-                    requestPermission(
-                        complete = { complete ->
-                            if (complete) {
-//                                fistData = true
-                                viewModel.getImagesGallery(this, false)
-                                launchActivity<SameImageActivity> { }
-                            }
-                        },
-                        Manifest.permission.WRITE_EXTERNAL_STORAGE,
-                        Manifest.permission.READ_EXTERNAL_STORAGE
-                    )
-                }
-            }
-        }
-        //
-//        binding.layoutRate.buttonRate.setOnClickListener {
-//            val intent = Intent(Intent.ACTION_VIEW)
-//            intent.data =
-//                Uri.parse("market://details?id=com.ezmobi.applock")
-//            startActivity(intent)
-//        }
     }
 
     private fun checkFingerprint(state: (Int) -> Unit) {
@@ -385,26 +305,6 @@ class HomeActivity : BaseActivity<ActivityHomeBinding>() {
         } else {
             state.invoke(AppUtil.HAVE_SUPPORT)
         }
-    }
-
-    private fun loadAdsNative() {
-        AdmobNativeAdView2.getNativeAd(
-            this,
-            R.layout.native_admod_home, object : NativeAdListener() {
-                override fun onError() {}
-                override fun onLoaded(nativeAd: RelativeLayout?) {
-                    nativeAd?.let {
-                        if (it.parent != null) {
-                            (it.parent as ViewGroup).removeView(it)
-                        }
-//                        binding.adsView.addView(it)
-                    }
-                }
-
-                override fun onClickAd() {
-//                TODO("Not yet implemented")
-                }
-            })
     }
 
     @KoinApiExtension
@@ -502,7 +402,6 @@ class HomeActivity : BaseActivity<ActivityHomeBinding>() {
             remainingMemory = (mi.totalMem - mi.availMem).toDouble()
             totalMemory = mi.totalMem.toDouble()
         }
-        linerMainAdapter.notifyItemChanged(0)
     }
 
     override fun onBackPressed() {
@@ -549,14 +448,12 @@ class HomeActivity : BaseActivity<ActivityHomeBinding>() {
         } else {
             BackgroundManager.openUsageStats(this)
         }
-        Handler().postDelayed({
+        Handler(Looper.getMainLooper()).postDelayed({
             launchActivity<GuidePermissionActivity> { }
         }, 200)
-
     }
 
     @KoinApiExtension
-    @RequiresApi(Build.VERSION_CODES.M)
     private fun overlayPermission() {
         LockService.isRequestPermission = true
         val myIntent = Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION)
@@ -575,6 +472,7 @@ class HomeActivity : BaseActivity<ActivityHomeBinding>() {
 
     override fun onResume() {
         super.onResume()
+        AdsManager.isUserOutApp = false
         binding.swichFinger.isChecked = PreferencesUtils.getBoolean(KeyLock.LOCK_FINGER, false)
         if (dialogPermission != null && dialogPermission!!.isShowing) {
             if (BackgroundManager.isAccessGranted(this)) {

@@ -7,7 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.appanhnt.applocker.activity.preview.PreviewImageActivity
 import com.appanhnt.applocker.adapter.ImageHideAdapter
-import com.appanhnt.applocker.databinding.LayoutFragmentImageBinding
+import com.appanhnt.applocker.databinding.FragmentImageBinding
 import com.appanhnt.applocker.item.ItemImageHide
 import com.appanhnt.applocker.key.Vault
 import com.appanhnt.applocker.viewmodel.HideImageViewModel
@@ -15,7 +15,7 @@ import com.anhnt.baseproject.fragment.BaseFragment
 import com.orhanobut.hawk.Hawk
 import org.koin.android.ext.android.inject
 
-class FragmentImage : BaseFragment<LayoutFragmentImageBinding>() {
+class FragmentImage : BaseFragment<FragmentImageBinding>() {
     private lateinit var adapterImageHide: ImageHideAdapter
     private var listImageHide = mutableListOf<ItemImageHide>()
     private val viewModel by inject<HideImageViewModel>()
@@ -114,8 +114,8 @@ class FragmentImage : BaseFragment<LayoutFragmentImageBinding>() {
     override fun getViewBinding(
         inflater: LayoutInflater,
         container: ViewGroup?
-    ): LayoutFragmentImageBinding {
-        return LayoutFragmentImageBinding.inflate(inflater, container, false)
+    ): FragmentImageBinding {
+        return FragmentImageBinding.inflate(inflater, container, false)
     }
 
     override fun onStop() {

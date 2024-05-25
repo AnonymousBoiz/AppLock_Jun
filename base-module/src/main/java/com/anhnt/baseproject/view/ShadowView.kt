@@ -1382,15 +1382,15 @@ open class ShadowView : FrameLayout {
     }
   }
 
-  override fun onDraw(canvas: Canvas?) {
+  override fun onDraw(canvas: Canvas) {
     super.onDraw(canvas)
     drawBackground(canvas)
     drawStroke(canvas)
     drawShadows(canvas)
   }
 
-  override fun drawChild(canvas: Canvas?, child: View?, drawingTime: Long): Boolean {
-    canvas?.clipPath(getNoStrokePath())
+  override fun drawChild(canvas: Canvas, child: View?, drawingTime: Long): Boolean {
+    canvas.clipPath(getNoStrokePath())
     return super.drawChild(canvas, child, drawingTime)
   }
 

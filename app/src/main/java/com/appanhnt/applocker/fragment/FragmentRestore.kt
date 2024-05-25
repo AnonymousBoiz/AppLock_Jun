@@ -3,10 +3,10 @@ package com.appanhnt.applocker.fragment
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import com.appanhnt.applocker.adapter.PagerRestoreAdapter
-import com.appanhnt.applocker.databinding.LayoutFragmentRestoreBinding
+import com.appanhnt.applocker.databinding.FragmentRestoreBinding
 import com.anhnt.baseproject.fragment.BaseFragment
 
-class FragmentRestore(var position: Int) : BaseFragment<LayoutFragmentRestoreBinding>() {
+class FragmentRestore(var position: Int) : BaseFragment<FragmentRestoreBinding>() {
 
     override fun initView() {
         fragmentManager?.let {
@@ -27,8 +27,8 @@ class FragmentRestore(var position: Int) : BaseFragment<LayoutFragmentRestoreBin
     override fun getViewBinding(
         inflater: LayoutInflater,
         container: ViewGroup?
-    ): LayoutFragmentRestoreBinding {
-        return LayoutFragmentRestoreBinding.inflate(inflater, container, false)
+    ): FragmentRestoreBinding {
+        return FragmentRestoreBinding.inflate(inflater, container, false)
     }
 
     override fun onDestroy() {

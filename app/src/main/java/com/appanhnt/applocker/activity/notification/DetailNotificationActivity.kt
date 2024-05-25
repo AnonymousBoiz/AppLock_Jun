@@ -16,7 +16,7 @@ import com.anhnt.baseproject.activity.BaseActivity
 import com.anhnt.baseproject.extensions.getHeightStatusBar
 import com.anhnt.baseproject.extensions.launchActivity
 import com.appanhnt.applocker.activity.home.HomeActivity
-import com.google.android.gms.ads.ez.EzAdControl
+
 import org.koin.android.ext.android.inject
 import org.koin.core.component.KoinApiExtension
 
@@ -27,8 +27,6 @@ class DetailNotificationActivity : BaseActivity<ActivityDetailNotificationBindin
 
     @KoinApiExtension
     override fun initView() {
-        // ads
-        EzAdControl.getInstance(this).showAds()
         //
         LockService.showDetailNotify = false
         setStatusBarHomeTransparent(this)

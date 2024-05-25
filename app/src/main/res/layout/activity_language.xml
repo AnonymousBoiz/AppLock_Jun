@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activity.language.LanguageActivity"
-    android:background="@color/background">
+    android:background="@color/background"
+    tools:context=".activity.language.LanguageActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/layout_top"
@@ -44,16 +44,15 @@
             android:id="@+id/iv_done"
             android:layout_width="@dimen/_30sdp"
             android:layout_height="@dimen/_30sdp"
+            android:layout_marginVertical="@dimen/_12sdp"
             android:layout_marginEnd="@dimen/_10sdp"
             android:padding="@dimen/_4sdp"
-            android:layout_marginVertical="@dimen/_12sdp"
             android:src="@drawable/ic_done"
             android:tint="@color/white"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
-
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rc_language"
@@ -67,16 +66,15 @@
         app:layout_constraintTop_toBottomOf="@id/layout_top"
         tools:listitem="@layout/item_language" />
 
-
-    <com.appanhnt.applocker.ads.TemplateView
+    <com.lutech.ads.nativead.TemplateView
         android:id="@+id/myTemplate"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="5dp"
-        app:layout_constraintBottom_toBottomOf="parent"
         android:elevation="5dp"
         android:minHeight="140dp"
         android:visibility="visible"
-        app:gnt_template_type="@layout/gnt_small_template_language_view" />
+        app:gnt_template_type="@layout/gnt_small_template_language_view"
+        app:layout_constraintBottom_toBottomOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

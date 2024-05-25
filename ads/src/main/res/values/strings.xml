@@ -1,0 +1,73 @@
+<resources>
+    <string name="app_name" translatable="false">Ads</string>
+
+    <string name="txt_help_to_improve_us_email_subject" translatable="false">Suggestions &amp; Comments for %s</string>
+    <string name="txt_help_to_improve_us_body" translatable="false">Please write down your comments below this line.</string>
+    <string name="txt_no_mail_found" translatable="false">No mail app found!!!</string>
+    <string name="email_feedback" translatable="false">teammarketing@lutech.ltd</string>
+
+    <!--    test ads-->
+    <string name="applock_app_id" translatable="false">ca-app-pub-3940256099942544~3347511713</string>
+    <string name="applock_inters_id" translatable="false">ca-app-pub-3940256099942544/1033173712</string>
+    <string name="applock_ads_open_id" translatable="false">ca-app-pub-3940256099942544/9257395921</string>
+
+    <string name="applock_native_language_id" translatable="false">ca-app-pub-3940256099942544/2247696110</string>
+    <string name="applock_native_home_id" translatable="false">ca-app-pub-3940256099942544/2247696110</string>
+
+
+    <string name="applock_native_permission_id" translatable="false">ca-app-pub-3940256099942544/2247696110</string>
+    <string name="applock_native_intro_id" translatable="false">ca-app-pub-3940256099942544/2247696110</string>
+
+    <string name="applock_collapsible_banner_id" translatable="false">ca-app-pub-3940256099942544/2014213617</string>
+    <string name="applock_banner_id" translatable="false">ca-app-pub-3940256099942544/6300978111</string>
+
+    <string name="applock_reward_ads_id" translatable="false">ca-app-pub-3940256099942544/5224354917</string>
+
+    <string name="appname_reward_interstitial_ads_id" translatable="false">ca-app-pub-3940256099942544/5354046379</string>
+
+    <string name="english" translatable="false">English</string>
+    <string name="vietnamese" translatable="false">Tiếng Việt</string>
+    <string name="french" translatable="false">Français</string>
+    <string name="india" translatable="false">हिन्दी</string>
+    <string name="spain" translatable="false">Español</string>
+    <string name="portugal" translatable="false">Português</string>
+    <string name="germany" translatable="false">Deutsch</string>
+    <string name="italy" translatable="false">Italiano</string>
+    <string name="japan" translatable="false">日本</string>
+
+    <string name="uae" translatable="false">عربي</string>
+    <string name="thailand" translatable="false">ไทย</string>
+    <string name="israel" translatable="false">עִברִית</string>
+    <string name="korea" translatable="false">한국인</string>
+    <string name="nederland" translatable="false">Nederlands</string>
+
+    <string name="sounth_african" translatable="false">Afrikaans</string>
+    <string name="georgian" translatable="false">Georgian</string>
+    <string name="polish" translatable="false">Polish</string>
+    <string name="german" translatable="false">Deutsche</string>
+    <string name="turkish" translatable="false">Turkish</string>
+    <string name="indonesia" translatable="false">bahasa Indonesia</string>
+    <string name="phillipin" translatable="false">Filipino</string>
+    <string name="dutch" translatable="false">Dutch</string>
+    <string name="romanian" translatable="false">Romanian</string>
+    <string name="greek" translatable="false">Greek</string>
+    <string name="romansh" translatable="false">Romansh</string>
+
+    <string name="txt_loading_ads">Loading ads...</string>
+    <string name="txt_title_rate">We are working hard for a better user experience</string>
+    <string name="txt_des">We’d greatly appreciate if you can rate us</string>
+    <string name="txt_the_best_rate">The best we can get :)</string>
+    <string name="txt_maybe_later">Maybe later</string>
+    <string name="txt_title_bad">Oh, no!</string>
+    <string name="txt_content_bad">Please leave us some feedback</string>
+    <string name="txt_title_good">We like you too!</string>
+    <string name="txt_content_good">Thank for your feedback</string>
+    <string name="title_warning_version">Your application version too low. Please update newest version to experience our app. Thanks</string>
+    <string name="txt_goto_store">I agree and go to update</string>
+    <string name="txt_do_later">Ask me later</string>
+    <string name="txt_rate_us">Rate us</string>
+
+    <string name="txt_no_connection">No Internet!</string>
+    <string name="txt_check_your_internet">Check your connection or try again</string>
+    <string name="txt_retry">Retry internet</string>
+</resources>

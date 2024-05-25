@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="txt_loading_ads">Memuat iklan...</string>
+    <string name="txt_title_rate">Kami bekerja keras untuk pengalaman pengguna yang lebih baik</string>
+    <string name="txt_des">Kami akan sangat menghargai jika Anda dapat menilai kami</string>
+    <string name="txt_the_best_rate">Yang terbaik yang bisa kami dapatkan :)</string>
+    <string name="txt_maybe_later">Mungkin nanti</string>
+    <string name="txt_title_bad">Oh, tidak!</string>
+    <string name="txt_content_bad">Silakan berikan masukan kepada kami</string>
+    <string name="txt_title_good">Kami juga menyukaimu!</string>
+    <string name="txt_content_good">Terima kasih atas masukan Anda</string>
+    <string name="title_warning_version">Versi aplikasi Anda terlalu rendah. Harap perbarui versi terbaru untuk merasakan aplikasi kami. Terima kasih</string>
+    <string name="txt_goto_store">Saya setuju dan lanjutkan untuk memperbarui</string>
+    <string name="txt_do_later">Tanyakan lagi nanti</string>
+    <string name="txt_rate_us">Beri kami nilai</string>
+    <string name="txt_no_connection">Tanpa Internet!</string>
+    <string name="txt_check_your_internet">Periksa koneksi Anda atau coba lagi</string>
+    <string name="txt_retry">Coba lagi internet</string>
+</resources>

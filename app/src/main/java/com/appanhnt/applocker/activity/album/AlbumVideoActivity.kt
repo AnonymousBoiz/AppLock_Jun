@@ -29,7 +29,7 @@ import com.appanhnt.applocker.activity.vault.LockFileSuccessActivity
 import com.appanhnt.applocker.databinding.ActivityAlbumVideoBinding
 import com.appanhnt.applocker.key.KEY_COUNT
 import com.appanhnt.applocker.key.REQUEST_CODE_READ_MEDIA_PMS
-import com.google.android.gms.ads.ez.EzAdControl
+import com.lutech.ads.AdsManager
 import org.koin.android.ext.android.inject
 import java.io.File
 
@@ -53,9 +53,9 @@ class AlbumVideoActivity : BaseActivity<ActivityAlbumVideoBinding>() {
     }
 
     override fun initView() {
+        AdsManager.loadNativeAds(this, binding.myTemplate, R.string.applock_native_home_id)
+
         checkItemCount()
-        // ads
-        EzAdControl.getInstance(this).showAds()
         //
         setStatusBarHomeTransparent(this)
         binding.album.setPadding(0, getHeightStatusBar(), 0, 0)
@@ -235,7 +235,7 @@ class AlbumVideoActivity : BaseActivity<ActivityAlbumVideoBinding>() {
             launchActivity<LockFileSuccessActivity> {
                 putExtra(KEY_COUNT, count)
             }
-            EzAdControl.getInstance(this).showAds()
+            showAds(null)
         }
     }
 

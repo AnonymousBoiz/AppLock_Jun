@@ -272,7 +272,6 @@
                         android:fontFamily="@font/nunito_bold"
                         android:includeFontPadding="false"
                         android:paddingEnd="@dimen/_6sdp"
-
                         android:text="@string/icon_camouflage"
                         android:textColor="@color/text_big"
                         android:textSize="@dimen/_18sdp"
@@ -340,7 +339,7 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.core.widget.NestedScrollView>
 
-    <com.appanhnt.applocker.ads.TemplateView
+    <com.lutech.ads.nativead.TemplateView
         android:id="@+id/myTemplate"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

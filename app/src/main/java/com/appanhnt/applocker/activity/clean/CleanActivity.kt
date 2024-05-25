@@ -12,7 +12,6 @@ import com.appanhnt.applocker.databinding.ActivityCleanBinding
 import com.appanhnt.applocker.viewmodel.CleanerViewModel
 import com.anhnt.baseproject.activity.BaseActivity
 import com.anhnt.baseproject.extensions.getHeightStatusBar
-import com.google.android.gms.ads.ez.EzAdControl
 import org.koin.android.ext.android.inject
 import kotlin.math.roundToInt
 import kotlin.random.Random
@@ -51,7 +50,7 @@ class CleanActivity : BaseActivity<ActivityCleanBinding>() {
                     startValueAnimator(binding.layoutInfo)
                 }
                 // ads
-                EzAdControl.getInstance(this).showAds()
+                showAds(null)
                 //
             }
         }

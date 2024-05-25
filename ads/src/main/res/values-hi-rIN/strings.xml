@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name='txt_loading_ads'>विज्ञापन लोड हो रहा है...</string>
+    <string name="txt_title_rate">हम बेहतर उपयोगकर्ता अनुभव के लिए कड़ी मेहनत कर रहे हैं</string>
+    <string name='txt_des'>अगर आप हमें रेटिंग दे सकें तो हम आपकी बहुत सराहना करेंगे</string>
+    <string name='txt_the_best_rate'>हम जो सर्वोत्तम प्राप्त कर सकते हैं :)</string>
+    <string name='txt_maybe_later'>शायद बाद में</string>
+    <string name='txt_title_bad'>ओह, नहीं!</string>
+    <string name='txt_content_bad'>कृपया हमें कुछ प्रतिक्रिया दें</string>
+    <string name='txt_title_good'>हम भी आपको पसंद करते हैं!</string>
+    <string name='txt_content_good'>आपके फ़ीडबैक के लिए धन्यवाद</string>
+    <string name='title_warning_version'>आपका एप्लिकेशन संस्करण बहुत कम है। कृपया हमारे ऐप का अनुभव लेने के लिए नवीनतम संस्करण अपडेट करें। धन्यवाद</string>
+    <string name='txt_goto_store'>मैं सहमत हूं और अपडेट पर जाता हूं</string>
+    <string name='txt_do_later'>मुझसे बाद में पूछें</string>
+    <string name='txt_rate_us'>हमें रेट करें</string>
+    <string name='txt_no_connection'>कोई इंटरनेट नहीं!</string>
+    <string name='txt_check_your_internet'>अपना कनेक्शन जांचें या पुनः प्रयास करें</string>
+    <string name='txt_retry'>इंटरनेट का पुनः प्रयास करें</string>
+</resources>

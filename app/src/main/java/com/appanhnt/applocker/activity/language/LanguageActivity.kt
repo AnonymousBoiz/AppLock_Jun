@@ -19,8 +19,8 @@ import com.appanhnt.applocker.activity.locktype.LockTypeActivity
 import com.appanhnt.applocker.activity.intro.IntroActivity
 import com.appanhnt.applocker.activity.lock.LockActivity
 import com.appanhnt.applocker.activity.home.HomeActivity
-import com.appanhnt.applocker.ads.Utils
 import com.appanhnt.applocker.service.LockService
+import com.lutech.ads.AdsManager
 import org.koin.android.ext.android.inject
 
 class LanguageActivity : BaseActivity<ActivityLanguageBinding>() {
@@ -34,7 +34,7 @@ class LanguageActivity : BaseActivity<ActivityLanguageBinding>() {
 
     @SuppressLint("UseCompatLoadingForDrawables")
     override fun initView() {
-        Utils.loadNativeAds(this, binding.myTemplate, R.string.applock_native_language_id)
+        AdsManager.loadNativeAds(this, binding.myTemplate, R.string.applock_native_language_id)
 
         val type = intent.getStringExtra("SETTING")
         if (!isChooseLanguage) {

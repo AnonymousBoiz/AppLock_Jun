@@ -28,7 +28,6 @@ import com.appanhnt.applocker.databinding.ActivityLockTypeBinding
 import com.appanhnt.applocker.key.KeyApp
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
-import com.google.android.gms.ads.ez.EzAdControl
 import com.orhanobut.hawk.Hawk
 import com.reginald.patternlockview.PatternLockView
 import org.koin.android.ext.android.inject
@@ -327,8 +326,10 @@ class LockTypeActivity : BaseActivity<ActivityLockTypeBinding>() {
         }
         if (intent.getBooleanExtra(KeyLock.CHANGE_PASSWORD, false)) {
 //             ads
-            EzAdControl.getInstance(this).showAds()
-            launchActivity<HomeActivity> { }
+            val intent = Intent(this, HomeActivity::class.java)
+            showAds(intent)
+//            EzAdControl.getInstance(this).showAds()
+//            launchActivity<HomeActivity> { }
         } else {
             PreferencesUtils.putBoolean(KeyApp.CREATED_PASSWORD, true)
 

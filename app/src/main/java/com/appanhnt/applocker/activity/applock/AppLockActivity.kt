@@ -23,10 +23,12 @@ import com.appanhnt.applocker.viewmodel.NotifyViewModel
 import com.anhnt.baseproject.activity.BaseActivity
 import com.anhnt.baseproject.extensions.getHeightStatusBar
 import com.anhnt.baseproject.utils.PreferencesUtils
+import com.appanhnt.applocker.BuildConfig
 import com.appanhnt.applocker.adapter.AppLockAdapter
 import com.appanhnt.applocker.item.ItemAppLock
 import com.appanhnt.applocker.key.KeyApp
-import com.google.android.gms.ads.ez.EzAdControl
+import com.lutech.ads.AdsManager
+import com.lutech.ads.banner.BannerPlugin
 import com.orhanobut.hawk.Hawk
 import org.koin.android.ext.android.inject
 import org.koin.core.component.KoinApiExtension
@@ -45,8 +47,6 @@ class AppLockActivity : BaseActivity<ActivityAppLockBinding>() {
     private val viewModelLock by inject<AppLockViewModel>()
 
     override fun initView() {
-        // ads
-        EzAdControl.getInstance(this).showAds()
         //
         //translucentStatus
         setStatusBarHomeTransparent(this)
@@ -99,6 +99,11 @@ class AppLockActivity : BaseActivity<ActivityAppLockBinding>() {
         binding.tabLayout.getTabAt(0)?.view?.findViewById<TextView>(R.id.title)
             ?.setTextColor(Color.parseColor("#FFFFFF"))
 
+        AdsManager.loadCollapseBannerAds(this, binding.frAdcontainer, getString(R.string.applock_collapsible_banner_id))
+    }
+
+    fun showIntersAds(intent: Intent){
+        showAds(intent)
     }
 
     @KoinApiExtension
@@ -142,7 +147,7 @@ class AppLockActivity : BaseActivity<ActivityAppLockBinding>() {
         }
         // back
         binding.icBackLockApp.setOnClickListener {
-            onBackPressed()
+            showAds(isBackScreen = true)
         }
         // search
         binding.search.addTextChangedListener(object : TextWatcher {
@@ -298,7 +303,6 @@ class AppLockActivity : BaseActivity<ActivityAppLockBinding>() {
         changeListAppLocked()
     }
 
-    @RequiresApi(Build.VERSION_CODES.M)
     private fun showExplanation(title: String, message: String, context: Context) {
         val alertDialog = AlertDialog.Builder(context)
             .setTitle(title)
@@ -338,8 +342,6 @@ class AppLockActivity : BaseActivity<ActivityAppLockBinding>() {
 
     override fun onBackPressed() {
         super.onBackPressed()
-        // ads
-        EzAdControl.getInstance(this).showAds()
         viewModelLock.changeAppLock.value = true
     }
 

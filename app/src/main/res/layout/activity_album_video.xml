@@ -22,10 +22,10 @@
             android:layout_margin="@dimen/_8sdp"
             android:background="@drawable/state_click_back"
             android:padding="@dimen/_5sdp"
-            app:srcCompat="@drawable/ic_back_activity_lock_app"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_back_activity_lock_app" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -46,9 +46,9 @@
             android:id="@+id/iv_select_all"
             android:layout_width="@dimen/_20sdp"
             android:layout_height="@dimen/_20sdp"
+            android:layout_marginEnd="@dimen/_16sdp"
             android:src="@drawable/ic_select_all_lock_app"
             app:layout_constraintBottom_toBottomOf="parent"
-            android:layout_marginEnd="@dimen/_16sdp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
@@ -62,25 +62,27 @@
         app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
         app:layout_constraintBottom_toTopOf="@+id/layout_hide"
         app:layout_constraintTop_toBottomOf="@+id/album"
-        tools:listitem="@layout/layout_item_video"
         app:layout_constraintVertical_bias="0.0"
         app:spanCount="3"
-        tools:layout_editor_absoluteX="0dp" />
+        tools:layout_editor_absoluteX="0dp"
+        tools:listitem="@layout/layout_item_video" />
 
     <LinearLayout
         android:id="@+id/layout_hide"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="@dimen/_10sdp"
+        android:layout_marginBottom="5dp"
         android:background="#52525E"
-        app:layout_constraintBottom_toBottomOf="parent">
+        android:padding="@dimen/_10sdp"
+        app:layout_constraintBottom_toTopOf="@id/myTemplate">
+
         <me.grantland.widget.AutofitTextView
             android:id="@+id/txt_hide"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:elevation="@dimen/_5sdp"
             android:background="@drawable/bg_action_dialog2"
+            android:elevation="@dimen/_5sdp"
             android:fontFamily="@font/font"
             android:gravity="center"
             android:maxLines="1"
@@ -91,9 +93,15 @@
             app:minTextSize="@dimen/_10sdp" />
     </LinearLayout>
 
-<!--    <com.google.android.gms.ads.ez.BannerAd-->
-<!--        android:id="@+id/banner"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="@dimen/_50sdp"-->
-<!--        app:layout_constraintBottom_toBottomOf="parent" />-->
+    <com.lutech.ads.nativead.TemplateView
+        android:id="@+id/myTemplate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="10dp"
+        android:elevation="5dp"
+        android:minHeight="140dp"
+        android:visibility="visible"
+        app:gnt_template_type="@layout/gnt_small_template_view"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

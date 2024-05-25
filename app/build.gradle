@@ -13,8 +13,9 @@ android {
         applicationId "com.haihd.applock"
         minSdkVersion 24
         targetSdk 34
-        versionCode 106
-        versionName "1.0.6"
+        versionCode 107
+        versionName "1.0.7"
+
         vectorDrawables.useSupportLibrary = true
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         def formattedDate = new Date().format('MMM.dd.yyyy')
@@ -34,29 +35,36 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
+    lint {
+        disable "Instantiatable"
+        baseline = file("lint-baseline.xml")
+    }
     kotlinOptions {
         jvmTarget = '1.8'
-    }
-    lint {
-        baseline = file("lint-baseline.xml")
     }
 }
 
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
-    implementation 'androidx.core:core-ktx:1.6.0'
-    implementation 'androidx.appcompat:appcompat:1.3.0'
-    implementation 'com.google.android.material:material:1.4.0'
-    implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
+    implementation 'androidx.core:core-ktx:1.13.1'
+    implementation 'androidx.appcompat:appcompat:1.6.1'
+    implementation 'com.google.android.material:material:1.12.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+    implementation 'androidx.navigation:navigation-fragment-ktx:2.7.7'
+    implementation 'androidx.navigation:navigation-ui-ktx:2.7.7'
+    implementation 'androidx.activity:activity:1.8.0'
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.5'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+
+    
     implementation project(path: ':base-module')
     implementation project(path: ':hiddencamera')
     implementation project(path: ':patternlock')
-    implementation 'androidx.navigation:navigation-fragment-ktx:2.3.5'
-    implementation 'androidx.navigation:navigation-ui-ktx:2.3.5'
-    implementation project(path: ':ads-module')
-    testImplementation 'junit:junit:4.+'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.3'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+//    implementation project(path: ':ads-module')
+
+    implementation project(path: ':ads')
+
     /*https://insert-koin.io/docs/quickstart/kotlin#setup*/
     implementation "org.koin:koin-core:2.2.2"
     implementation "org.koin:koin-android:2.2.2"
@@ -65,7 +73,7 @@ dependencies {
     // Koin AndroidX Fragment features
     implementation "org.koin:koin-androidx-fragment:2.2.2"
     /*https://github.com/intuit/sdp*/
-    implementation 'com.intuit.sdp:sdp-android:1.0.6'
+    implementation 'com.intuit.sdp:sdp-android:1.1.0'
     //
     implementation "com.orhanobut:hawk:2.0.1"
     //
@@ -74,39 +82,45 @@ dependencies {
     //
 //    implementation 'com.reginald:patternlock:2.0.0'
     // glide
-    implementation 'com.github.bumptech.glide:glide:4.12.0'
-    annotationProcessor 'com.github.bumptech.glide:compiler:4.12.0'
+    implementation 'com.github.bumptech.glide:glide:4.13.2'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.13.2'
     implementation fileTree(dir: 'libs', include: ['commons-io-2.4.jar'])
     // crop image
     implementation 'com.github.yalantis:ucrop:2.2.6'
     // lottie animation
-    def lottieVersion = "4.2.0"
+    def lottieVersion = "6.1.0"
     implementation "com.airbnb.android:lottie:$lottieVersion"
+
     //lifecycle
-    implementation "androidx.lifecycle:lifecycle-runtime-ktx:2.3.1"
+    implementation "androidx.lifecycle:lifecycle-runtime-ktx:2.7.0"
     implementation "androidx.lifecycle:lifecycle-extensions:2.2.0"
-    annotationProcessor "androidx.lifecycle:lifecycle-compiler:2.3.1"
-    // finger pin
+    annotationProcessor "androidx.lifecycle:lifecycle-compiler:2.7.0"
+    // fingerprint
     implementation "androidx.biometric:biometric:1.1.0"
     // TutorialView
-    implementation 'androidx.work:work-runtime-ktx:2.7.1'
+    implementation 'androidx.work:work-runtime-ktx:2.9.0'
     implementation 'com.google.android.play:review:2.0.1'
-}
 
-dependencies {
     implementation project(path: ':biometricauth-rxjava3')
     implementation project(path: ':spotlights')
     implementation "androidx.multidex:multidex:2.0.1"
+    //firebase
     implementation 'com.google.android.gms:play-services-ads:23.0.0'
     implementation 'com.flurry.android:analytics:14.4.0'
     implementation platform('com.google.firebase:firebase-bom:30.3.2')
     implementation 'com.google.firebase:firebase-analytics'
     implementation 'com.google.firebase:firebase-config:21.6.3'
     implementation 'com.google.firebase:firebase-crashlytics'
+    //ssp
     implementation 'com.intuit.ssp:ssp-android:1.1.0'
+    //rating
     implementation 'com.github.yangmbin:RatingBar:1.0.0'
+    //shimmer
     implementation 'com.facebook.shimmer:shimmer:0.5.0'
+    //pageindicator
     implementation 'com.romandanylyk:pageindicatorview:1.0.3'
 
     implementation 'io.github.elye:loaderviewlibrary:3.0.0'
+
+    implementation(platform("org.jetbrains.kotlin:kotlin-bom:1.8.0"))
 }

@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/background">
+    android:background="@color/background"
+    tools:context=".activity.icon.IconCamouflage2Activity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/top"
@@ -14,16 +15,16 @@
         tools:layout_editor_absoluteX="0dp">
 
         <androidx.appcompat.widget.AppCompatImageView
-            android:background="@drawable/state_click_back"
             android:id="@+id/btnContinue"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/_8sdp"
+            android:background="@drawable/state_click_back"
             android:padding="@dimen/_5sdp"
-            app:srcCompat="@drawable/ic_back_activity_lock_app"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_back_activity_lock_app" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -108,9 +109,23 @@
         android:layout_height="0dp"
         android:layout_marginTop="@dimen/_10sdp"
         android:layout_marginBottom="@dimen/_10sdp"
-        app:layout_constraintBottom_toTopOf="@+id/btnSave"
+        app:layout_constraintBottom_toTopOf="@+id/myTemplate"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/layoutIcon" />
+        app:layout_constraintTop_toBottomOf="@+id/layoutIcon"
+        tools:itemCount="5"
+        tools:listitem="@layout/layout_item_icon_camouflage" />
+
+    <com.lutech.ads.nativead.TemplateView
+        android:id="@+id/myTemplate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="10dp"
+        android:layout_marginBottom="10dp"
+        android:elevation="5dp"
+        android:minHeight="140dp"
+        android:visibility="visible"
+        app:gnt_template_type="@layout/gnt_small_template_view"
+        app:layout_constraintBottom_toTopOf="@id/btnSave" />
 
     <LinearLayout
         android:id="@+id/btnSave"

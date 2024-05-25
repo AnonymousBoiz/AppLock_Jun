@@ -21,10 +21,10 @@
             android:layout_margin="@dimen/_8sdp"
             android:background="@drawable/state_click_back"
             android:padding="@dimen/_5sdp"
-            app:srcCompat="@drawable/ic_back_activity_lock_app"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_back_activity_lock_app" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -53,8 +53,9 @@
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:layout_marginBottom="10dp"
         android:overScrollMode="never"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/myTemplate"
         app:layout_constraintTop_toBottomOf="@id/intrusion_alert"
         app:layout_constraintVertical_bias="0.0"
         tools:layout_editor_absoluteX="0dp">
@@ -194,11 +195,11 @@
                 android:padding="@dimen/_10sdp"
                 android:paddingStart="@dimen/_3sdp"
                 android:paddingEnd="@dimen/_3sdp"
-                tools:listitem="@layout/layout_item_photo"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/layout_time"
-                app:layout_constraintVertical_bias="0" />
+                app:layout_constraintVertical_bias="0"
+                tools:listitem="@layout/layout_item_photo" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.core.widget.NestedScrollView>
 
@@ -207,15 +208,22 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_margin="@dimen/_13sdp"
-        app:srcCompat="@drawable/ic_clear_photo"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/myTemplate"
         app:layout_constraintDimensionRatio="1:1"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintWidth_percent="0.150" />
+        app:layout_constraintWidth_percent="0.150"
+        app:srcCompat="@drawable/ic_clear_photo" />
 
-<!--    <com.google.android.gms.ads.ez.BannerAd-->
-<!--        android:id="@+id/banner"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="@dimen/_50sdp"-->
-<!--        app:layout_constraintBottom_toBottomOf="parent" />-->
+    <com.lutech.ads.nativead.TemplateView
+        android:id="@+id/myTemplate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="10dp"
+        android:elevation="5dp"
+        android:minHeight="140dp"
+        android:visibility="visible"
+        app:gnt_template_type="@layout/gnt_small_template_view"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

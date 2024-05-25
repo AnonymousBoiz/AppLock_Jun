@@ -27,7 +27,15 @@ class DialogQuestion(context: Context, style: Int) : Dialog(context, style) {
     }
 
     override fun show() {
-        super.show()
+        if (!isShowing){
+            super.show()
+        }
+    }
+
+    override fun dismiss() {
+        if (isShowing){
+            super.dismiss()
+        }
     }
 
     private fun initListener() {

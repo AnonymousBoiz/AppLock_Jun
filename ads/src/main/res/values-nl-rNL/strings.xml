@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="txt_loading_ads">Advertenties laden...</string>
+    <string name="txt_title_rate">We werken hard voor een betere gebruikerservaring</string>
+    <string name="txt_des">We zouden het zeer op prijs stellen als u ons kunt beoordelen</string>
+    <string name="txt_the_best_rate">Het beste wat we kunnen krijgen :)</string>
+    <string name="txt_maybe_later">Misschien later</string>
+    <string name="txt_title_bad">O nee!</string>
+    <string name="txt_content_bad">Laat ons wat feedback achter</string>
+    <string name="txt_title_good">Wij vinden jou ook leuk!</string>
+    <string name="txt_content_good">Bedankt voor je feedback</string>
+    <string name="title_warning_version">Je applicatieversie is te laag. Update de nieuwste versie om onze app te ervaren. Bedankt</string>
+    <string name="txt_goto_store">Ik ga akkoord en ga naar update</string>
+    <string name="txt_do_later">Vraag het mij later</string>
+    <string name="txt_rate_us">Beoordeel ons</string>
+    <string name="txt_no_connection">Geen internet!</string>
+    <string name="txt_check_your_internet">Controleer je verbinding of probeer het opnieuw</string>
+    <string name="txt_retry">Probeer internet opnieuw</string>
+</resources>

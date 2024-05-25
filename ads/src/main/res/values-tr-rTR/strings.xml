@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="txt_loading_ads">Reklamlar yükleniyor...</string>
+    <string name="txt_title_rate">Daha iyi bir kullanıcı deneyimi için çok çalışıyoruz</string>
+    <string name="txt_des">Bize puan verirseniz çok seviniriz</string>
+    <string name="txt_the_best_rate">Alabileceğimizin en iyisi :)</string>
+    <string name="txt_maybe_later">Belki daha sonra</string>
+    <string name="txt_title_bad">Ah, hayır!</string>
+    <string name="txt_content_bad">Lütfen bize geri bildirimde bulunun</string>
+    <string name="txt_title_good">Biz de sizi seviyoruz!</string>
+    <string name="txt_content_good">Geri bildiriminiz için teşekkür ederiz</string>
+    <string name="title_warning_version">Uygulama sürümünüz çok düşük. Uygulamamızı deneyimlemek için lütfen en yeni sürümü güncelleyin. Teşekkürler</string>
+    <string name="txt_goto_store">Kabul ediyorum ve güncellemeye gidiyorum</string>
+    <string name="txt_do_later">Bana daha sonra sor</string>
+    <string name="txt_rate_us">Bize puan verin</string>
+    <string name="txt_no_connection">İnternet Yok!</string>
+    <string name="txt_check_your_internet">Bağlantınızı kontrol edin veya tekrar deneyin</string>
+    <string name="txt_retry">İnterneti yeniden dene</string>
+</resources>

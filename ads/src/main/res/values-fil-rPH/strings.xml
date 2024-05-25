@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="txt_loading_ads">Naglo-load ng mga ad...</string>
+    <string name="txt_title_rate">Nagsusumikap kami nang husto para sa mas magandang karanasan ng user</string>
+    <string name="txt_des">Lubos naming ikinalulugod kung ma-rate mo kami</string>
+    <string name="txt_the_best_rate">Ang pinakamahusay na makukuha namin :)</string>
+    <string name="txt_maybe_later">Baka mamaya</string>
+    <string name="txt_title_bad">Naku, hindi!</string>
+    <string name="txt_content_bad">Mangyaring mag-iwan sa amin ng ilang feedback</string>
+    <string name="txt_title_good">Gusto ka rin namin!</string>
+    <string name="txt_content_good">Salamat sa iyong feedback</string>
+    <string name="title_warning_version">Masyadong mababa ang bersyon ng iyong application. Mangyaring i-update ang pinakabagong bersyon upang maranasan ang aming app. Salamat</string>
+    <string name="txt_goto_store">Sumasang-ayon ako at pumunta sa pag-update</string>
+    <string name="txt_do_later">Tanungin ako mamaya</string>
+    <string name="txt_rate_us">I-rate kami</string>
+    <string name="txt_no_connection">Walang Internet!</string>
+    <string name="txt_check_your_internet">Suriin ang iyong koneksyon o subukang muli</string>
+    <string name="txt_retry">Subukan muli ang internet</string>
+</resources>

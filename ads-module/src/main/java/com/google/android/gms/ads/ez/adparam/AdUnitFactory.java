@@ -26,35 +26,11 @@ public abstract class AdUnitFactory {
 
     public abstract String getAdmobBannerId();
 
-    public abstract String getAdmobRewardedId();
-
-    public abstract String getFacebookInterId();
-
-    public abstract String getFacebookBannerId();
-
-    public abstract String getFacebookNativeId();
-
     public abstract int getCountShowAds();
 
     public abstract int getLimitShowAds();
 
     public abstract long getTimeLastShowAds();
-
-
-    public abstract String getAdxInterId();
-
-    public abstract String getAdxBannerId();
-
-    public abstract String getAdxNativeId();
-
-    public abstract String getAdxOpenId();
-
-
-    public abstract String getApplovinBannerId();
-
-    public abstract String getApplovinInterId();
-
-    public abstract String getApplovinRewardId();
 
     public abstract String getMasterAdsNetwork();
 }

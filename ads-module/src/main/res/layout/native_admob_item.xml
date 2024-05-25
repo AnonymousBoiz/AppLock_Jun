@@ -42,9 +42,6 @@
                     android:scaleType="centerCrop"
                     android:visibility="gone" />
 
-
-
-
                 <LinearLayout
                     android:layout_marginBottom="@dimen/_5sdp"
                     android:layout_width="match_parent"

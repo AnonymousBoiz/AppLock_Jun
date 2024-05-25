@@ -66,6 +66,8 @@ class LockService : HiddenCameraService() {
     private val PKG_APP = "com.appanhnt.applocker"
     private val PKG_INSTALLER = "com.google.android.packageinstaller"
 
+    private var mHomeWatcher: HomeWatcher? = null
+
 
     private val onListenerScreenState: BroadcastReceiver = object : BroadcastReceiver() {
         override fun onReceive(context: Context?, intent: Intent?) {
@@ -155,8 +157,8 @@ class LockService : HiddenCameraService() {
         // run check open app locked
         runForever()
         // call back click button home
-        val mHomeWatcher = HomeWatcher(this)
-        mHomeWatcher.setOnHomePressedListener(object : OnHomePressedListener {
+        mHomeWatcher = HomeWatcher(this)
+        mHomeWatcher?.setOnHomePressedListener(object : OnHomePressedListener {
             override fun onHomePressed() {
 //                isShowLock = false
                 Log.d("Huy", "onHomePressed: ")
@@ -177,7 +179,7 @@ class LockService : HiddenCameraService() {
                 window = null
             }
         })
-        mHomeWatcher.startWatch()
+        mHomeWatcher?.startWatch()
         //
 
         return START_STICKY
@@ -443,6 +445,7 @@ class LockService : HiddenCameraService() {
         } catch (e: Exception) {
             e.message
         }
+        mHomeWatcher?.stopWatch()
         //
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             NotificationUtil.cancelNotification(this)

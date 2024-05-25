@@ -6,7 +6,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.appanhnt.applocker.activity.restore.RestoreActivity
 import com.appanhnt.applocker.adapter.AlbumRestoreAudiosAdapter
-import com.appanhnt.applocker.databinding.LayoutFragmentAlbumAudioBinding
+import com.appanhnt.applocker.databinding.FragmentAlbumAudioBinding
 import com.appanhnt.applocker.item.ItemAlbumRestoreAudios
 import com.appanhnt.applocker.utils.RecycleViewUtils
 import com.appanhnt.applocker.viewmodel.RestoreAudioViewModel
@@ -14,7 +14,7 @@ import com.anhnt.baseproject.fragment.BaseFragment
 import org.koin.android.ext.android.inject
 import java.io.File
 
-class FragmentAlbumRestoreAudios : BaseFragment<LayoutFragmentAlbumAudioBinding>() {
+class FragmentAlbumRestoreAudios : BaseFragment<FragmentAlbumAudioBinding>() {
     private val viewModelRestoreAudios by inject<RestoreAudioViewModel>()
     private var adapterAlbumRestoreAudios: AlbumRestoreAudiosAdapter? = null
     private var listAlbumRestoreAudios = mutableListOf<ItemAlbumRestoreAudios>()
@@ -81,7 +81,7 @@ class FragmentAlbumRestoreAudios : BaseFragment<LayoutFragmentAlbumAudioBinding>
     override fun getViewBinding(
         inflater: LayoutInflater,
         container: ViewGroup?
-    ): LayoutFragmentAlbumAudioBinding {
-        return LayoutFragmentAlbumAudioBinding.inflate(inflater, container, false)
+    ): FragmentAlbumAudioBinding {
+        return FragmentAlbumAudioBinding.inflate(inflater, container, false)
     }
 }

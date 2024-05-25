@@ -18,7 +18,6 @@ import com.appanhnt.applocker.viewmodel.TakePhotoViewModel
 import com.anhnt.baseproject.activity.BaseActivity
 import com.anhnt.baseproject.extensions.getHeightStatusBar
 import com.anhnt.baseproject.utils.PreferencesUtils
-import com.google.android.gms.ads.ez.EzAdControl
 import org.koin.android.ext.android.inject
 import org.koin.core.component.KoinApiExtension
 
@@ -29,8 +28,6 @@ class IntrusionAlertActivity : BaseActivity<ActivityIntrusionAlertBinding>() {
     private var dialogQuestion: DialogDeleteImage? = null
     override fun initView() {
         setLocale(PreferencesUtils.getString(KEY_LANGUAGE, "en"))
-        // ads
-        EzAdControl.getInstance(this).showAds()
         //
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             binding.turnOn.isChecked =
@@ -143,7 +140,7 @@ class IntrusionAlertActivity : BaseActivity<ActivityIntrusionAlertBinding>() {
             viewModel.delete(this)
             adapterPhoto.notifyDataSetChanged()
             dialogQuestion?.dismiss()
-            EzAdControl.getInstance(this).showAds()
+            showAds(null)
         }
         dialogQuestion?.listenerNo = {
             dialogQuestion?.dismiss()

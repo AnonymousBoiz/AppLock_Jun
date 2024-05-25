@@ -6,7 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.appanhnt.applocker.activity.preview.PreviewVideoActivity
 import com.appanhnt.applocker.adapter.VideoHideAdapter
-import com.appanhnt.applocker.databinding.LayoutFragmentVideoBinding
+import com.appanhnt.applocker.databinding.FragmentVideoBinding
 import com.appanhnt.applocker.item.ItemVideoHide
 import com.appanhnt.applocker.key.Vault
 import com.appanhnt.applocker.utils.CompareFile
@@ -16,7 +16,7 @@ import com.orhanobut.hawk.Hawk
 import org.koin.android.ext.android.inject
 import java.io.File
 
-class FragmentVideo : BaseFragment<LayoutFragmentVideoBinding>() {
+class FragmentVideo : BaseFragment<FragmentVideoBinding>() {
     private lateinit var adapterVideoHide: VideoHideAdapter
     private var listIVideoHide = mutableListOf<ItemVideoHide>()
     private val viewModel by inject<HideVideoModel>()
@@ -119,8 +119,8 @@ class FragmentVideo : BaseFragment<LayoutFragmentVideoBinding>() {
     override fun getViewBinding(
         inflater: LayoutInflater,
         container: ViewGroup?
-    ): LayoutFragmentVideoBinding {
-        return LayoutFragmentVideoBinding.inflate(inflater, container, false)
+    ): FragmentVideoBinding {
+        return FragmentVideoBinding.inflate(inflater, container, false)
     }
 
     override fun onStart() {
