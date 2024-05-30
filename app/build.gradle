@@ -13,13 +13,13 @@ android {
         applicationId "com.haihd.applock"
         minSdkVersion 24
         targetSdk 34
-        versionCode 107
-        versionName "1.0.7"
+        versionCode 108
+        versionName "1.0.8"
 
         vectorDrawables.useSupportLibrary = true
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         def formattedDate = new Date().format('MMM.dd.yyyy')
-        archivesBaseName = "AppLock_v${versionName}(${versionCode})_${formattedDate}"
+        archivesBaseName = "$versionCode/AppLock_v${versionCode}_${formattedDate}"
     }
 
     buildTypes {

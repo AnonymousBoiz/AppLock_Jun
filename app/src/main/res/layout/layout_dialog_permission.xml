@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
@@ -98,7 +99,7 @@
                 android:textOff=""
                 android:textOn=""
                 android:thumb="@drawable/thumb_lock_new_app"
-                app:track="@drawable/track_selector"/>
+                app:track="@drawable/track_selector" />
         </RelativeLayout>
 
         <RelativeLayout
@@ -136,7 +137,7 @@
                 android:textOff=""
                 android:textOn=""
                 android:thumb="@drawable/thumb_lock_new_app"
-                app:track="@drawable/track_selector"/>
+                app:track="@drawable/track_selector" />
         </RelativeLayout>
 
         <RelativeLayout
@@ -173,8 +174,7 @@
                 android:textOff=""
                 android:textOn=""
                 android:thumb="@drawable/thumb_lock_new_app"
-                app:track="@drawable/track_selector"
-                />
+                app:track="@drawable/track_selector" />
         </RelativeLayout>
 
         <RelativeLayout
@@ -182,9 +182,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:clickable="true"
-            android:visibility="gone"
             android:focusable="true"
-            app:layout_constraintTop_toBottomOf="@+id/btnOptimize">
+            android:visibility="gone"
+            app:layout_constraintTop_toBottomOf="@+id/btnOptimize"
+            tools:visibility="visible">
 
             <TextView
                 android:layout_width="match_parent"
@@ -208,7 +209,11 @@
                 android:layout_centerVertical="true"
                 android:layout_marginEnd="@dimen/_20sdp"
                 android:clickable="false"
-                android:focusable="false" />
+                android:focusable="false"
+                android:textOff=""
+                android:textOn=""
+                android:thumb="@drawable/thumb_lock_new_app"
+                app:track="@drawable/track_selector" />
         </RelativeLayout>
 
         <LinearLayout

@@ -21,7 +21,7 @@
             android:id="@+id/layout_main_lock"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            tools:context="com.appanhnt.applocker.activity.home.HomeActivity">
+            tools:context="com.haihd.applock.activity.home.HomeActivity">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/layout_top"
@@ -181,7 +181,7 @@
                     android:layout_weight="1"
                     android:background="@drawable/bg_main_theme">
 
-                    <com.appanhnt.applocker.utils.MovableText
+                    <com.haihd.applock.utils.MovableText
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/_15sdp"
@@ -218,7 +218,7 @@
                     android:layout_weight="1"
                     android:background="@drawable/bg_main_gallery">
 
-                    <com.appanhnt.applocker.utils.MovableText
+                    <com.haihd.applock.utils.MovableText
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/_15sdp"
@@ -264,7 +264,7 @@
                     android:layout_weight="1"
                     android:background="@drawable/bg_main_icon">
 
-                    <com.appanhnt.applocker.utils.MovableText
+                    <com.haihd.applock.utils.MovableText
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="@dimen/_11sdp"
@@ -301,7 +301,7 @@
                     android:layout_weight="1"
                     android:background="@drawable/bg_main_fingerprint">
 
-                    <com.appanhnt.applocker.utils.MovableText
+                    <com.haihd.applock.utils.MovableText
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="@dimen/_11sdp"

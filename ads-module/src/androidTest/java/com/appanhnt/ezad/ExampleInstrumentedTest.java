@@ -1,4 +1,4 @@
-package com.appanhnt.ezad;
+package com.haihd.ezad;
 
 import android.content.Context;
 

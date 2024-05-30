@@ -15,7 +15,7 @@
         android:layout_marginStart="@dimen/_16sdp"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <com.appanhnt.applocker.utils.MovableText
+    <com.haihd.applock.utils.MovableText
         android:id="@+id/content"
         android:layout_width="wrap_content"
         android:layout_height="@dimen/_40sdp"

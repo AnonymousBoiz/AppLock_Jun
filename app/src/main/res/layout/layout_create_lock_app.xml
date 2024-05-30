@@ -68,7 +68,7 @@
         app:layout_constraintTop_toBottomOf="@+id/layout_select_lock"
         tools:layout_editor_absoluteX="22dp" />
 
-    <com.appanhnt.applocker.widget.ViewPatternLock
+    <com.haihd.applock.widget.ViewPatternLock
         android:paddingTop="@dimen/_10sdp"
         android:id="@+id/pattern_lock"
         android:layout_width="match_parent"

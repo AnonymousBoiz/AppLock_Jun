@@ -63,7 +63,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tv_title" />
 
-        <com.appanhnt.applocker.widget.ViewPatternLockWindow
+        <com.haihd.applock.widget.ViewPatternLockWindow
             android:id="@+id/pattern_lock"
             android:layout_width="match_parent"
             android:layout_height="0dp"
@@ -80,7 +80,7 @@
             app:layout_constraintBottom_toTopOf="@+id/ll_switch"
             app:layout_constraintTop_toBottomOf="@+id/tv_content">
 
-            <com.appanhnt.applocker.widget.ViewLockPin
+            <com.haihd.applock.widget.ViewLockPin
                 android:id="@+id/pin_lock"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"

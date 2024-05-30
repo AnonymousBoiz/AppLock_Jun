@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <defaults>
   <entry>
+    <key>is_start_foreground_service</key>
+    <value>false</value>
+  </entry>
+  <entry>
     <key>rule_inter</key>
     <value>1</value>
   </entry>
@@ -10,7 +14,7 @@
   </entry>
   <entry>
     <key>distance_time_show_other_ads</key>
-    <value>15</value>
+    <value>40</value>
   </entry>
   <entry>
     <key>max_time_at_splash</key>
@@ -23,6 +27,10 @@
   <entry>
     <key>is_show_banner_ads</key>
     <value>true</value>
+  </entry>
+  <entry>
+    <key>max_ad_click_event_count_for_one_session_per_user</key>
+    <value>5</value>
   </entry>
   <entry>
     <key>is_show_ads_when_click_button_back</key>
@@ -42,7 +50,7 @@
   </entry>
   <entry>
     <key>distance_time_show_same_ads</key>
-    <value>15</value>
+    <value>40</value>
   </entry>
   <entry>
     <key>minimum_version</key>
@@ -68,32 +76,4 @@
     <key>is_show_open_ads</key>
     <value>true</value>
   </entry>
-  <entry>
-        <key>time_show_ads</key>
-        <value>40</value>
-    </entry>
-    <entry>
-        <key>max_show_day</key>
-        <value>30</value>
-    </entry>
-    <entry>
-        <key>count_show_ads</key>
-        <value>1</value>
-    </entry>
-    <entry>
-        <key>admob_banner_id</key>
-        <value></value>
-    </entry>
-    <entry>
-        <key>admob_inter_id</key>
-        <value>ca-app-pub-6567371235509783/8866971116</value>
-    </entry>
-    <entry>
-        <key>admob_native_id</key>
-        <value></value>
-    </entry>
-    <entry>
-        <key>admob_open_id</key>
-        <value>ca-app-pub-6567371235509783/5119297794</value>
-    </entry>
 </defaults>

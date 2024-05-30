@@ -4,7 +4,7 @@
     <issue
         id="Instantiatable"
         message="`OnBoardActivity` must extend android.app.Activity"
-        errorLine1="            android:name=&quot;com.appanhnt.applocker.activity.OnBoardActivity&quot;"
+        errorLine1="            android:name=&quot;com.haihd.applock.activity.OnBoardActivity&quot;"
         errorLine2="                          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/AndroidManifest.xml"
@@ -15,7 +15,7 @@
     <issue
         id="Instantiatable"
         message="`IconCamouflage2Activity` must extend android.app.Activity"
-        errorLine1="            android:name=&quot;com.appanhnt.applocker.activity.IconCamouflage2Activity&quot;"
+        errorLine1="            android:name=&quot;com.haihd.applock.activity.IconCamouflage2Activity&quot;"
         errorLine2="                          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/AndroidManifest.xml"
@@ -147,7 +147,7 @@
     <issue
         id="Instantiatable"
         message="`AlbumActivityImage` must extend android.app.Activity"
-        errorLine1="        &lt;activity android:name=&quot;com.appanhnt.applocker.activity.AlbumActivityImage&quot; />"
+        errorLine1="        &lt;activity android:name=&quot;com.haihd.applock.activity.AlbumActivityImage&quot; />"
         errorLine2="                                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/AndroidManifest.xml"
@@ -169,7 +169,7 @@
     <issue
         id="Instantiatable"
         message="`SettingsActivity` must extend android.app.Activity"
-        errorLine1="        &lt;activity android:name=&quot;com.appanhnt.applocker.activity.setting.SettingsActivity&quot; />"
+        errorLine1="        &lt;activity android:name=&quot;com.haihd.applock.activity.setting.SettingsActivity&quot; />"
         errorLine2="                                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/AndroidManifest.xml"
@@ -191,7 +191,7 @@
     <issue
         id="Instantiatable"
         message="`MainActivity` must extend android.app.Activity"
-        errorLine1="        &lt;activity android:name=&quot;com.appanhnt.applocker.activity.welcome.MainActivity&quot; />"
+        errorLine1="        &lt;activity android:name=&quot;com.haihd.applock.activity.welcome.MainActivity&quot; />"
         errorLine2="                                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/AndroidManifest.xml"
@@ -202,7 +202,7 @@
     <issue
         id="Instantiatable"
         message="`LockActivity` must extend android.app.Activity"
-        errorLine1="            android:name=&quot;com.appanhnt.applocker.activity.lock.LockActivity&quot;"
+        errorLine1="            android:name=&quot;com.haihd.applock.activity.lock.LockActivity&quot;"
         errorLine2="                          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/AndroidManifest.xml"
@@ -224,7 +224,7 @@
     <issue
         id="Instantiatable"
         message="`AppLockActivity` must extend android.app.Activity"
-        errorLine1="        &lt;activity android:name=&quot;com.appanhnt.applocker.activity.applock.AppLockActivity&quot; />"
+        errorLine1="        &lt;activity android:name=&quot;com.haihd.applock.activity.applock.AppLockActivity&quot; />"
         errorLine2="                                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/AndroidManifest.xml"
@@ -235,7 +235,7 @@
     <issue
         id="Instantiatable"
         message="`MainLockActivity` must extend android.app.Activity"
-        errorLine1="        &lt;activity android:name=&quot;com.appanhnt.applocker.activity.home.MainLockActivity&quot; />"
+        errorLine1="        &lt;activity android:name=&quot;com.haihd.applock.activity.home.MainLockActivity&quot; />"
         errorLine2="                                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/AndroidManifest.xml"
@@ -257,7 +257,7 @@
     <issue
         id="Instantiatable"
         message="`LanguageActivity` must extend android.app.Activity"
-        errorLine1="        &lt;activity android:name=&quot;com.appanhnt.applocker.activity.language.LanguageActivity&quot; />"
+        errorLine1="        &lt;activity android:name=&quot;com.haihd.applock.activity.language.LanguageActivity&quot; />"
         errorLine2="                                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/AndroidManifest.xml"
@@ -268,7 +268,7 @@
     <issue
         id="Instantiatable"
         message="`ResultSuccessActivity` must extend android.app.Activity"
-        errorLine1="        &lt;activity android:name=&quot;com.appanhnt.applocker.activity.ResultSuccessActivity&quot; />"
+        errorLine1="        &lt;activity android:name=&quot;com.haihd.applock.activity.ResultSuccessActivity&quot; />"
         errorLine2="                                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/AndroidManifest.xml"
@@ -279,7 +279,7 @@
     <issue
         id="Instantiatable"
         message="`ResultSuccessLockAppActivity` must extend android.app.Activity"
-        errorLine1="        &lt;activity android:name=&quot;com.appanhnt.applocker.activity.ResultSuccessLockAppActivity&quot; />"
+        errorLine1="        &lt;activity android:name=&quot;com.haihd.applock.activity.ResultSuccessLockAppActivity&quot; />"
         errorLine2="                                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/AndroidManifest.xml"
@@ -290,7 +290,7 @@
     <issue
         id="Instantiatable"
         message="`ResultSuccessThemeActivity` must extend android.app.Activity"
-        errorLine1="        &lt;activity android:name=&quot;com.appanhnt.applocker.activity.theme.ResultSuccessThemeActivity&quot; />"
+        errorLine1="        &lt;activity android:name=&quot;com.haihd.applock.activity.theme.ResultSuccessThemeActivity&quot; />"
         errorLine2="                                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/AndroidManifest.xml"
@@ -301,7 +301,7 @@
     <issue
         id="Instantiatable"
         message="`SplashActivity` must extend android.app.Activity"
-        errorLine1="            android:name=&quot;com.appanhnt.applocker.activity.splash.SplashActivity&quot;"
+        errorLine1="            android:name=&quot;com.haihd.applock.activity.splash.SplashActivity&quot;"
         errorLine2="                          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/AndroidManifest.xml"

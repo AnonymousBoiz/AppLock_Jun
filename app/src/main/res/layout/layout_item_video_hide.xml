@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.appanhnt.applocker.widget.SquareRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.haihd.applock.widget.SquareRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -36,4 +36,4 @@
         app:minTextSize="@dimen/_8sdp"
         tools:ignore="RtlSymmetry" />
 
-</com.appanhnt.applocker.widget.SquareRelativeLayout>
+</com.haihd.applock.widget.SquareRelativeLayout>

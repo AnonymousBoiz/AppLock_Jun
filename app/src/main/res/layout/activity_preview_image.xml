@@ -48,7 +48,7 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <com.appanhnt.applocker.widget.ZoomLayout
+    <com.haihd.applock.widget.ZoomLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:gravity="center"
@@ -69,7 +69,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:scaleType="fitCenter" />
-    </com.appanhnt.applocker.widget.ZoomLayout>
+    </com.haihd.applock.widget.ZoomLayout>
 
     <LinearLayout
         android:id="@+id/layout_btn"
