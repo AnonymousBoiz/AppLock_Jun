@@ -81,7 +81,7 @@ object BackgroundManager {
         activity: AppCompatActivity? = null,
         serviceClass: Class<*> = LockService::class.java,
     ) {
-        val intent = Intent(activity, serviceClass)
+        val intent = Intent(context, serviceClass)
         try {
             if(PreferencesUtils.getBoolean("APP_LOCK",true) && context.isOverlayPermissionGranted()  && context.isNotificationPermissionGranted()){
                 if (isServiceRunning(serviceClass, context)) {

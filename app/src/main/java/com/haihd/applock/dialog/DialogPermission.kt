@@ -2,6 +2,7 @@ package com.haihd.applock.dialog
 
 import android.app.Dialog
 import android.content.Context
+import android.content.DialogInterface
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Build
@@ -28,6 +29,7 @@ class DialogPermission(context: Context, style: Int, val callback: Callback) :
     }
 
     private fun initData() {
+
     }
 
     override fun show() {
@@ -83,30 +85,29 @@ class DialogPermission(context: Context, style: Int, val callback: Callback) :
 
     fun grantedOverLaysPms() {
         binding.btnSwitchDisplayOverApp.isChecked = true
+        dismissIfGrantedAll()
+    }
+
+    private fun dismissIfGrantedAll(){
         if (BackgroundManager.checkPermission(context)) {
+            BackgroundManager.startService( context)
             dismiss()
         }
     }
 
     fun grantedNotification() {
         binding.btnSwitchNotification.isChecked = true
-        if (context.isNotificationPermissionGranted()) {
-            dismiss()
-        }
+        dismissIfGrantedAll()
     }
 
     fun grantedIgnoringBatteryOptimize() {
         binding.btnSwitchOptimize.isChecked = true
-        if (BackgroundManager.checkPermission(context)) {
-            dismiss()
-        }
+        dismissIfGrantedAll()
     }
 
     fun grantedUsageAccess() {
         binding.btnSwitchUsageAccess.isChecked = true
-        if (BackgroundManager.checkPermission(context)) {
-            dismiss()
-        }
+        dismissIfGrantedAll()
     }
 
     interface Callback {
