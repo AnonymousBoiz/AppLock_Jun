@@ -8,6 +8,7 @@ import android.net.Uri
 import android.os.Build
 import android.os.Environment
 import android.os.Handler
+import android.os.Looper
 import android.provider.Settings
 import android.view.LayoutInflater
 import android.view.Window
@@ -191,7 +192,8 @@ class AlbumVideoActivity : BaseActivity<ActivityAlbumVideoBinding>() {
                 viewModelImage.isHide.postValue(it)
                 viewModel.isHide.postValue(false)
             }
-            Handler().postDelayed({
+            Handler(Looper.getMainLooper()).postDelayed({
+                if (isFinishing || isDestroyed) return@postDelayed
                 dialogHiding?.dismiss()
                 listVideo.forEach {
                     if (it.isSelected) {

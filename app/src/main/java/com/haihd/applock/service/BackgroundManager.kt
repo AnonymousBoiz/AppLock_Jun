@@ -83,10 +83,7 @@ object BackgroundManager {
     ) {
         val intent = Intent(context, serviceClass)
         try {
-            if(PreferencesUtils.getBoolean("APP_LOCK",true) && context.isOverlayPermissionGranted()  && context.isNotificationPermissionGranted()){
-                if (isServiceRunning(serviceClass, context)) {
-                    context.stopService(intent)
-                }
+            if(PreferencesUtils.getBoolean("APP_LOCK",true) && context.isNotificationPermissionGranted()){
 
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O && RemoteData.IsStartForegroundService) {
                     context.startForegroundService(intent)

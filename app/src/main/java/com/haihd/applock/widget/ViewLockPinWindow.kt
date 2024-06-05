@@ -2,6 +2,7 @@ package com.haihd.applock.widget
 
 import android.content.Context
 import android.os.Handler
+import android.os.Looper
 import android.util.AttributeSet
 import android.view.LayoutInflater
 import androidx.constraintlayout.widget.ConstraintLayout
@@ -83,7 +84,7 @@ class ViewLockPinWindow(context: Context, attrs: AttributeSet?) : ConstraintLayo
                         } else {
                             listenerInCorrect?.invoke()
                         }
-                        Handler().postDelayed({
+                        Handler(Looper.getMainLooper()).postDelayed({
                             clearEnterPin()
                         }, 500)
                     }

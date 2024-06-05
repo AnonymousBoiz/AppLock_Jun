@@ -6,6 +6,7 @@ import android.annotation.SuppressLint
 import android.app.Activity
 import android.content.Intent
 import android.os.Handler
+import android.os.Looper
 import android.view.LayoutInflater
 import android.view.Window
 import android.widget.Toast
@@ -131,7 +132,7 @@ class PreviewImageActivity : BaseActivity<ActivityPreviewImageBinding>() {
             deleteImageHide(name)
             dialogQuestion?.dismiss()
             showDialogHiding()
-            Handler().postDelayed({
+            Handler(Looper.getMainLooper()).postDelayed({
                 dialogHiding?.dismiss()
             }, 250)
         }
@@ -160,7 +161,7 @@ class PreviewImageActivity : BaseActivity<ActivityPreviewImageBinding>() {
                             } else
                                 msg = R.string.image_not_recovered_msg
                             Toast.makeText(this, getString(msg), Toast.LENGTH_SHORT).show()
-                            Handler().postDelayed({
+                            Handler(Looper.getMainLooper()).postDelayed({
                                 dialogHiding?.dismiss()
                             }, 250)
                         }

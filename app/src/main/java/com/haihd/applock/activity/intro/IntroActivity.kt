@@ -1,11 +1,12 @@
 package com.haihd.applock.activity.intro
 
 import android.view.LayoutInflater
+import androidx.fragment.app.Fragment
+import androidx.viewpager2.adapter.FragmentStateAdapter
 import androidx.viewpager2.widget.ViewPager2
 import com.haihd.applock.R
 import com.anhnt.baseproject.activity.BaseActivity
 import com.anhnt.baseproject.utils.PreferencesUtils
-import com.haihd.applock.adapter.ViewPagerAddFragmentsAdapter
 import com.haihd.applock.databinding.ActivityIntroBinding
 import com.haihd.applock.fragment.OnBoardFragment
 import com.lutech.ads.AdsManager
@@ -38,20 +39,27 @@ class IntroActivity : BaseActivity<ActivityIntroBinding>() {
         return ActivityIntroBinding.inflate(LayoutInflater.from(this))
     }
 
-
     private fun initViewPager() {
-        binding.viewpagerOnboard.adapter =
-            ViewPagerAddFragmentsAdapter(supportFragmentManager, lifecycle).apply {
-                addFrag(OnBoardFragment(R.drawable.img_inside_1, R.string.text_on_boarding_title_1,R.string.text_on_boarding_body_1))
-                addFrag(OnBoardFragment(R.drawable.img_inside_2, R.string.text_on_boarding_title_2,R.string.text_on_boarding_body_2))
-                addFrag(OnBoardFragment(R.drawable.img_inside_3, R.string.text_on_boarding_title_3,R.string.text_on_boarding_body_3))
+        val mFragmentList: ArrayList<Fragment> = ArrayList()
+        mFragmentList.add(OnBoardFragment(R.drawable.img_inside_1, R.string.text_on_boarding_title_1,R.string.text_on_boarding_body_1))
+        mFragmentList.add(OnBoardFragment(R.drawable.img_inside_2, R.string.text_on_boarding_title_2,R.string.text_on_boarding_body_2))
+        mFragmentList.add(OnBoardFragment(R.drawable.img_inside_3, R.string.text_on_boarding_title_3,R.string.text_on_boarding_body_3))
+
+        binding.viewpagerOnboard.adapter = object : FragmentStateAdapter(this){
+            override fun getItemCount(): Int {
+                return mFragmentList.size
             }
+
+            override fun createFragment(position: Int): Fragment {
+                return mFragmentList[position]
+            }
+        }
         binding.viewpagerOnboard.registerOnPageChangeCallback(object :
             ViewPager2.OnPageChangeCallback() {
             override fun onPageSelected(position: Int) {
                 super.onPageSelected(position)
                 binding.indicatorView.selection = position
-                if (position == (binding.viewpagerOnboard.adapter as ViewPagerAddFragmentsAdapter).itemCount - 1) {
+                if (position == mFragmentList.size - 1) {
                     binding.tvNext.text = getString(R.string.done)
                 } else
                     binding.tvNext.text = getString(R.string.next)
@@ -59,7 +67,7 @@ class IntroActivity : BaseActivity<ActivityIntroBinding>() {
         })
 
         binding.tvNext.setOnClickListener {
-            if (binding.viewpagerOnboard.currentItem == (binding.viewpagerOnboard.adapter as ViewPagerAddFragmentsAdapter).itemCount - 1) {
+            if (binding.viewpagerOnboard.currentItem == mFragmentList.size - 1) {
 //                startActivity(Intent(this@OnBoardActivity, PermissionActivity::class.java))
                 finish()
             } else {

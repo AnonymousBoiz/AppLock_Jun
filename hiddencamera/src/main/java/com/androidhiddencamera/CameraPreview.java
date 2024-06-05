@@ -101,38 +101,43 @@ public class CameraPreview extends SurfaceView implements SurfaceHolder.Callback
             // Ignore: tried to stop a non-existent preview
         }
 
-        // Make changes in preview size
-        Camera.Parameters parameters = mCamera.getParameters();
-        List<Camera.Size> pictureSizes = mCamera.getParameters().getSupportedPictureSizes();
+        try {
+            // Make changes in preview size
+            if (mCamera == null || mCamera.getParameters() == null) return;
+            Camera.Parameters parameters = mCamera.getParameters();
+            List<Camera.Size> pictureSizes = mCamera.getParameters().getSupportedPictureSizes();
 
-        //Sort descending
-        Collections.sort(pictureSizes, new PictureSizeComparator());
+            //Sort descending
+            Collections.sort(pictureSizes, new PictureSizeComparator());
 
-        //set the camera image size based on config provided
-        Camera.Size cameraSize;
-        switch (mCameraConfig.getResolution()) {
-            case CameraResolution.HIGH_RESOLUTION:
-                cameraSize = pictureSizes.get(0);   //Highest res
-                break;
-            case CameraResolution.MEDIUM_RESOLUTION:
-                cameraSize = pictureSizes.get(pictureSizes.size() / 2);     //Resolution at the middle
-                break;
-            case CameraResolution.LOW_RESOLUTION:
-                cameraSize = pictureSizes.get(pictureSizes.size() - 1);       //Lowest res
-                break;
-            default:
-                throw new RuntimeException("Invalid camera resolution.");
+            //set the camera image size based on config provided
+            Camera.Size cameraSize;
+            switch (mCameraConfig.getResolution()) {
+                case CameraResolution.HIGH_RESOLUTION:
+                    cameraSize = pictureSizes.get(0);   //Highest res
+                    break;
+                case CameraResolution.MEDIUM_RESOLUTION:
+                    cameraSize = pictureSizes.get(pictureSizes.size() / 2);     //Resolution at the middle
+                    break;
+                case CameraResolution.LOW_RESOLUTION:
+                    cameraSize = pictureSizes.get(pictureSizes.size() - 1);       //Lowest res
+                    break;
+                default:
+                    throw new RuntimeException("Invalid camera resolution.");
+            }
+            parameters.setPictureSize(cameraSize.width, cameraSize.height);
+
+            // Set the focus mode.
+            List<String> supportedFocusModes = parameters.getSupportedFocusModes();
+            if (supportedFocusModes.contains(mCameraConfig.getFocusMode())) {
+                parameters.setFocusMode(mCameraConfig.getFocusMode());
+            }
+
+            requestLayout();
+            mCamera.setParameters(parameters);
+        }catch (Exception e){
+            e.printStackTrace();
         }
-        parameters.setPictureSize(cameraSize.width, cameraSize.height);
-
-        // Set the focus mode.
-        List<String> supportedFocusModes = parameters.getSupportedFocusModes();
-        if (supportedFocusModes.contains(mCameraConfig.getFocusMode())) {
-            parameters.setFocusMode(mCameraConfig.getFocusMode());
-        }
-
-        requestLayout();
-        mCamera.setParameters(parameters);
 
         try {
             mCamera.setDisplayOrientation(90);

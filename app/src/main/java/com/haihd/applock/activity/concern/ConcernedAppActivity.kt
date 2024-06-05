@@ -53,12 +53,16 @@ class ConcernedAppActivity : BaseActivity<ActivityConcernedAppBinding>() {
     }
 
     private fun checkSelectItem() {
-        val count = viewModel.listAppAll.count { it.isLocked }
-        if (count > 0) {
-            binding.frLock.visibility = View.VISIBLE
-            binding.btnProtected.text = getString(R.string.lock) + " ($count)"
-        } else {
+        if (viewModel.listAppAll.isEmpty()){
             binding.frLock.visibility = View.GONE
+        }else{
+            val count = viewModel.listAppAll.count { it.isLocked }
+            if (count > 0) {
+                binding.frLock.visibility = View.VISIBLE
+                binding.btnProtected.text = getString(R.string.lock) + " ($count)"
+            } else {
+                binding.frLock.visibility = View.GONE
+            }
         }
     }
 
@@ -104,6 +108,7 @@ class ConcernedAppActivity : BaseActivity<ActivityConcernedAppBinding>() {
             }
 
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                if (listAppSearch.isEmpty()) return
                 val list = listAppSearch[0].list
                 list.clear()
                 for (item in viewModel.listAppLiveData.value!!) {

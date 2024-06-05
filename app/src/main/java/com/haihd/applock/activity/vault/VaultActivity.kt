@@ -194,11 +194,13 @@ class VaultActivity : BaseActivity<ActivityVaultBinding>() {
         binding.tvContentEmpty.visibility = View.GONE
     }
 
-    fun checkSameBitmap(b: Bitmap, list: MutableList<Any>): Boolean {
-        for (i in list) {
-            i as ItemImageHide
-            if (b.sameAs(i.bitmap)) {
-                return true
+    fun checkSameBitmap(bitmap: Bitmap, list: MutableList<Any>): Boolean {
+        for (item in list) {
+            if (item is ItemImageHide){
+                item as ItemImageHide
+                if (bitmap.sameAs(item.bitmap)) {
+                    return true
+                }
             }
         }
         return false

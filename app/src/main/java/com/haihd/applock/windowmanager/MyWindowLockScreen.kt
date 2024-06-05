@@ -226,7 +226,7 @@ open class MyWindowLockScreen(var context: Context, var pkg: String?) : KoinComp
         binding.pinLock.listenerCorrect = {
             PreferencesUtils.putInteger(KeyLock.TIME_ERROR, 0)
             PreferencesUtils.putInteger(KeyLock.TIME_QUESTION, 0)
-            Handler().postDelayed({
+            Handler(Looper.getMainLooper()).postDelayed({
                 passWordCorrect()
             }, 270)
         }

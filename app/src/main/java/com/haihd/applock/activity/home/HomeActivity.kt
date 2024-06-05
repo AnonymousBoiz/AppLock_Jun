@@ -43,6 +43,7 @@ import com.haihd.applock.item.ItemGridMain
 import com.haihd.applock.key.KeyApp
 import com.haihd.applock.service.LockService
 import com.lutech.ads.AdsManager
+import com.lutech.ads.extensions.isNotificationPermissionGranted
 import com.lutech.ads.extensions.requestNotificationPermission
 import com.lutech.ads.utils.Constants
 import com.orhanobut.hawk.Hawk
@@ -100,6 +101,8 @@ class HomeActivity : BaseActivity<ActivityHomeBinding>() {
                             showDialogPermission(true)
                         }else if (!BackgroundManager.isIgnoringBatteryOptimizations(this@HomeActivity)) {
                             requestIgnoreBatteryOptimize()
+                        }else if (isNotificationPermissionGranted().not()){
+                            requestNotificationPermission()
                         }
                     }
 

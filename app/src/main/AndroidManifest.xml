@@ -217,6 +217,8 @@
         </service>
         <service
             android:name=".service.LockService"
+            android:enabled="true"
+            android:exported="true"
             android:foregroundServiceType="specialUse" />
     </application>
 

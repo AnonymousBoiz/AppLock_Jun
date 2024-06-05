@@ -105,9 +105,7 @@ class SplashActivity : BaseActivity<ActivitySplashBinding>() {
             // request permission
             if (!BackgroundManager.isServiceRunning(LockService::class.java, this)) {
                 Log.e("nnnnnnnnnnnn", "LockService: ")
-
                 BackgroundManager.startService(this, this)
-
             }
             startScreen()
         }

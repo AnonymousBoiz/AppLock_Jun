@@ -9,6 +9,7 @@ import android.net.Uri
 import android.os.Build
 import android.os.Environment
 import android.os.Handler
+import android.os.Looper
 import android.provider.Settings
 import android.view.LayoutInflater
 import android.view.Window
@@ -161,7 +162,7 @@ class AlbumImageActivity : BaseActivity<ActivityAlbumImageBinding>() {
         showDialogHiding()
         viewModel.isHide.observe(this) {
             if (it) {
-                Handler().postDelayed({
+                Handler(Looper.getMainLooper()).postDelayed({
                     dialogHiding?.dismiss()
                     listDetailPhoto.forEach {
                         if (it.isSelected) {

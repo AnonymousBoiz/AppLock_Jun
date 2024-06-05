@@ -52,7 +52,7 @@ class LockService : HiddenCameraService() {
     private var isAccessGranted = false
     private var isOverLay = false
     private var activityManager: ActivityManager? = null
-    var sUsageStatsManager: UsageStatsManager? = null
+    private var sUsageStatsManager: UsageStatsManager? = null
     private var window: MyWindowLockScreen? = null
     private var pageNameShow = ""
     private var isShowLock = false
@@ -63,7 +63,7 @@ class LockService : HiddenCameraService() {
     private var isHoming = false
     var isShowLockActivity = false
     private val PKG_SETTING = "com.android.settings"
-    private val PKG_APP = "com.appanhnt.applocker"
+    private val PKG_APP = "com.haihd.applock"
     private val PKG_INSTALLER = "com.google.android.packageinstaller"
 
     private var mHomeWatcher: HomeWatcher? = null
@@ -72,7 +72,7 @@ class LockService : HiddenCameraService() {
     private val onListenerScreenState: BroadcastReceiver = object : BroadcastReceiver() {
         override fun onReceive(context: Context?, intent: Intent?) {
             if (intent != null) {
-                if (intent.action.equals(Intent.ACTION_SCREEN_OFF) && !isLocking) {
+                if (intent.action.equals(Intent.ACTION_SCREEN_OFF) && !isLocking && PreferencesUtils.getBoolean(KeyLock.AFTER_SCREEN_OF, false)) {
                     setUpCamera()
                     isShowLock = true
                     pageNameShow = packageName
@@ -122,18 +122,8 @@ class LockService : HiddenCameraService() {
     public fun registerScreenStateBroadCast() {
         val intentFilter = IntentFilter(Intent.ACTION_SCREEN_ON)
         intentFilter.addAction(Intent.ACTION_SCREEN_OFF)
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU){
-            this.registerReceiver(onListenerScreenState, intentFilter, RECEIVER_EXPORTED)
-        }else{
-            this.registerReceiver(onListenerScreenState, intentFilter)
-        }
-
+        this.registerReceiver(onListenerScreenState, intentFilter)
     }
-
-    public fun unRegisterScreenStateBroadCast() {
-        this.unregisterReceiver(onListenerScreenState)
-    }
-
 
     companion object {
         var listMyApp = mutableListOf<ItemAppLock>()
@@ -186,6 +176,7 @@ class LockService : HiddenCameraService() {
     }
 
     override fun onCreate() {
+        super.onCreate()
         Log.e("nnnnnnnnnnnn", "onCreate: ")
 
         activityManager = getSystemService(ACTIVITY_SERVICE) as ActivityManager
@@ -197,10 +188,8 @@ class LockService : HiddenCameraService() {
                 getString(R.string.is_protecting)
             )
         }
-        super.onCreate()
-        if (PreferencesUtils.getBoolean(KeyLock.AFTER_SCREEN_OF, false)) {
-            registerScreenStateBroadCast()
-        }
+
+        registerScreenStateBroadCast()
     }
 
 
@@ -224,6 +213,8 @@ class LockService : HiddenCameraService() {
                             isShowLockActivity = false
                         }
                         // fig lock 2 lan
+                        Log.d("33333312222","pageNameShow:  $pageNameShow  isLocking:  $isLocking")
+
                         if (pageNameShow != packageName && !isLocking && packageName.isNotEmpty()) {
                             // check open setting system
                             var isCheckInMyApp = false
@@ -235,6 +226,7 @@ class LockService : HiddenCameraService() {
                                 }
                             }
                             if (!isCheckInMyApp) {
+                                Log.d("33333312222","isCheckInMyApp")
                                 isShowLock = true
                             }
                         }
@@ -242,11 +234,15 @@ class LockService : HiddenCameraService() {
                             Log.e("ccccc", "run: $itemLocked")
 
                             // check app locked  , start again app ,  allow permission , requesting permission
+
+                            Log.d("33333312222","packageName:  $packageName  itemLocked:  $itemLocked  $isRequestPermission  ${BackgroundManager.checkCreatePassword(this@LockService)}")
+
                             if ((packageName == itemLocked || (packageName == PKG_APP && !isCreate))
                                 && BackgroundManager.checkCreatePassword(this@LockService) && !isRequestPermission
                             ) {
 
                                 if (window == null) {
+                                    Log.d("33333312222","isShowLockActivity:  $isShowLockActivity  isShowLock:  $isShowLock")
 
                                     if ((packageName == PKG_SETTING || packageName == PKG_INSTALLER)
                                         && !isShowLockActivity && !isShowLock
@@ -408,7 +404,7 @@ class LockService : HiddenCameraService() {
 //                }
 //            }
 
-            Handler().postDelayed({
+            Handler(Looper.getMainLooper()).postDelayed({
                 isRequestPermission = false
             }, 300)
         }
@@ -440,12 +436,12 @@ class LockService : HiddenCameraService() {
         Log.e("nnnnnnnnnnnn", "onDestroy: ")
         //unRegister
         unRegister()
+        mHomeWatcher?.stopWatch()
         try {
             this.unregisterReceiver(onListenerScreenState)
         } catch (e: Exception) {
             e.message
         }
-        mHomeWatcher?.stopWatch()
         //
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             NotificationUtil.cancelNotification(this)
@@ -461,12 +457,7 @@ class LockService : HiddenCameraService() {
         newAppBroadcastReceiver.listenerNewApp = {
             viewModelApp.loadApp(this, it)
         }
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU){
-            registerReceiver(newAppBroadcastReceiver, intent, RECEIVER_EXPORTED)
-        }else{
-            registerReceiver(newAppBroadcastReceiver, intent)
-        }
-
+        registerReceiver(newAppBroadcastReceiver, intent)
     }
 
     private fun unRegister() {
@@ -515,6 +506,8 @@ class LockService : HiddenCameraService() {
         } else {
             true
         }
+
+        isRequestPermission = !isAccessGranted || !isOverLay
     }
 
     private val binder = LocalBinder()

@@ -3,6 +3,7 @@ package com.haihd.applock.activity.preview
 import android.Manifest
 import android.annotation.SuppressLint
 import android.os.Handler
+import android.os.Looper
 import android.view.LayoutInflater
 import android.view.Window
 import android.widget.MediaController
@@ -106,7 +107,7 @@ class PreviewVideoActivity : BaseActivity<ActivityPreviewVideoBinding>() {
                         } else
                             msg = R.string.video_not_recovered_msg
                         Toast.makeText(this, getString(msg), Toast.LENGTH_SHORT).show()
-                        Handler().postDelayed({
+                        Handler(Looper.getMainLooper()).postDelayed({
                             dialogHiding?.dismiss()
                         }, 250)
                     }
@@ -134,7 +135,7 @@ class PreviewVideoActivity : BaseActivity<ActivityPreviewVideoBinding>() {
             deleteVideo()
             dialogQuestion?.dismiss()
             showDialogHiding()
-            Handler().postDelayed({
+            Handler(Looper.getMainLooper()).postDelayed({
                 dialogHiding?.dismiss()
             }, 250)
         }

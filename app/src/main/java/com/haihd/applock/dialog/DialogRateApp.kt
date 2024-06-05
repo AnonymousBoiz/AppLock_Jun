@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.res.Resources
 import android.os.Bundle
 import android.os.Handler
+import android.os.Looper
 import android.view.Gravity
 import android.view.ViewGroup
 import com.haihd.applock.databinding.DialogRateAppBinding
@@ -37,7 +38,7 @@ class DialogRateApp(context: Context, private val callback: Callback) :
                 if (handler != null && rd != null) {
                     handler!!.removeCallbacks(rd!!)
                 }
-                handler = Handler()
+                handler = Handler(Looper.getMainLooper())
                 rd = Runnable {
                     if (v1 < 4.0) {
                         binding.edtContent.show()

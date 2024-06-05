@@ -234,7 +234,8 @@ object AdsManager {
         nativeIdAds: Int,
         isShowNative: Boolean = IsShowNativeAds
     ) {
-        if (isShowNative && !BillingClientSetup.isUpgraded(context)) {
+        val nativeId = context.getString(nativeIdAds)
+        if (isShowNative && !BillingClientSetup.isUpgraded(context) && nativeId != "") {
             val adLoader = AdLoader.Builder(context, context.getString(nativeIdAds))
                 .forNativeAd { nativeAd ->
                     val styles: NativeTemplateStyle = NativeTemplateStyle.Builder().build()

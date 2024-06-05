@@ -188,11 +188,11 @@ class SettingsActivity : BaseActivity<ActivitySettingsBinding>() {
       if (type){
           binding.txtRelock.text = getString(R.string.after_screen_off)
           PreferencesUtils.putBoolean(KeyLock.AFTER_SCREEN_OF,true)
-          mService.registerScreenStateBroadCast()
+//          mService.registerScreenStateBroadCast()
       }else{
           binding.txtRelock.text = getString(R.string.after_exit)
           PreferencesUtils.putBoolean(KeyLock.AFTER_SCREEN_OF,false)
-          mService.unRegisterScreenStateBroadCast()
+//          mService.unRegisterScreenStateBroadCast()
       }
 
     }

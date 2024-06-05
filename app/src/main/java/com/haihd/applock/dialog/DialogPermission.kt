@@ -14,6 +14,7 @@ import android.view.WindowManager
 import androidx.core.view.isVisible
 import com.haihd.applock.databinding.LayoutDialogPermissionBinding
 import com.haihd.applock.service.BackgroundManager
+import com.haihd.applock.service.LockService
 import com.lutech.ads.extensions.isNotificationPermissionGranted
 
 
@@ -90,7 +91,9 @@ class DialogPermission(context: Context, style: Int, val callback: Callback) :
 
     private fun dismissIfGrantedAll(){
         if (BackgroundManager.checkPermission(context)) {
-            BackgroundManager.startService( context)
+            if (!BackgroundManager.isServiceRunning(LockService::class.java, context)) {
+                BackgroundManager.startService(context)
+            }
             dismiss()
         }
     }

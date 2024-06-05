@@ -117,10 +117,9 @@ class AppLockViewModel(application: Application) : BaseViewModel(application) {
                     isLocked,
                     pkg, if (isSys) 1 else 0
                 )
-                listApp.add(
-                    item
-                )
+                listApp.add(item)
                 listAppAll.add(item)
+                if (listListItemAppLockAll.isEmpty()) return
                 listListItemAppLockAll[0].list.add(item)
                 if (AppUtil.listPkgHotApp.contains(item.packageName)) {
                     listListItemAppLock[0].list.add(item)

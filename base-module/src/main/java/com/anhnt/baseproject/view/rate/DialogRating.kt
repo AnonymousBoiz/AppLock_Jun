@@ -2,6 +2,7 @@ package com.anhnt.baseproject.view.rate
 
 import android.content.Context
 import android.os.Handler
+import android.os.Looper
 import android.view.LayoutInflater
 import android.view.View
 import android.widget.ImageView
@@ -79,7 +80,7 @@ open class DialogRating(
             stars[index].setImageResource(R.drawable.ic_star_rate_fill)
             showViewBase(Techniques.ZoomIn, stars[index], duration.toLong(), timeDelay)
         }
-        Handler().postDelayed({ animationEnd() }, timeDelay + 500)
+        Handler(Looper.getMainLooper()).postDelayed({ animationEnd() }, timeDelay + 500)
     }
 
     open fun animationEnd() {

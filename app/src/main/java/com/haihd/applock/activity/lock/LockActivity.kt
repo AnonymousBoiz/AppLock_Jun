@@ -7,6 +7,7 @@ import android.content.pm.PackageManager
 import android.graphics.Bitmap
 import android.os.Build
 import android.os.Handler
+import android.os.Looper
 import android.view.*
 import android.widget.FrameLayout
 import android.widget.LinearLayout
@@ -161,7 +162,7 @@ class LockActivity : BaseActivity<ActivityLockScreenBinding>(), CameraCallbacks 
         binding.pinLock.listenerCorrect = {
             PreferencesUtils.putInteger(KeyLock.TIME_ERROR, 0)
             PreferencesUtils.putInteger(KeyLock.TIME_QUESTION, 0)
-            Handler().postDelayed({
+            Handler(Looper.getMainLooper()).postDelayed({
                 passWordCorrect()
             }, 270)
         }
@@ -376,14 +377,6 @@ class LockActivity : BaseActivity<ActivityLockScreenBinding>(), CameraCallbacks 
         KeyboardUtils.showSoftKeyboard(this)
         dialogQuestion = DialogQuestion(this, R.style.StyleDialog)
         dialogQuestion?.setCancelable(true)
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O)
-            dialogQuestion?.window!!.setType(
-                WindowManager.LayoutParams.TYPE_APPLICATION_OVERLAY
-            )
-        else
-            dialogQuestion?.window!!.setType(WindowManager.LayoutParams.TYPE_SYSTEM_ALERT)
-        dialogQuestion?.window?.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_VISIBLE)
-        dialogQuestion?.requestWindowFeature(Window.FEATURE_NO_TITLE)
         dialogQuestion?.listenerClickOkay = {
             val answer = PreferencesUtils.getString(KeyQuestion.KEY_ANSWER, "")
             if (it.equals(answer, true)) {

@@ -13,8 +13,8 @@ android {
         applicationId "com.haihd.applock"
         minSdkVersion 24
         targetSdk 34
-        versionCode 109
-        versionName "1.0.9"
+        versionCode 112
+        versionName "1.1.2"
 
         vectorDrawables.useSupportLibrary = true
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
